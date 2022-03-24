@@ -1,8 +1,9 @@
 import 'package:character_sheet/styles/colours.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
-import '../models/ability_model.dart';
-import '../styles/text_styles.dart';
+import '../../../models/ability_model.dart';
+import '../../../styles/global_styles.dart';
+import '../../../styles/text_styles.dart';
 
 class Ability extends StatelessWidget {
   const Ability({required this.abilityModel, Key? key}) : super(key: key);
@@ -14,18 +15,20 @@ class Ability extends StatelessWidget {
       width: 50,
       height: 50,
       decoration: BoxDecoration(
-          color: darkTheme.secondaryColor,
-          borderRadius: const BorderRadius.all(Radius.circular(10))),
+        color: currTheme.secondaryColor,
+        borderRadius: const BorderRadius.all(Radius.circular(10)),
+        boxShadow: const [cardShadow],
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             abilityModel.name,
-            style: smallTitle,
+            style: smallTitleTextStyle,
           ),
           Text(
             abilityModel.getModifierToString(),
-            style: bodyText18,
+            style: smallValueTextStyle,
           ),
           Container(
             decoration: BoxDecoration(
@@ -36,7 +39,7 @@ class Ability extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(
               abilityModel.value.toString(),
-              style: bodyText10,
+              style: smallTitleOnMainTextStyle,
             ),
           )
         ],

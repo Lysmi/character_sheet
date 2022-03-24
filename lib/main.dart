@@ -1,6 +1,6 @@
 import 'package:character_sheet/styles/colours.dart';
 import 'package:flutter/material.dart';
-import 'screens/character_stats/content.dart';
+import 'screens/character_stats/character_stats_page.dart';
 
 void main() {
   runApp(const MyApp());
