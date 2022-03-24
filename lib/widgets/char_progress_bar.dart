@@ -8,7 +8,7 @@ import '../styles/colours.dart';
 import '../styles/global_styles.dart';
 
 class CharProgressBar extends StatelessWidget {
-  CharProgressBar(
+  const CharProgressBar(
       {required this.backgroundColor,
       required this.valueColor,
       required this.tempValueColor,

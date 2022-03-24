@@ -9,33 +9,49 @@ class AbilityList extends StatelessWidget {
   AbilityList({Key? key}) : super(key: key);
 
   final CharacterAbilitiesModel _abilitiesModel =
-      CharacterAbilitiesModel();
+  CharacterAbilitiesModel();
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      direction: Axis.vertical,
-      spacing: 9,
-      children: [
-        Ability(
-          abilityModel: _abilitiesModel.strength,
-        ),
-        Ability(
-          abilityModel: _abilitiesModel.dexterity,
-        ),
-        Ability(
-          abilityModel: _abilitiesModel.constitution,
-        ),
-        Ability(
-          abilityModel: _abilitiesModel.intelligence,
-        ),
-        Ability(
-          abilityModel: _abilitiesModel.wisdom,
-        ),
-        Ability(
-          abilityModel: _abilitiesModel.charisma,
-        ),
-      ],
+    return SizedBox(
+      height: 345,
+      child: Column(
+        children: [
+          Ability(
+            abilityModel: _abilitiesModel.strength,
+          ),
+          const SizedBox(
+            height: 9,
+          ),
+          Ability(
+            abilityModel: _abilitiesModel.dexterity,
+          ),
+          const SizedBox(
+            height: 9,
+          ),
+          Ability(
+            abilityModel: _abilitiesModel.constitution,
+          ),
+          const SizedBox(
+            height: 9,
+          ),
+          Ability(
+            abilityModel: _abilitiesModel.intelligence,
+          ),
+          const SizedBox(
+            height: 9,
+          ),
+          Ability(
+            abilityModel: _abilitiesModel.wisdom,
+          ),
+          const SizedBox(
+            height: 9,
+          ),
+          Ability(
+            abilityModel: _abilitiesModel.charisma,
+          ),
+        ],
+      ),
     );
   }
 }

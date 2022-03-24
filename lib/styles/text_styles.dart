@@ -2,24 +2,51 @@ import 'package:flutter/material.dart';
 
 import 'colours.dart';
 
-
 TextStyle titleTextStyle = TextStyle(
-    fontFamily: "Roboto", fontSize: 14.0, color: currTheme.accentColor);
+  fontFamily: "Montserrat",
+  fontSize: 14.0,
+  color: currTheme.accentColor,
+  fontWeight: FontWeight.w600,
+);
 
 TextStyle smallTitleTextStyle = TextStyle(
-    fontFamily: "Roboto", fontSize: 10.0, color: currTheme.accentColor);
+  fontFamily: "Montserrat",
+  fontSize: 10.0,
+  color: currTheme.accentColor,
+  fontWeight: FontWeight.w600,
+);
 
 TextStyle smallTitleOnMainTextStyle = TextStyle(
-    fontFamily: "Roboto", fontSize: 10.0, color: currTheme.onMainColor);
+  fontFamily: "Montserrat",
+  fontSize: 10.0,
+  color: currTheme.onMainColor,
+  fontWeight: FontWeight.w600,
+);
 
 TextStyle smallValueTextStyle = TextStyle(
-    fontFamily: "Roboto", fontSize: 18.0, color: currTheme.onMainColor);
+  fontFamily: "Montserrat",
+  fontSize: 18.0,
+  color: currTheme.onMainColor,
+  fontWeight: FontWeight.w500,
+);
 
 TextStyle valueTextStyle = TextStyle(
-    fontFamily: "Roboto", fontSize: 24.0, color: currTheme.onMainColor);
+  fontFamily: "Montserrat",
+  fontSize: 24.0,
+  color: currTheme.onMainColor,
+  fontWeight: FontWeight.w500,
+);
 
 TextStyle listItemTextStyle = TextStyle(
-    fontFamily: "Roboto", fontSize: 12.0, color: currTheme.onMainColor);
+  fontFamily: "Montserrat",
+  fontSize: 12.0,
+  color: currTheme.onMainColor,
+  fontWeight: FontWeight.w500,
+);
 
 TextStyle headerTextStyle = TextStyle(
-    fontFamily: "Roboto", fontSize: 18.0, color: currTheme.onMainColor);
+  fontFamily: "Montserrat",
+  fontSize: 18.0,
+  color: currTheme.onMainColor,
+  fontWeight: FontWeight.w700,
+);
