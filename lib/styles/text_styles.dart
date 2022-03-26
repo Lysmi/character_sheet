@@ -5,16 +5,31 @@ import 'colours.dart';
 TextStyle titleTextStyle = TextStyle(
   fontFamily: "Montserrat",
   fontSize: 14.0,
-  color: currTheme.accentColor,
+  color: currTheme.titleColor,
+  fontWeight: FontWeight.w600,
+);
+
+TextStyle titleOnMainTextStyle = TextStyle(
+  fontFamily: "Montserrat",
+  fontSize: 14.0,
+  color: currTheme.onMainColor,
   fontWeight: FontWeight.w600,
 );
 
 TextStyle smallTitleTextStyle = TextStyle(
   fontFamily: "Montserrat",
   fontSize: 10.0,
-  color: currTheme.accentColor,
+  color: currTheme.titleColor,
   fontWeight: FontWeight.w600,
 );
+
+TextStyle accentSmallTitleTextStyle = TextStyle(
+  fontFamily: "Montserrat",
+  fontSize: 10.0,
+  color: currTheme.accentMainColor,
+  fontWeight: FontWeight.w600,
+);
+
 
 TextStyle smallTitleOnMainTextStyle = TextStyle(
   fontFamily: "Montserrat",

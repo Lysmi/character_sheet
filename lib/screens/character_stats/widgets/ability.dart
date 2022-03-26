@@ -24,7 +24,7 @@ class Ability extends StatelessWidget {
         children: [
           Text(
             abilityModel.name,
-            style: smallTitleTextStyle,
+            style: accentSmallTitleTextStyle,
           ),
           Text(
             abilityModel.getModifierToString(),

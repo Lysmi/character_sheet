@@ -1,6 +1,7 @@
 import 'package:character_sheet/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 
+import '../../../styles/assets_images.dart';
 import '../../../styles/colours.dart';
 import '../../../styles/global_styles.dart';
 
@@ -9,10 +10,7 @@ class DeathSave extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const assetFailureFalse = AssetImage('assets/failure_death_save_false.png');
-    const assetFailureTrue = AssetImage('assets/failure_death_save_true.png');
-    const assetSuccessFalse = AssetImage('assets/success_death_save_false.png');
-    const assetSuccessTrue = AssetImage('assets/success_death_save_true.png');
+
     return Container(
       width: 80,
       height: 123,

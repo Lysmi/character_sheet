@@ -23,12 +23,11 @@ class Health extends StatelessWidget {
               boxShadow: const [cardShadow],
               shape: BoxShape.circle,
             ),
-            child: const IconButton(
+            child: IconButton(
               onPressed: removeHealthPressed,
-              icon: Icon(
-                Icons.remove,
-              ),
+              icon: const Icon(Icons.remove),
               iconSize: 10,
+              color: currTheme.onMainColor,
             ),
           ),
           CharProgressBar(
@@ -47,9 +46,10 @@ class Health extends StatelessWidget {
               boxShadow: const [cardShadow],
               shape: BoxShape.circle,
             ),
-            child: const IconButton(
+            child: IconButton(
                 onPressed: addHealthPressed,
-                icon: Icon(Icons.add),
+                icon: const Icon(Icons.add),
+                color: currTheme.onMainColor,
                 iconSize: 10),
           ),
         ],
