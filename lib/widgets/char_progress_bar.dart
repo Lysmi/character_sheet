@@ -45,7 +45,6 @@ class CharProgressBar extends StatelessWidget {
                   Expanded(
                     flex: (_value / (maxValue + tempValue) * 1000).toInt(),
                     child: Container(
-                      //_value ~/ (maxValue + tempValue),
                       color: valueColor,
                     ),
                   ),
@@ -56,8 +55,7 @@ class CharProgressBar extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    flex: ((maxValue - _value) / (maxValue + tempValue) * 1000)
-                        .toInt(),
+                    flex: ((maxValue - _value) / (maxValue + tempValue) * 1000).toInt(),
                     child: Container(
                       color: backgroundColor,
                     ),
@@ -66,8 +64,7 @@ class CharProgressBar extends StatelessWidget {
               ),
             ),
             Text(
-              "$currentValue / $maxValue" +
-                  (tempValue > 0 ? " + $tempValue" : ""),
+              "$currentValue / $maxValue" + (tempValue > 0 ? " + $tempValue" : ""),
               textAlign: TextAlign.center,
               style: listItemTextStyle,
             ),

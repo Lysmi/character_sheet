@@ -4,6 +4,7 @@ import 'package:character_sheet/screens/character_stats/widgets/death_save.dart'
 import 'package:character_sheet/screens/character_stats/widgets/derived_stats.dart';
 import 'package:character_sheet/screens/character_stats/widgets/health.dart';
 import 'package:character_sheet/screens/character_stats/widgets/hit_dice.dart';
+import 'package:character_sheet/screens/character_stats/widgets/info.dart';
 import 'package:character_sheet/screens/character_stats/widgets/inspiration.dart';
 import 'package:character_sheet/screens/character_stats/widgets/passive_perception.dart';
 import 'package:character_sheet/screens/character_stats/widgets/proficiency_bonus.dart';
@@ -28,65 +29,60 @@ class CharacterStatsContent extends StatelessWidget {
       body: Center(
         child: Container(
           padding: const EdgeInsets.only(left: 18.0, right: 18.0),
-          //constraints: const BoxConstraints(maxWidth: 500),
-          child: ListView(
-              padding: const EdgeInsets.symmetric(vertical: 8),
+          constraints: const BoxConstraints(maxWidth: 500),
+          child: ListView(padding: const EdgeInsets.symmetric(vertical: 8), children: [
+            Column(
               children: [
-                Column(
+                Wrap(
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  spacing: 13,
+                  children: const [
+                    CharacterPhoto(),
+                    Info(),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: Wrap(
+                    spacing: 8,
+                    children: const [
+                      Inspiration(),
+                      ProficiencyBonus(),
+                    ],
+                  ),
+                ),
+                Wrap(
+                  spacing: 9,
+                  runSpacing: 9,
                   children: [
                     Row(
-                      children: const [
-                        CharacterPhoto(),
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
-                      child: Wrap(
-                        spacing: 8.0,
-                        children: const [
-                          Inspiration(),
-                          ProficiencyBonus(),
-                        ],
-                      ),
-                    ),
-                    Wrap(
-                      spacing: 9,
-                      runSpacing: 9,
                       children: [
-                        Container(
-                          constraints: const BoxConstraints(maxWidth: 500),
-                          child: Row(
+                        AbilityList(),
+                        const SizedBox(
+                          width: 24,
+                        ),
+                        Expanded(
+                          child: Column(
                             children: [
-                              AbilityList(),
-                              const SizedBox(
-                                width: 24,
-                              ),
-                              Expanded(
-                                child: Column(
+                              const DerivedStats(),
+                              const Health(),
+                              const HitDice(),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: Row(
                                   children: [
-                                    const DerivedStats(),
-                                    const Health(),
-                                    const HitDice(),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 10),
-                                      child: Row(
-                                        children: [
-                                          Wrap(
-                                            spacing: 9,
-                                            direction: Axis.vertical,
-                                            children: const [
-                                              DeathSave(),
-                                              PassivePerception(),
-                                            ],
-                                          ),
-                                          const Expanded(
-                                            child: Padding(
-                                              padding:
-                                                  EdgeInsets.only(left: 8.0),
-                                              child: SavingThrows(),
-                                            ),
-                                          ),
-                                        ],
+                                    Wrap(
+                                      spacing: 9,
+                                      direction: Axis.vertical,
+                                      children: const [
+                                        DeathSave(),
+                                        PassivePerception(),
+                                      ],
+                                    ),
+                                    const Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsets.only(left: 8.0),
+                                        child: SavingThrows(),
                                       ),
                                     ),
                                   ],
@@ -95,12 +91,14 @@ class CharacterStatsContent extends StatelessWidget {
                             ],
                           ),
                         ),
-                        const SkillList(),
                       ],
                     ),
+                    const SkillList(),
                   ],
                 ),
-              ]),
+              ],
+            ),
+          ]),
         ),
       ),
     );
