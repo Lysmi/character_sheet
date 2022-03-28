@@ -12,8 +12,7 @@ class Health extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 9),
       height: 25,
-      child: Wrap(
-        spacing: 4,
+      child: Row(
         children: [
           Container(
             width: 25,
@@ -30,13 +29,18 @@ class Health extends StatelessWidget {
               color: currTheme.onMainColor,
             ),
           ),
-          CharProgressBar(
-            maxValue: 9,
-            currentValue: 22,
-            tempValue: 5,
-            valueColor: currTheme.greenColor,
-            backgroundColor: currTheme.secondaryColor,
-            tempValueColor: currTheme.greenDarkColor,
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: CharProgressBar(
+                maxValue: 252,
+                currentValue: 243,
+                tempValue: 0,
+                valueColor: currTheme.greenColor,
+                backgroundColor: currTheme.secondaryColor,
+                tempValueColor: currTheme.greenDarkColor,
+              ),
+            ),
           ),
           Container(
             width: 25,

@@ -10,7 +10,6 @@ class HitDice extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 250,
       height: 32,
       padding: const EdgeInsets.symmetric(horizontal: 9),
       decoration: BoxDecoration(

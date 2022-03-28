@@ -10,13 +10,13 @@ class SkillList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 324,
       height: 233,
       decoration: BoxDecoration(
         color: currTheme.secondaryColor,
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         boxShadow: const [cardShadow],
       ),
+      constraints: const BoxConstraints(maxWidth: 500),
     );
   }
 }

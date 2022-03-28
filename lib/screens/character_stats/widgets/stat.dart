@@ -13,7 +13,6 @@ class Stat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: 76,
         height: 66,
         decoration: BoxDecoration(
           color: currTheme.secondaryColor,
@@ -22,13 +21,11 @@ class Stat extends StatelessWidget {
         ),
         child: Column(
           children: [
-            SizedBox(
-              height: 16,
-              child: Center(
-                child: Text(
-                  name,
-                  style: smallTitleTextStyle,
-                ),
+            FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                name,
+                style: smallTitleTextStyle,
               ),
             ),
             SizedBox(

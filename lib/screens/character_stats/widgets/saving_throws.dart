@@ -10,13 +10,23 @@ class SavingThrows extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 162,
       height: 194,
       padding: const EdgeInsets.symmetric(horizontal: 9),
       decoration: BoxDecoration(
         color: currTheme.secondaryColor,
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         boxShadow: const [cardShadow],
+      ),
+      child: Column(
+        children: [
+          Text(
+            "Saving Throws",
+            style: titleTextStyle,
+          ),
+          Row(
+
+          )
+        ],
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:character_sheet/styles/text_styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -28,52 +29,49 @@ class CharProgressBar extends StatelessWidget {
   Widget build(BuildContext context) {
     int _value = (currentValue > maxValue) ? maxValue : currentValue;
     return Container(
-      height: 25,
       alignment: Alignment.center,
       child: Container(
-        height: 15,
+        height: 17,
         decoration: const BoxDecoration(
           boxShadow: [cardShadow],
         ),
-        child: ClipRRect(
-          borderRadius: const BorderRadius.all(Radius.circular(20)),
-          child: FittedBox(
-            fit: BoxFit.fitWidth,
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Stack(
-                  alignment: Alignment.centerLeft,
-                  children: [
-                    Container(
-                      width: 192,
-                      height: 15,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            ClipRRect(
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: (_value / (maxValue + tempValue) * 1000).toInt(),
+                    child: Container(
+                      //_value ~/ (maxValue + tempValue),
+                      color: valueColor,
+                    ),
+                  ),
+                  Expanded(
+                    flex: (tempValue / (maxValue + tempValue) * 1000).toInt(),
+                    child: Container(
+                      color: tempValueColor,
+                    ),
+                  ),
+                  Expanded(
+                    flex: ((maxValue - _value) / (maxValue + tempValue) * 1000)
+                        .toInt(),
+                    child: Container(
                       color: backgroundColor,
                     ),
-                    Row(
-                      children: [
-                        Container(
-                          width: _value / (maxValue + tempValue) * 192,
-                          height: 15,
-                          color: valueColor,
-                        ),
-                        Container(
-                          width: tempValue / (maxValue + tempValue) * 192,
-                          height: 15,
-                          color: tempValueColor,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-                Text(
-                  "$currentValue / $maxValue" +
-                      (tempValue > 0 ? " + $tempValue" : ""),
-                  textAlign: TextAlign.center,
-                ),
-              ],
+                  ),
+                ],
+              ),
             ),
-          ),
+            Text(
+              "$currentValue / $maxValue" +
+                  (tempValue > 0 ? " + $tempValue" : ""),
+              textAlign: TextAlign.center,
+              style: listItemTextStyle,
+            ),
+          ],
         ),
       ),
     );

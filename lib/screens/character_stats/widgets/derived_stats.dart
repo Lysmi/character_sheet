@@ -6,21 +6,31 @@ class DerivedStats extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      direction: Axis.horizontal,
-      spacing: 11.0,
+    return Row(
       children: const [
-        Stat(
-          name: "AC",
-          value: "16",
+        Flexible(
+          child: Stat(
+            name: "AC",
+            value: "16",
+          ),
         ),
-        Stat(
-          name: "Initiative",
-          value: "+5",
+        SizedBox(
+          width: 11,
         ),
-        Stat(
-          name: "Speed",
-          value: "30",
+        Flexible(
+          child: Stat(
+            name: "Initiative",
+            value: "+5",
+          ),
+        ),
+        SizedBox(
+          width: 11,
+        ),
+        Flexible(
+          child: Stat(
+            name: "Speed",
+            value: "30",
+          ),
         ),
       ],
     );

@@ -25,70 +25,82 @@ class CharacterStatsContent extends StatelessWidget {
         backgroundColor: currTheme.mainColor,
         toolbarHeight: 42,
       ),
-      body: Container(
-        padding: const EdgeInsets.only(left: 18.0, right: 18.0),
-        alignment: Alignment.center,
-        child: SizedBox(
-          width: 324,
+      body: Center(
+        child: Container(
+          padding: const EdgeInsets.only(left: 18.0, right: 18.0),
+          //constraints: const BoxConstraints(maxWidth: 500),
           child: ListView(
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            children: [
-              Row(
-                children: const [
-                  CharacterPhoto(),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: Wrap(
-                  spacing: 8.0,
-                  children: const [
-                    Inspiration(),
-                    ProficiencyBonus(),
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              children: [
+                Column(
+                  children: [
+                    Row(
+                      children: const [
+                        CharacterPhoto(),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: Wrap(
+                        spacing: 8.0,
+                        children: const [
+                          Inspiration(),
+                          ProficiencyBonus(),
+                        ],
+                      ),
+                    ),
+                    Wrap(
+                      spacing: 9,
+                      runSpacing: 9,
+                      children: [
+                        Container(
+                          constraints: const BoxConstraints(maxWidth: 500),
+                          child: Row(
+                            children: [
+                              AbilityList(),
+                              const SizedBox(
+                                width: 24,
+                              ),
+                              Expanded(
+                                child: Column(
+                                  children: [
+                                    const DerivedStats(),
+                                    const Health(),
+                                    const HitDice(),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 10),
+                                      child: Row(
+                                        children: [
+                                          Wrap(
+                                            spacing: 9,
+                                            direction: Axis.vertical,
+                                            children: const [
+                                              DeathSave(),
+                                              PassivePerception(),
+                                            ],
+                                          ),
+                                          const Expanded(
+                                            child: Padding(
+                                              padding:
+                                                  EdgeInsets.only(left: 8.0),
+                                              child: SavingThrows(),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        const SkillList(),
+                      ],
+                    ),
                   ],
                 ),
-              ),
-              Row(
-                children: [
-                  AbilityList(),
-                  const SizedBox(
-                    width: 24,
-                  ),
-                  Column(
-                    children: [
-                      const DerivedStats(),
-                      const Health(),
-                      const HitDice(),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10),
-                        child: Row(
-                          children: [
-                            Wrap(
-                              spacing: 9,
-                              direction: Axis.vertical,
-                              children: const [
-                                DeathSave(),
-                                PassivePerception(),
-                              ],
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.only(left: 8.0),
-                              child: SavingThrows(),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              Container(
-                alignment: Alignment.centerLeft,
-                padding: const EdgeInsets.only(top: 9.0),
-                child: const SkillList(),
-              ),
-            ],
-          ),
+              ]),
         ),
       ),
     );
