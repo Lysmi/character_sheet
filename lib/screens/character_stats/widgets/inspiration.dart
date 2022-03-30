@@ -8,8 +8,6 @@ import '../../../styles/global_styles.dart';
 class Inspiration extends StatelessWidget {
   const Inspiration({Key? key}) : super(key: key);
 
-  get onChanged => null;
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -38,3 +36,5 @@ class Inspiration extends StatelessWidget {
     );
   }
 }
+
+

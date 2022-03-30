@@ -1,13 +1,15 @@
 import 'package:character_sheet/styles/colours.dart';
 import 'package:flutter/material.dart';
 
-import '../../../models/ability_model.dart';
+import '../../../data/models/hive/ability_model.dart';
+import '../../../data/models/provider/character_provider_model.dart';
 import '../../../styles/global_styles.dart';
 import '../../../styles/text_styles.dart';
 
-class Ability extends StatelessWidget {
-  const Ability({required this.abilityModel, Key? key}) : super(key: key);
-  final AbilityModel abilityModel;
+class AbilityView extends StatelessWidget {
+  const AbilityView({Key? key, required this.ability, required this.character}) : super(key: key);
+  final Ability ability;
+  final CharacterProviderModel character;
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +25,11 @@ class Ability extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            abilityModel.name,
+            _abilityName(ability),
             style: accentSmallTitleTextStyle,
           ),
           Text(
-            abilityModel.getModifierToString(),
+            _modifierToString(character.abilityBonus(ability)),
             style: smallValueTextStyle,
           ),
           Container(
@@ -38,7 +40,7 @@ class Ability extends StatelessWidget {
             width: 30,
             alignment: Alignment.center,
             child: Text(
-              abilityModel.value.toString(),
+              character.abilityValue(ability).toString(),
               style: smallTitleOnMainTextStyle,
             ),
           )
@@ -46,4 +48,23 @@ class Ability extends StatelessWidget {
       ),
     );
   }
+
+  String _abilityName(Ability ability) {
+    switch (ability) {
+      case Ability.strength:
+        return "Str";
+      case Ability.dexterity:
+        return "Dex";
+      case Ability.constitution:
+        return "Con";
+      case Ability.intelligence:
+        return "Int";
+      case Ability.wisdom:
+        return "Wis";
+      case Ability.charisma:
+        return "Cha";
+    }
+  }
+
+  String _modifierToString(int modifier) => modifier > 0 ? "+$modifier" : "$modifier";
 }

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import '../../../styles/colours.dart';
 import '../../../styles/global_styles.dart';
 
-class SkillList extends StatelessWidget {
-  const SkillList({Key? key}) : super(key: key);
+class SkillListView extends StatelessWidget {
+  const SkillListView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

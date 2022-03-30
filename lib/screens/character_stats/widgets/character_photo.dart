@@ -5,6 +5,8 @@ import '../../../styles/assets_images.dart';
 import '../../../styles/colours.dart';
 import '../../../styles/global_styles.dart';
 
+
+
 class CharacterPhoto extends StatelessWidget {
   const CharacterPhoto({Key? key}) : super(key: key);
 

@@ -1,56 +1,62 @@
-import 'package:character_sheet/models/character_abilities_model.dart';
+import 'package:character_sheet/data/models/provider/character_provider_model.dart';
+import 'package:provider/provider.dart';
 
-import '../../../models/ability_model.dart';
+import '../../../data/models/hive/ability_model.dart';
 import 'package:flutter/material.dart';
 
 import 'ability.dart';
 
-class AbilityList extends StatelessWidget {
-  AbilityList({Key? key}) : super(key: key);
-
-  final CharacterAbilitiesModel _abilitiesModel =
-  CharacterAbilitiesModel();
+class AbilityListView extends StatelessWidget {
+  const AbilityListView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 345,
-      child: Column(
-        children: [
-          Ability(
-            abilityModel: _abilitiesModel.strength,
-          ),
-          const SizedBox(
-            height: 9,
-          ),
-          Ability(
-            abilityModel: _abilitiesModel.dexterity,
-          ),
-          const SizedBox(
-            height: 9,
-          ),
-          Ability(
-            abilityModel: _abilitiesModel.constitution,
-          ),
-          const SizedBox(
-            height: 9,
-          ),
-          Ability(
-            abilityModel: _abilitiesModel.intelligence,
-          ),
-          const SizedBox(
-            height: 9,
-          ),
-          Ability(
-            abilityModel: _abilitiesModel.wisdom,
-          ),
-          const SizedBox(
-            height: 9,
-          ),
-          Ability(
-            abilityModel: _abilitiesModel.charisma,
-          ),
-        ],
+    return Consumer<CharacterProviderModel>(
+      builder:(context, character, child) => SizedBox(
+        height: 345,
+        child: Column(
+          children: [
+            AbilityView(
+              ability: Ability.strength,
+              character: character,
+            ),
+            const SizedBox(
+              height: 9,
+            ),
+            AbilityView(
+              ability: Ability.dexterity,
+              character: character,
+            ),
+            const SizedBox(
+              height: 9,
+            ),
+            AbilityView(
+              ability: Ability.constitution,
+              character: character,
+            ),
+            const SizedBox(
+              height: 9,
+            ),
+            AbilityView(
+              ability: Ability.intelligence,
+              character: character,
+            ),
+            const SizedBox(
+              height: 9,
+            ),
+            AbilityView(
+              ability: Ability.wisdom,
+              character: character,
+            ),
+            const SizedBox(
+              height: 9,
+            ),
+            AbilityView(
+              ability: Ability.charisma,
+              character: character,
+            ),
+          ],
+        ),
       ),
     );
   }

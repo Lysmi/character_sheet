@@ -30,75 +30,78 @@ class CharacterStatsContent extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.only(left: 18.0, right: 18.0),
           constraints: const BoxConstraints(maxWidth: 500),
-          child: ListView(padding: const EdgeInsets.symmetric(vertical: 8), children: [
-            Column(
-              children: [
-                Wrap(
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  spacing: 13,
-                  children: const [
-                    CharacterPhoto(),
-                    Info(),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: Wrap(
-                    spacing: 8,
+          child: ListView(
+            padding: const EdgeInsets.symmetric(vertical: 8),
+            children: [
+              Column(
+                children: [
+                  Wrap(
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    spacing: 13,
                     children: const [
-                      Inspiration(),
-                      ProficiencyBonus(),
+                      CharacterPhoto(),
+                      Info(),
                     ],
                   ),
-                ),
-                Wrap(
-                  spacing: 9,
-                  runSpacing: 9,
-                  children: [
-                    Row(
-                      children: [
-                        AbilityList(),
-                        const SizedBox(
-                          width: 24,
-                        ),
-                        Expanded(
-                          child: Column(
-                            children: [
-                              const DerivedStats(),
-                              const Health(),
-                              const HitDice(),
-                              Padding(
-                                padding: const EdgeInsets.only(top: 10),
-                                child: Row(
-                                  children: [
-                                    Wrap(
-                                      spacing: 9,
-                                      direction: Axis.vertical,
-                                      children: const [
-                                        DeathSave(),
-                                        PassivePerception(),
-                                      ],
-                                    ),
-                                    const Expanded(
-                                      child: Padding(
-                                        padding: EdgeInsets.only(left: 8.0),
-                                        child: SavingThrows(),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Wrap(
+                      spacing: 8,
+                      children: const [
+                        Inspiration(),
+                        ProficiencyBonus(),
                       ],
                     ),
-                    const SkillList(),
-                  ],
-                ),
-              ],
-            ),
-          ]),
+                  ),
+                  Wrap(
+                    spacing: 9,
+                    runSpacing: 9,
+                    children: [
+                      Row(
+                        children: [
+                          const AbilityListView(),
+                          const SizedBox(
+                            width: 24,
+                          ),
+                          Expanded(
+                            child: Column(
+                              children: [
+                                const DerivedStats(),
+                                const Health(),
+                                const HitDice(),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 10),
+                                  child: Row(
+                                    children: [
+                                      Wrap(
+                                        spacing: 9,
+                                        direction: Axis.vertical,
+                                        children: const [
+                                          DeathSave(),
+                                          PassivePerception(),
+                                        ],
+                                      ),
+                                      const Expanded(
+                                        child: Padding(
+                                          padding: EdgeInsets.only(left: 8.0),
+                                          child: SavingThrows(),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SkillListView(),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
