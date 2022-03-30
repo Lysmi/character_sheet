@@ -39,15 +39,19 @@ class CharacterStatsContent extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    Wrap(
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      spacing: 13,
-                      children: const [
-                        CharacterPhoto(),
-                        Info(),
-                      ],
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      child: Wrap(
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        spacing: 13,
+                        children: const [
+                          CharacterPhoto(),
+                          Info(),
+                        ],
+                      ),
                     ),
-                    Padding(
+                    Container(
+                      alignment: Alignment.centerLeft,
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: Wrap(
                         spacing: 8,

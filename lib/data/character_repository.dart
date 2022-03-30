@@ -8,6 +8,8 @@ class CharacterRepository {
 
   CharacterRepository() : _charactersBox = Hive.box('characters');
 
+  int get length => _charactersBox.length;
+
   List<CharacterModel> getAllCharacters() {
     List<CharacterModel> newCharactersList = [];
     for (var i = 0; i < _charactersBox.length; i++) {
@@ -16,8 +18,16 @@ class CharacterRepository {
     return newCharactersList;
   }
 
+  CharacterModel getCharacter(int id) {
+    return _charactersBox.get(id);
+  }
+
   CharacterModel getCharacterAt(int index) {
     return _charactersBox.getAt(index);
+  }
+
+  bool haveCharacterWithId(int id) {
+    return _charactersBox.containsKey(id);
   }
 
   void addCharacter(CharacterModel characterModel) {
@@ -25,6 +35,6 @@ class CharacterRepository {
   }
 
   void putCharacter(CharacterModel characterModel) {
-    characterModel.save();
+    _charactersBox.put(characterModel.id, characterModel);
   }
 }

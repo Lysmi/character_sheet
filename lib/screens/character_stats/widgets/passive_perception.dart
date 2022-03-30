@@ -1,5 +1,8 @@
+import 'package:character_sheet/data/models/hive/skill_model.dart';
+import 'package:character_sheet/data/models/provider/character_provider_model.dart';
 import 'package:character_sheet/styles/text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../styles/colours.dart';
 import '../../../styles/global_styles.dart';
@@ -29,14 +32,18 @@ class PassivePerception extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          Container(
-            height: 33,
-            alignment: Alignment.center,
-            child: Text(
-              "13",
-              style: smallValueTextStyle,
-              textAlign: TextAlign.center,
-            ),
+          Consumer<CharacterProviderModel>(
+            builder: (context, character, child) {
+              return Container(
+                height: 33,
+                alignment: Alignment.center,
+                child: Text(
+                  (character.skillValue(Skill.perception)+10).toString(),
+                  style: smallValueTextStyle,
+                  textAlign: TextAlign.center,
+                ),
+              );
+            },
           ),
         ],
       ),

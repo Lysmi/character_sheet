@@ -17,7 +17,7 @@ class CharacterModel extends HiveObject {
     this.alignmentLaw = AlignmentLaw.neutral,
     this.alignmentGood = AlignmentGood.neutral,
     this.inspiration = false,
-    this.ac = 0,
+    this.ac = 10,
     this.initiativeBonus = 0,
     this.speed = 30,
     this.deathSaveFailure = const [false, false, false],
@@ -27,64 +27,67 @@ class CharacterModel extends HiveObject {
     this.tempHit = 0,
     required this.abilityList,
     required this.skillList,
+    required this.id,
   });
+  @HiveField(19)
+  int id;
 
   @HiveField(0)
-  final String name;
+  String name;
 
   @HiveField(1)
-  final String race;
+  String race;
 
   @HiveField(2)
-  final String subrace;
+  String subrace;
 
   @HiveField(3)
-  final List<ClassModel> classes;
+  List<ClassModel> classes;
 
   @HiveField(4)
-  final int xp;
+  int xp;
 
   @HiveField(5)
-  final String background;
+  String background;
 
   @HiveField(6)
-  final AlignmentLaw alignmentLaw;
+  AlignmentLaw alignmentLaw;
 
   @HiveField(7)
-  final AlignmentGood alignmentGood;
+  AlignmentGood alignmentGood;
 
   @HiveField(8)
-  final bool inspiration;
+  bool inspiration;
 
   @HiveField(9)
-  final int ac;
+  int ac;
 
   @HiveField(10)
-  final int initiativeBonus;
+  int initiativeBonus;
 
   @HiveField(11)
-  final int speed;
+  int speed;
 
   @HiveField(12)
-  final List<bool> deathSaveFailure;
+  List<bool> deathSaveFailure;
 
   @HiveField(13)
-  final List<bool> deathSaveSuccess;
+  List<bool> deathSaveSuccess;
 
   @HiveField(14)
-  final int maxHit;
+  int maxHit;
 
   @HiveField(15)
-  final int currentHit;
+  int currentHit;
 
   @HiveField(16)
-  final int tempHit;
+  int tempHit;
 
   @HiveField(17)
-  final Map<Ability, AbilityModel> abilityList;
+  Map<Ability, AbilityModel> abilityList;
 
   @HiveField(18)
-  final Map<Skill, SkillModel> skillList;
+  Map<Skill, SkillModel> skillList;
 }
 
 @HiveType(typeId: 6)

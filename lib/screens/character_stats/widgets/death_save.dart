@@ -1,5 +1,7 @@
+import 'package:character_sheet/data/models/provider/character_provider_model.dart';
 import 'package:character_sheet/styles/text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../styles/assets_images.dart';
 import '../../../styles/colours.dart';
@@ -10,7 +12,6 @@ class DeathSave extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
       width: 80,
       height: 123,
@@ -29,53 +30,81 @@ class DeathSave extends StatelessWidget {
               style: smallTitleTextStyle,
             ),
           ),
-          Wrap(
-            direction: Axis.horizontal,
-            spacing: 10,
-            children: [
-              Wrap(
-                spacing: 4,
-                direction: Axis.vertical,
-                children: const [
-                  Image(
-                    image: assetSuccessTrue,
-                    width: 28,
-                    height: 28,
+          Consumer<CharacterProviderModel>(
+            builder: (context, character, child) {
+              return Wrap(
+                direction: Axis.horizontal,
+                spacing: 10,
+                children: [
+                  Wrap(
+                    spacing: 4,
+                    direction: Axis.vertical,
+                    children: [
+                      GestureDetector(
+                        onTap: () => character.changeDeathSaveSuccess(0),
+                        child: Image(
+                          image:
+                              character.deathSaveSuccess[0] ? assetSuccessTrue : assetSuccessFalse,
+                          width: 28,
+                          height: 28,
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () => character.changeDeathSaveSuccess(1),
+                        child: Image(
+                          image:
+                              character.deathSaveSuccess[1] ? assetSuccessTrue : assetSuccessFalse,
+                          width: 28,
+                          height: 28,
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () => character.changeDeathSaveSuccess(2),
+                        child: Image(
+                          image:
+                              character.deathSaveSuccess[2] ? assetSuccessTrue : assetSuccessFalse,
+                          width: 28,
+                          height: 28,
+                        ),
+                      ),
+                    ],
                   ),
-                  Image(
-                    image: assetSuccessFalse,
-                    width: 28,
-                    height: 28,
-                  ),
-                  Image(
-                    image: assetSuccessFalse,
-                    width: 28,
-                    height: 28,
+                  Wrap(
+                    spacing: 4,
+                    direction: Axis.vertical,
+                    children: [
+                      GestureDetector(
+                        onTap: () => character.changeDeathSaveFailure(0),
+                        child: Image(
+                          image:
+                              character.deathSaveFailure[0] ? assetFailureTrue : assetFailureFalse,
+                          width: 28,
+                          height: 28,
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () => character.changeDeathSaveFailure(1),
+                        child: Image(
+                          image:
+                              character.deathSaveFailure[1] ? assetFailureTrue : assetFailureFalse,
+                          width: 28,
+                          height: 28,
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () => character.changeDeathSaveFailure(2),
+                        child: Image(
+                          image:
+                              character.deathSaveFailure[2] ? assetFailureTrue : assetFailureFalse,
+                          width: 28,
+                          height: 28,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
-              ),
-              Wrap(
-                spacing: 4,
-                direction: Axis.vertical,
-                children: const [
-                  Image(
-                    image: assetFailureTrue,
-                    width: 28,
-                    height: 28,
-                  ),
-                  Image(
-                    image: assetFailureTrue,
-                    width: 28,
-                    height: 28,
-                  ),
-                  Image(
-                    image: assetFailureFalse,
-                    width: 28,
-                    height: 28,
-                  ),
-                ],
-              ),
-            ],
+              );
+            },
           ),
         ],
       ),

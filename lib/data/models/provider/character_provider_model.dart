@@ -1,5 +1,7 @@
 import 'dart:collection';
 
+import 'package:character_sheet/data/character_repository.dart';
+import 'package:character_sheet/data/models/hive/class_model.dart';
 import 'package:flutter/material.dart';
 
 import '../hive/ability_model.dart';
@@ -7,7 +9,11 @@ import '../hive/character_model.dart';
 import '../hive/skill_model.dart';
 
 class CharacterProviderModel extends ChangeNotifier {
-  final CharacterModel _character = CharacterModel(
+  final CharacterRepository repository = CharacterRepository();
+  CharacterModel _character = CharacterModel(
+    maxHit: 10,
+    tempHit: 3,
+    id: 0,
     abilityList: {
       Ability.strength: AbilityModel(),
       Ability.dexterity: AbilityModel(),
@@ -36,7 +42,20 @@ class CharacterProviderModel extends ChangeNotifier {
       Skill.stealth: SkillModel(),
       Skill.survival: SkillModel(),
     },
+    classes: [
+      ClassModel(name: 'Варвар', subclass: 'Тотемный воин', lvl: 2),
+      ClassModel(name: 'dwad', subclass: 'awd', lvl: 2),
+      ClassModel(name: 'awdawd', subclass: 'dfg', lvl: 2),
+    ],
   );
+
+  CharacterProviderModel() {
+    if (!repository.haveCharacterWithId(0)) {
+      repository.addCharacter(_character);
+    } else {
+      _character = repository.getCharacterAt(0);
+    }
+  }
 
   get name => _character.name;
 
@@ -47,6 +66,14 @@ class CharacterProviderModel extends ChangeNotifier {
   get classes => UnmodifiableListView(_character.classes);
 
   get xp => _character.xp;
+
+  get lvl {
+    int newLvl = 0;
+    for (var element in _character.classes) {
+      newLvl += element.lvl;
+    }
+    return newLvl;
+  }
 
   get background => _character.background;
 
@@ -66,17 +93,45 @@ class CharacterProviderModel extends ChangeNotifier {
 
   get deathSaveSuccess => UnmodifiableListView(_character.deathSaveSuccess);
 
+  void changeDeathSaveFailure(int index){
+    _character.deathSaveFailure[index] = !_character.deathSaveFailure[index];
+    repository.putCharacter(_character);
+    notifyListeners();
+  }
+
+  void changeDeathSaveSuccess(int index){
+    _character.deathSaveSuccess[index] = !_character.deathSaveSuccess[index];
+    repository.putCharacter(_character);
+    notifyListeners();
+  }
+
   get maxHit => _character.maxHit;
 
   get currentHit => _character.currentHit;
 
   get tempHit => _character.tempHit;
 
-  int abilityBonus(Ability ability) => (_character.abilityList[ability]?.value ?? 10) - 10 ~/ 2;
+  get proficiencyBonus => lvl~/4+2;
+
+  int abilityBonus(Ability ability) => ((_character.abilityList[ability]?.value ?? 10) - 10) ~/ 2;
 
   int abilityValue(Ability ability) => _character.abilityList[ability]?.value ?? 10;
 
-  int skillValue(Skill skill) => _character.skillList[skill]?.bonus??0 + abilityBonus(skillFromAbility[skill]??Ability.strength);
+  int skillValue(Skill skill) =>
+      _character.skillList[skill]?.bonus ??
+      0 + abilityBonus(skillFromAbility[skill] ?? Ability.strength);
+
+  void addHit(int value) {
+    _character.currentHit -= value;
+    repository.putCharacter(_character);
+    notifyListeners();
+  }
+
+  void removeHit(int value) {
+    _character.currentHit += value;
+    repository.putCharacter(_character);
+    notifyListeners();
+  }
 }
 
 const skillFromAbility = {

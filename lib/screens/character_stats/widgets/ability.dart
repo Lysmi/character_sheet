@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../data/models/hive/ability_model.dart';
 import '../../../data/models/provider/character_provider_model.dart';
+import '../../../helpers.dart';
 import '../../../styles/global_styles.dart';
 import '../../../styles/text_styles.dart';
 
@@ -29,7 +30,7 @@ class AbilityView extends StatelessWidget {
             style: accentSmallTitleTextStyle,
           ),
           Text(
-            _modifierToString(character.abilityBonus(ability)),
+            addPlusToInt(character.abilityBonus(ability)),
             style: smallValueTextStyle,
           ),
           Container(
@@ -65,6 +66,4 @@ class AbilityView extends StatelessWidget {
         return "Cha";
     }
   }
-
-  String _modifierToString(int modifier) => modifier > 0 ? "+$modifier" : "$modifier";
 }

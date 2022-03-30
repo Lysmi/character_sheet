@@ -36,13 +36,16 @@ class CharacterModelAdapter extends TypeAdapter<CharacterModel> {
       tempHit: fields[16] as int,
       abilityList: (fields[17] as Map).cast<Ability, AbilityModel>(),
       skillList: (fields[18] as Map).cast<Skill, SkillModel>(),
+      id: fields[19] as int,
     );
   }
 
   @override
   void write(BinaryWriter writer, CharacterModel obj) {
     writer
+      ..writeByte(20)
       ..writeByte(19)
+      ..write(obj.id)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
