@@ -3,10 +3,10 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 import 'models/hive/character_model.dart';
 
-class CharacterRepository {
+class CharactersRepository {
   final Box _charactersBox;
 
-  CharacterRepository() : _charactersBox = Hive.box('characters');
+  CharactersRepository() : _charactersBox = Hive.box('characters');
 
   int get length => _charactersBox.length;
 

@@ -1,5 +1,4 @@
 import 'package:character_sheet/data/models/hive/character_model.dart';
-import 'package:flutter/cupertino.dart';
 
 String addPlusToInt(int modifier) => modifier >= 0 ? "+$modifier" : "$modifier";
 

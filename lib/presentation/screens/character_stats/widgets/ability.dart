@@ -1,5 +1,5 @@
 import 'package:character_sheet/data/models/hive/ability_model.dart';
-import 'package:character_sheet/helpers.dart';
+import 'package:character_sheet/core/helpers.dart';
 import 'package:character_sheet/presentation/screens/provider_models/character_provider_model.dart';
 import 'package:character_sheet/presentation/styles/assets_images.dart';
 import 'package:character_sheet/presentation/styles/colours.dart';

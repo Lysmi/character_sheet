@@ -1,6 +1,6 @@
 import 'dart:collection';
 
-import 'package:character_sheet/data/character_repository.dart';
+import 'package:character_sheet/data/characters_repository.dart';
 import 'package:character_sheet/data/models/hive/class_model.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +9,7 @@ import '../../../data/models/hive/character_model.dart';
 import '../../../data/models/hive/skill_model.dart';
 
 class CharacterProviderModel extends ChangeNotifier {
-  final CharacterRepository repository = CharacterRepository();
+  final CharactersRepository repository = CharactersRepository();
   CharacterModel _character = CharacterModel(
     maxHit: 10,
     tempHit: 3,

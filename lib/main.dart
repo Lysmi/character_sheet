@@ -1,7 +1,7 @@
 
 import 'dart:developer';
 
-import 'package:character_sheet/data/character_repository.dart';
+import 'package:character_sheet/data/characters_repository.dart';
 import 'package:character_sheet/data/models/hive/class_model.dart';
 import 'package:character_sheet/presentation/screens/character_stats/character_stats_page.dart';
 import 'package:character_sheet/presentation/styles/colours.dart';
