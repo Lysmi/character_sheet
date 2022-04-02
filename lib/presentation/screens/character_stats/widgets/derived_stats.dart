@@ -1,9 +1,9 @@
 import 'package:character_sheet/helpers.dart';
-import 'package:character_sheet/screens/character_stats/widgets/stat.dart';
+import 'package:character_sheet/presentation/screens/character_stats/widgets/stat.dart';
+import 'package:character_sheet/presentation/screens/provider_models/character_provider_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../data/models/provider/character_provider_model.dart';
 
 class DerivedStats extends StatelessWidget {
   const DerivedStats({Key? key}) : super(key: key);

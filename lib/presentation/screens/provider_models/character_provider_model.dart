@@ -4,9 +4,9 @@ import 'package:character_sheet/data/character_repository.dart';
 import 'package:character_sheet/data/models/hive/class_model.dart';
 import 'package:flutter/material.dart';
 
-import '../hive/ability_model.dart';
-import '../hive/character_model.dart';
-import '../hive/skill_model.dart';
+import '../../../data/models/hive/ability_model.dart';
+import '../../../data/models/hive/character_model.dart';
+import '../../../data/models/hive/skill_model.dart';
 
 class CharacterProviderModel extends ChangeNotifier {
   final CharacterRepository repository = CharacterRepository();
@@ -44,7 +44,7 @@ class CharacterProviderModel extends ChangeNotifier {
     },
     classes: [
       ClassModel(name: 'Варвар', subclass: 'Тотемный воин', lvl: 2),
-      ClassModel(name: 'dwad', subclass: 'awd', lvl: 2),
+      ClassModel(name: 'Волшебник', subclass: 'Некромантия', lvl: 2),
       ClassModel(name: 'awdawd', subclass: 'dfg', lvl: 2),
     ],
   );

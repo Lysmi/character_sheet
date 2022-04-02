@@ -1,11 +1,11 @@
-import 'package:character_sheet/data/models/provider/character_provider_model.dart';
-import 'package:character_sheet/styles/text_styles.dart';
+import 'package:character_sheet/presentation/screens/provider_models/character_provider_model.dart';
+import 'package:character_sheet/presentation/styles/assets_images.dart';
+import 'package:character_sheet/presentation/styles/colours.dart';
+import 'package:character_sheet/presentation/styles/global_styles.dart';
+import 'package:character_sheet/presentation/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../styles/assets_images.dart';
-import '../../../styles/colours.dart';
-import '../../../styles/global_styles.dart';
 
 class DeathSave extends StatelessWidget {
   const DeathSave({Key? key}) : super(key: key);

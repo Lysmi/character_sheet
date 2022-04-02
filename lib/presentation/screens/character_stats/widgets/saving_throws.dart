@@ -1,8 +1,7 @@
-import 'package:character_sheet/styles/text_styles.dart';
+import 'package:character_sheet/presentation/styles/colours.dart';
+import 'package:character_sheet/presentation/styles/global_styles.dart';
+import 'package:character_sheet/presentation/styles/text_styles.dart';
 import 'package:flutter/material.dart';
-
-import '../../../styles/colours.dart';
-import '../../../styles/global_styles.dart';
 
 class SavingThrows extends StatelessWidget {
   const SavingThrows({Key? key}) : super(key: key);
@@ -23,9 +22,7 @@ class SavingThrows extends StatelessWidget {
             "Saving Throws",
             style: titleTextStyle,
           ),
-          Row(
-
-          )
+          Row()
         ],
       ),
     );

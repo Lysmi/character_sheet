@@ -1,11 +1,11 @@
-import 'package:character_sheet/styles/colours.dart';
+import 'package:character_sheet/data/models/hive/ability_model.dart';
+import 'package:character_sheet/helpers.dart';
+import 'package:character_sheet/presentation/screens/provider_models/character_provider_model.dart';
+import 'package:character_sheet/presentation/styles/assets_images.dart';
+import 'package:character_sheet/presentation/styles/colours.dart';
+import 'package:character_sheet/presentation/styles/global_styles.dart';
+import 'package:character_sheet/presentation/styles/text_styles.dart';
 import 'package:flutter/material.dart';
-
-import '../../../data/models/hive/ability_model.dart';
-import '../../../data/models/provider/character_provider_model.dart';
-import '../../../helpers.dart';
-import '../../../styles/global_styles.dart';
-import '../../../styles/text_styles.dart';
 
 class AbilityView extends StatelessWidget {
   const AbilityView({Key? key, required this.ability, required this.character}) : super(key: key);

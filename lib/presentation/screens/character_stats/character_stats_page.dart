@@ -1,20 +1,19 @@
-import 'package:character_sheet/screens/character_stats/widgets/ability_list.dart';
-import 'package:character_sheet/screens/character_stats/widgets/character_photo.dart';
-import 'package:character_sheet/screens/character_stats/widgets/death_save.dart';
-import 'package:character_sheet/screens/character_stats/widgets/derived_stats.dart';
-import 'package:character_sheet/screens/character_stats/widgets/health.dart';
-import 'package:character_sheet/screens/character_stats/widgets/hit_dice.dart';
-import 'package:character_sheet/screens/character_stats/widgets/info.dart';
-import 'package:character_sheet/screens/character_stats/widgets/inspiration.dart';
-import 'package:character_sheet/screens/character_stats/widgets/passive_perception.dart';
-import 'package:character_sheet/screens/character_stats/widgets/proficiency_bonus.dart';
-import 'package:character_sheet/screens/character_stats/widgets/saving_throws.dart';
-import 'package:character_sheet/screens/character_stats/widgets/skill_list.dart';
+import 'package:character_sheet/presentation/screens/character_stats/widgets/ability_list.dart';
+import 'package:character_sheet/presentation/screens/character_stats/widgets/character_photo.dart';
+import 'package:character_sheet/presentation/screens/character_stats/widgets/death_save.dart';
+import 'package:character_sheet/presentation/screens/character_stats/widgets/derived_stats.dart';
+import 'package:character_sheet/presentation/screens/character_stats/widgets/health.dart';
+import 'package:character_sheet/presentation/screens/character_stats/widgets/hit_dice.dart';
+import 'package:character_sheet/presentation/screens/character_stats/widgets/info.dart';
+import 'package:character_sheet/presentation/screens/character_stats/widgets/inspiration.dart';
+import 'package:character_sheet/presentation/screens/character_stats/widgets/passive_perception.dart';
+import 'package:character_sheet/presentation/screens/character_stats/widgets/proficiency_bonus.dart';
+import 'package:character_sheet/presentation/screens/character_stats/widgets/saving_throws.dart';
+import 'package:character_sheet/presentation/screens/character_stats/widgets/skill_list.dart';
+import 'package:character_sheet/presentation/screens/provider_models/character_provider_model.dart';
+import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../../data/models/provider/character_provider_model.dart';
-import '../../styles/colours.dart';
 
 class CharacterStatsContent extends StatelessWidget {
   const CharacterStatsContent({Key? key}) : super(key: key);

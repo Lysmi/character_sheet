@@ -1,10 +1,10 @@
 
-import 'package:character_sheet/styles/text_styles.dart';
+import 'package:character_sheet/presentation/styles/global_styles.dart';
+import 'package:character_sheet/presentation/styles/text_styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
-import '../styles/global_styles.dart';
 
 class CharProgressBar extends StatelessWidget {
   const CharProgressBar(

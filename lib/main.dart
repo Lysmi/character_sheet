@@ -3,8 +3,8 @@ import 'dart:developer';
 
 import 'package:character_sheet/data/character_repository.dart';
 import 'package:character_sheet/data/models/hive/class_model.dart';
-import 'package:character_sheet/screens/character_stats/widgets/ability.dart';
-import 'package:character_sheet/styles/colours.dart';
+import 'package:character_sheet/presentation/screens/character_stats/character_stats_page.dart';
+import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -12,7 +12,6 @@ import 'package:path_provider/path_provider.dart';
 import 'data/models/hive/ability_model.dart';
 import 'data/models/hive/character_model.dart';
 import 'data/models/hive/skill_model.dart';
-import 'screens/character_stats/character_stats_page.dart';
 import 'package:device_preview/device_preview.dart';
 
 Future<void> main() async {

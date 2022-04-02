@@ -1,7 +1,7 @@
-import 'package:character_sheet/data/models/provider/character_provider_model.dart';
+import 'package:character_sheet/data/models/hive/ability_model.dart';
+import 'package:character_sheet/presentation/screens/provider_models/character_provider_model.dart';
 import 'package:provider/provider.dart';
 
-import '../../../data/models/hive/ability_model.dart';
 import 'package:flutter/material.dart';
 
 import 'ability.dart';
