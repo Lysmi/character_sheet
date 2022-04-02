@@ -1,7 +1,30 @@
 import 'package:character_sheet/data/models/hive/character_model.dart';
 import 'package:equatable/equatable.dart';
 
+import 'ability_entity.dart';
+import 'class_entity.dart';
+
 class CharacterEntity extends Equatable {
+  String name;
+  String race;
+  String subrace;
+  List<ClassEntity> classes;
+  int xp;
+  String background;
+  AlignmentLaw alignmentLaw;
+  AlignmentGood alignmentGood;
+  bool inspiration;
+  int ac;
+  int initiativeBonus;
+  int speed;
+  List<bool> deathSaveFailure;
+  List<bool> deathSaveSuccess;
+  int maxHit;
+  int currentHit;
+  int tempHit;
+  AbilityList abilityList;
+  AbilityList skillList;
+
   CharacterEntity({
     required this.name,
     required this.race,
@@ -23,44 +46,6 @@ class CharacterEntity extends Equatable {
     required this.abilityList,
     required this.skillList,
   });
-
-  String name;
-
-  String race;
-
-  String subrace;
-
-  List<ClassEntity> classes;
-
-  int xp;
-
-  String background;
-
-  AlignmentLaw alignmentLaw;
-
-  AlignmentGood alignmentGood;
-
-  bool inspiration;
-
-  int ac;
-
-  int initiativeBonus;
-
-  int speed;
-
-  List<bool> deathSaveFailure;
-
-  List<bool> deathSaveSuccess;
-
-  int maxHit;
-
-  int currentHit;
-
-  int tempHit;
-
-  AbilityList abilityList;
-
-  AbilityList skillList;
 
   @override
   List<Object?> get props => [

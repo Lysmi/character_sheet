@@ -18,16 +18,6 @@ class AbilityModel extends HiveObject {
 
   @HiveField(2)
   final int saveBonus;
-
-  int getModifier() {
-    return (value - 10) ~/ 2;
-  }
-
-  String getModifierToString() {
-    int modifier = (value - 10) ~/ 2;
-    String modifierString = modifier.toString();
-    return modifier >= 0 ? "+$modifierString" : modifierString;
-  }
 }
 
 @HiveType(typeId: 1)
