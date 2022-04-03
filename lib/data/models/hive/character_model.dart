@@ -1,7 +1,11 @@
 import 'package:character_sheet/data/models/hive/ability_model.dart';
 import 'package:character_sheet/data/models/hive/class_model.dart';
 import 'package:character_sheet/data/models/hive/skill_model.dart';
+import 'package:character_sheet/domain/entities/ability_entity.dart';
+import 'package:character_sheet/domain/entities/character_entity.dart';
 import 'package:hive/hive.dart';
+
+import '../../../domain/entities/skill_entity.dart';
 
 part 'character_model.g.dart';
 
@@ -29,6 +33,7 @@ class CharacterModel extends HiveObject {
     required this.skillList,
     required this.id,
   });
+
   @HiveField(19)
   int id;
 

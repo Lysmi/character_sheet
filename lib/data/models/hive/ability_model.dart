@@ -1,3 +1,4 @@
+import 'package:character_sheet/domain/entities/ability_entity.dart';
 import 'package:hive/hive.dart';
 
 part 'ability_model.g.dart';
@@ -18,6 +19,8 @@ class AbilityModel extends HiveObject {
 
   @HiveField(2)
   final int saveBonus;
+
+  AbilityEntity toEntity() => AbilityEntity(value: value, saveProficiency: saveProficiency, saveBonus: saveBonus);
 }
 
 @HiveType(typeId: 1)

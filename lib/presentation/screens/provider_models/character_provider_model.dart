@@ -1,6 +1,6 @@
 import 'dart:collection';
 
-import 'package:character_sheet/data/characters_repository.dart';
+import 'package:character_sheet/data/repositories/characters_repository_implement.dart';
 import 'package:character_sheet/data/models/hive/class_model.dart';
 import 'package:flutter/material.dart';
 

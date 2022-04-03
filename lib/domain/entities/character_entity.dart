@@ -1,4 +1,5 @@
 import 'package:character_sheet/data/models/hive/character_model.dart';
+import 'package:character_sheet/domain/entities/skill_entity.dart';
 import 'package:equatable/equatable.dart';
 
 import 'ability_entity.dart';
@@ -23,7 +24,7 @@ class CharacterEntity extends Equatable {
   int currentHit;
   int tempHit;
   AbilityList abilityList;
-  AbilityList skillList;
+  SkillList skillList;
 
   CharacterEntity({
     required this.name,

@@ -1,15 +1,17 @@
-import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:character_sheet/data/models/hive/character_model.dart';
+import 'package:character_sheet/data/models/providers/data_provider.dart';
+import 'package:hive/hive.dart';
 
-import 'models/hive/character_model.dart';
+class LocalDataProvider implements DataProvider
+{
+  final Box _charactersBox = Hive.box('characters');
 
-class CharactersRepository {
-  final Box _charactersBox;
+  @override
+  void addCharacter(CharacterModel characterModel) {
+    _charactersBox.add(characterModel);
+  }
 
-  CharactersRepository() : _charactersBox = Hive.box('characters');
-
-  int get length => _charactersBox.length;
-
+  @override
   List<CharacterModel> getAllCharacters() {
     List<CharacterModel> newCharactersList = [];
     for (var i = 0; i < _charactersBox.length; i++) {
@@ -18,23 +20,27 @@ class CharactersRepository {
     return newCharactersList;
   }
 
+  @override
   CharacterModel getCharacter(int id) {
     return _charactersBox.get(id);
   }
 
+  @override
   CharacterModel getCharacterAt(int index) {
     return _charactersBox.getAt(index);
   }
 
+  @override
   bool haveCharacterWithId(int id) {
     return _charactersBox.containsKey(id);
   }
 
-  void addCharacter(CharacterModel characterModel) {
-    _charactersBox.add(characterModel);
-  }
-
+  @override
   void putCharacter(CharacterModel characterModel) {
     _charactersBox.put(characterModel.id, characterModel);
   }
+
+  @override
+  int get length => _charactersBox.length;
+
 }

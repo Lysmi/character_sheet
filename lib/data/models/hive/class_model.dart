@@ -1,4 +1,5 @@
 import 'package:character_sheet/data/models/hive/ability_model.dart';
+import 'package:character_sheet/domain/entities/class_entity.dart';
 import 'package:hive/hive.dart';
 
 part 'class_model.g.dart';
@@ -23,4 +24,6 @@ class ClassModel extends HiveObject {
 
   @HiveField(3)
   final int hitDice;
+
+  ClassEntity toEntity() => ClassEntity(name: name, subclass: subclass, lvl: lvl, hitDice: hitDice);
 }
