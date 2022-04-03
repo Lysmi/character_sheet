@@ -1,4 +1,4 @@
-import '../hive/character_model.dart';
+import '../local_models/character_model.dart';
 
 abstract class DataProvider {
   int get length;

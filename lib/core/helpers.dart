@@ -1,4 +1,4 @@
-import 'package:character_sheet/data/models/hive/character_model.dart';
+import 'package:character_sheet/data/models/local_models/character_model.dart';
 
 String addPlusToInt(int modifier) => modifier >= 0 ? "+$modifier" : "$modifier";
 

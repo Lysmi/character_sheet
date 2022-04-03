@@ -1,53 +1,16 @@
 import 'dart:collection';
 
 import 'package:character_sheet/data/repositories/characters_repository_implement.dart';
-import 'package:character_sheet/data/models/hive/class_model.dart';
+import 'package:character_sheet/data/models/local_models/class_model.dart';
+import 'package:character_sheet/domain/entities/character_entity.dart';
 import 'package:flutter/material.dart';
 
-import '../../../data/models/hive/ability_model.dart';
-import '../../../data/models/hive/character_model.dart';
-import '../../../data/models/hive/skill_model.dart';
+import '../../../data/models/local_models/ability_model.dart';
+import '../../../data/models/local_models/character_model.dart';
 
 class CharacterProviderModel extends ChangeNotifier {
-  final CharactersRepository repository = CharactersRepository();
-  CharacterModel _character = CharacterModel(
-    maxHit: 10,
-    tempHit: 3,
-    id: 0,
-    abilityList: {
-      Ability.strength: AbilityModel(),
-      Ability.dexterity: AbilityModel(),
-      Ability.constitution: AbilityModel(),
-      Ability.intelligence: AbilityModel(),
-      Ability.wisdom: AbilityModel(),
-      Ability.charisma: AbilityModel(),
-    },
-    skillList: {
-      Skill.arcana: SkillModel(),
-      Skill.acrobatics: SkillModel(),
-      Skill.animalHandling: SkillModel(),
-      Skill.athletics: SkillModel(),
-      Skill.deception: SkillModel(),
-      Skill.history: SkillModel(),
-      Skill.insight: SkillModel(),
-      Skill.intimidation: SkillModel(),
-      Skill.investigation: SkillModel(),
-      Skill.medicine: SkillModel(),
-      Skill.nature: SkillModel(),
-      Skill.perception: SkillModel(),
-      Skill.performance: SkillModel(),
-      Skill.persuasion: SkillModel(),
-      Skill.religion: SkillModel(),
-      Skill.sleightOfHand: SkillModel(),
-      Skill.stealth: SkillModel(),
-      Skill.survival: SkillModel(),
-    },
-    classes: [
-      ClassModel(name: 'Варвар', subclass: 'Тотемный воин', lvl: 2),
-      ClassModel(name: 'Волшебник', subclass: 'Некромантия', lvl: 2),
-      ClassModel(name: 'awdawd', subclass: 'dfg', lvl: 2),
-    ],
-  );
+  final CharactersRepositoryImplement repository = CharactersRepositoryImplement();
+  CharacterEntity _character = repository;
 
   CharacterProviderModel() {
     if (!repository.haveCharacterWithId(0)) {

@@ -1,10 +1,19 @@
-import 'package:character_sheet/data/models/hive/character_model.dart';
+import 'package:character_sheet/data/models/local_models/character_model.dart';
 import 'package:character_sheet/data/models/providers/data_provider.dart';
-import 'package:hive/hive.dart';
+import 'package:objectbox/objectbox.dart';
 
-class LocalDataProvider implements DataProvider
-{
-  final Box _charactersBox = Hive.box('characters');
+class LocalDataProvider implements DataProvider {
+  late final Store _store;
+  late final Box _charactersBox;
+
+  LocalDataProvider() {
+    _initStore();
+  }
+
+  _initStore() async {
+    _store = await openStore();
+    _charactersBox = _store.box<CharacterModel>();
+  }
 
   @override
   void addCharacter(CharacterModel characterModel) async {
@@ -42,5 +51,4 @@ class LocalDataProvider implements DataProvider
 
   @override
   int get length => _charactersBox.length;
-
 }

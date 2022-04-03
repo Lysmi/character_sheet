@@ -1,0 +1,235 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:7884785413272135535",
+      "lastPropertyId": "13:2571007400739249177",
+      "name": "CharacterModel",
+      "properties": [
+        {
+          "id": "1:1522837074106975620",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:6964696945756338027",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "3:3292313361188657789",
+          "name": "race",
+          "type": 9
+        },
+        {
+          "id": "4:1199008835113463292",
+          "name": "subrace",
+          "type": 9
+        },
+        {
+          "id": "5:7684693029631248213",
+          "name": "xp",
+          "type": 6
+        },
+        {
+          "id": "6:8866146751036511627",
+          "name": "background",
+          "type": 9
+        },
+        {
+          "id": "7:5775608458115458047",
+          "name": "inspiration",
+          "type": 1
+        },
+        {
+          "id": "8:7172898869859979031",
+          "name": "ac",
+          "type": 6
+        },
+        {
+          "id": "9:5501660739054990150",
+          "name": "initiativeBonus",
+          "type": 6
+        },
+        {
+          "id": "10:6357595043569770501",
+          "name": "speed",
+          "type": 6
+        },
+        {
+          "id": "11:394371933871799616",
+          "name": "maxHit",
+          "type": 6
+        },
+        {
+          "id": "12:5595710625716279561",
+          "name": "currentHit",
+          "type": 6
+        },
+        {
+          "id": "13:2571007400739249177",
+          "name": "tempHit",
+          "type": 6
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:8985759520404316253",
+      "lastPropertyId": "5:6804207909945026605",
+      "name": "ClassModel",
+      "properties": [
+        {
+          "id": "1:1400240438397200985",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:2810579111744912687",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "3:5316467507584975948",
+          "name": "subclass",
+          "type": 9
+        },
+        {
+          "id": "4:8991662639119233562",
+          "name": "lvl",
+          "type": 6
+        },
+        {
+          "id": "5:6804207909945026605",
+          "name": "hitDice",
+          "type": 6
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "3:3999354440025630651",
+      "lastPropertyId": "4:7311380263776338277",
+      "name": "AbilityDataModel",
+      "properties": [
+        {
+          "id": "1:1468007216039469970",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:1636567619543250218",
+          "name": "value",
+          "type": 6
+        },
+        {
+          "id": "3:7306596531466337691",
+          "name": "saveProficiency",
+          "type": 1
+        },
+        {
+          "id": "4:7311380263776338277",
+          "name": "saveBonus",
+          "type": 6
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "4:3133148185746309428",
+      "lastPropertyId": "1:1641536577415934255",
+      "name": "AbilityListModel",
+      "properties": [
+        {
+          "id": "1:1641536577415934255",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "5:9196672196740450436",
+      "lastPropertyId": "1:656809540010107420",
+      "name": "AbilityModel",
+      "properties": [
+        {
+          "id": "1:656809540010107420",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "6:5663083051678168405",
+      "lastPropertyId": "3:6167074524688447152",
+      "name": "SkillDataModel",
+      "properties": [
+        {
+          "id": "1:8152774403385218494",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:790150902665449165",
+          "name": "proficiency",
+          "type": 1
+        },
+        {
+          "id": "3:6167074524688447152",
+          "name": "bonus",
+          "type": 6
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "7:5563726687178089275",
+      "lastPropertyId": "1:2698854171700413653",
+      "name": "SkillListModel",
+      "properties": [
+        {
+          "id": "1:2698854171700413653",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "8:7503769707163527865",
+      "lastPropertyId": "1:3057754938040228468",
+      "name": "SkillModel",
+      "properties": [
+        {
+          "id": "1:3057754938040228468",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "8:7503769707163527865",
+  "lastIndexId": "0:0",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}

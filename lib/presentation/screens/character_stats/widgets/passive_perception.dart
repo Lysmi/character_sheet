@@ -1,4 +1,3 @@
-import 'package:character_sheet/data/models/hive/skill_model.dart';
 import 'package:character_sheet/presentation/screens/provider_models/character_provider_model.dart';
 import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:character_sheet/presentation/styles/global_styles.dart';

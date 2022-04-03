@@ -1,7 +1,7 @@
 import 'package:character_sheet/domain/entities/character_entity.dart';
 import 'package:character_sheet/domain/repositories/characters_repository.dart';
 
-import '../models/hive/character_model.dart';
+import '../models/local_models/character_model.dart';
 import '../models/providers/local_data_provider.dart';
 
 class CharactersRepositoryImplement implements CharactersRepository {

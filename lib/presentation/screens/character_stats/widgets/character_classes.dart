@@ -1,4 +1,4 @@
-import 'package:character_sheet/data/models/hive/class_model.dart';
+import 'package:character_sheet/data/models/local_models/class_model.dart';
 import 'package:character_sheet/presentation/styles/assets_images.dart';
 import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:character_sheet/presentation/styles/global_styles.dart';
