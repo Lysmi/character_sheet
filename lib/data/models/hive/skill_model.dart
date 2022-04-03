@@ -1,4 +1,3 @@
-import 'package:character_sheet/data/models/hive/ability_model.dart';
 import 'package:hive/hive.dart';
 
 import '../../../domain/entities/skill_entity.dart';
@@ -19,6 +18,11 @@ class SkillModel extends HiveObject {
   final int bonus;
 
   SkillEntity toEntity() => SkillEntity(proficiency: proficiency, bonus: bonus);
+
+  factory SkillModel.fromEntity(SkillEntity entity) => SkillModel(
+        proficiency: entity.proficiency,
+        bonus: entity.bonus,
+      );
 }
 
 @HiveType(typeId: 3)

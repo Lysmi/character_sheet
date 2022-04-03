@@ -6,6 +6,7 @@ import 'ability_entity.dart';
 import 'class_entity.dart';
 
 class CharacterEntity extends Equatable {
+  int id;
   String name;
   String race;
   String subrace;
@@ -46,6 +47,7 @@ class CharacterEntity extends Equatable {
     required this.tempHit,
     required this.abilityList,
     required this.skillList,
+    this.id = 0,
   });
 
   @override

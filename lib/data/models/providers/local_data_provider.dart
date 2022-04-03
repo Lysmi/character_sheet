@@ -7,7 +7,7 @@ class LocalDataProvider implements DataProvider
   final Box _charactersBox = Hive.box('characters');
 
   @override
-  void addCharacter(CharacterModel characterModel) {
+  void addCharacter(CharacterModel characterModel) async {
     _charactersBox.add(characterModel);
   }
 

@@ -5,8 +5,6 @@ abstract class CharactersRepository {
 
   CharacterEntity getCharacter(int id);
 
-  bool haveCharacterWithId(int id);
-
   void addCharacter(CharacterEntity characterEntity);
 
   void putCharacter(CharacterEntity characterEntity);

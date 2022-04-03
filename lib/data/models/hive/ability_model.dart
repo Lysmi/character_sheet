@@ -20,7 +20,14 @@ class AbilityModel extends HiveObject {
   @HiveField(2)
   final int saveBonus;
 
-  AbilityEntity toEntity() => AbilityEntity(value: value, saveProficiency: saveProficiency, saveBonus: saveBonus);
+  AbilityEntity toEntity() =>
+      AbilityEntity(value: value, saveProficiency: saveProficiency, saveBonus: saveBonus);
+
+  factory AbilityModel.fromEntity(AbilityEntity entity) => AbilityModel(
+        value: entity.value,
+        saveProficiency: entity.saveProficiency,
+        saveBonus: entity.saveBonus,
+      );
 }
 
 @HiveType(typeId: 1)
