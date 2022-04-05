@@ -15,12 +15,12 @@ class CharacterModel {
     this.race = '',
     this.subrace = '',
     this.classes = const [],
-    this.xp = 0,
+    this.experience = 0,
     this.background = '',
     this.alignmentLaw = AlignmentLaw.neutral,
     this.alignmentGood = AlignmentGood.neutral,
     this.inspiration = false,
-    this.ac = 10,
+    this.armorClass = 10,
     this.initiativeBonus = 0,
     this.speed = 30,
     this.deathSaveFailure = const [false, false, false],
@@ -40,7 +40,7 @@ class CharacterModel {
   @HiveField(3)
   List<ClassModel> classes;
   @HiveField(4)
-  int xp;
+  int experience;
   @HiveField(5)
   String background;
   @HiveField(6)
@@ -50,7 +50,7 @@ class CharacterModel {
   @HiveField(8)
   bool inspiration;
   @HiveField(9)
-  int ac;
+  int armorClass;
   @HiveField(10)
   int initiativeBonus;
   @HiveField(11)
@@ -76,12 +76,12 @@ class CharacterModel {
         race: race,
         subrace: subrace,
         classes: classes.map((e) => e.toEntity()).toList(),
-        xp: xp,
+        experience: experience,
         background: background,
         alignmentLaw: alignmentLaw,
         alignmentGood: alignmentGood,
         inspiration: inspiration,
-        ac: ac,
+        armorClass: armorClass,
         initiativeBonus: initiativeBonus,
         speed: speed,
         deathSaveFailure: deathSaveFailure,
@@ -98,12 +98,12 @@ class CharacterModel {
         race: entity.race,
         subrace: entity.subrace,
         classes: entity.classes.map((e) => ClassModel.fromEntity(e)).toList(),
-        xp: entity.xp,
+        experience: entity.experience,
         background: entity.background,
         alignmentLaw: entity.alignmentLaw,
         alignmentGood: entity.alignmentGood,
         inspiration: entity.inspiration,
-        ac: entity.ac,
+        armorClass: entity.armorClass,
         initiativeBonus: entity.initiativeBonus,
         speed: entity.speed,
         deathSaveFailure: entity.deathSaveFailure,

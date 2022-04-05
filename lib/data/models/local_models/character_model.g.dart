@@ -21,12 +21,12 @@ class CharacterModelAdapter extends TypeAdapter<CharacterModel> {
       race: fields[1] as String,
       subrace: fields[2] as String,
       classes: (fields[3] as List).cast<ClassModel>(),
-      xp: fields[4] as int,
+      experience: fields[4] as int,
       background: fields[5] as String,
       alignmentLaw: fields[6] as AlignmentLaw,
       alignmentGood: fields[7] as AlignmentGood,
       inspiration: fields[8] as bool,
-      ac: fields[9] as int,
+      armorClass: fields[9] as int,
       initiativeBonus: fields[10] as int,
       speed: fields[11] as int,
       deathSaveFailure: (fields[12] as List).cast<bool>(),
@@ -52,7 +52,7 @@ class CharacterModelAdapter extends TypeAdapter<CharacterModel> {
       ..writeByte(3)
       ..write(obj.classes)
       ..writeByte(4)
-      ..write(obj.xp)
+      ..write(obj.experience)
       ..writeByte(5)
       ..write(obj.background)
       ..writeByte(6)
@@ -62,7 +62,7 @@ class CharacterModelAdapter extends TypeAdapter<CharacterModel> {
       ..writeByte(8)
       ..write(obj.inspiration)
       ..writeByte(9)
-      ..write(obj.ac)
+      ..write(obj.armorClass)
       ..writeByte(10)
       ..write(obj.initiativeBonus)
       ..writeByte(11)
