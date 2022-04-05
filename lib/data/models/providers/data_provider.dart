@@ -4,13 +4,13 @@ import '../local_models/character_model.dart';
 abstract class DataProvider {
   int get length;
 
-  List<Pair<int, CharacterModel>> getAllCharacters();
+  Future<List<Pair<int, CharacterModel>>> getAllCharacters();
 
-  Pair<int, CharacterModel> getCharacter(int key);
+  Future<Pair<int, CharacterModel>> getCharacter(int key);
 
   bool haveCharacterWithKey(int id);
 
-  void addCharacter(CharacterModel characterModel);
+  Future<int> addCharacter(CharacterModel characterModel);
 
   void putCharacter(CharacterModel characterModel, int key);
 }

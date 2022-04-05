@@ -1,9 +1,9 @@
 import 'package:character_sheet/domain/entities/character_entity.dart';
 
 abstract class CharactersRepository {
-  List<CharacterEntity> getAllCharacters();
+  Future<List<CharacterEntity>> getAllCharacters();
 
-  CharacterEntity getCharacter(int id);
+  Future<CharacterEntity> getCharacter(int id);
 
   void addCharacter(CharacterEntity characterEntity);
 

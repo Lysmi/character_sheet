@@ -28,7 +28,7 @@ class CharacterProviderModel extends ChangeNotifier {
 
   get classes => UnmodifiableListView(_character.classes);
 
-  get xp => _character.xp;
+  get xp => _character.experience;
 
   get lvl => _character.lvl;
 
@@ -40,9 +40,7 @@ class CharacterProviderModel extends ChangeNotifier {
 
   get inspiration => _character.inspiration;
 
-  get ac => _character.ac;
-
-  get initiative => abilityBonus(Ability.dexterity) + _character.initiativeBonus;
+  get ac => _character.armorClass;
 
   get speed => _character.speed;
 
@@ -68,7 +66,6 @@ class CharacterProviderModel extends ChangeNotifier {
 
   get tempHit => _character.tempHit;
 
-  get proficiencyBonus => lvl~/4+2;
 
 
 
