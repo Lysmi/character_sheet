@@ -30,13 +30,7 @@ class CharacterProviderModel extends ChangeNotifier {
 
   get xp => _character.xp;
 
-  get lvl {
-    int newLvl = 0;
-    for (var element in _character.classes) {
-      newLvl += element.lvl;
-    }
-    return newLvl;
-  }
+  get lvl => _character.lvl;
 
   get background => _character.background;
 
@@ -76,13 +70,7 @@ class CharacterProviderModel extends ChangeNotifier {
 
   get proficiencyBonus => lvl~/4+2;
 
-  int abilityBonus(Ability ability) => ((_character.abilities[ability]?.value ?? 10) - 10) ~/ 2;
 
-  int abilityValue(Ability ability) => _character.abilities[ability]?.value ?? 10;
-
-  int skillValue(Skill skill) =>
-      _character.skills[skill]?.bonus ??
-      0 + abilityBonus(skillFromAbility[skill] ?? Ability.strength);
 
   void addHit(int value) {
     _character.currentHit -= value;

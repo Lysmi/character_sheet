@@ -50,6 +50,22 @@ class CharacterEntity extends Equatable {
     this.key = 0,
   });
 
+  get lvl {
+    int newLvl = 0;
+    for (var element in classes) {
+      newLvl += element.lvl;
+    }
+    return newLvl;
+  }
+
+  int abilityBonus(Ability ability) => ((_character.abilities[ability]?.value ?? 10) - 10) ~/ 2;
+
+  int abilityValue(Ability ability) => _character.abilities[ability]?.value ?? 10;
+
+  int skillValue(Skill skill) =>
+      _character.skills[skill]?.bonus ??
+          0 + abilityBonus(skillFromAbility[skill] ?? Ability.strength);
+
   @override
   List<Object?> get props => [
         name,
