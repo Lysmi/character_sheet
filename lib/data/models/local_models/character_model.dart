@@ -1,12 +1,10 @@
 import 'package:character_sheet/data/models/local_models/ability_model.dart';
 import 'package:character_sheet/data/models/local_models/class_model.dart';
 import 'package:character_sheet/data/models/local_models/skill_model.dart';
-import 'package:character_sheet/domain/entities/ability_entity.dart';
 import 'package:character_sheet/domain/entities/character_entity.dart';
 import 'package:hive/hive.dart';
 
 part 'character_model.g.dart';
-
 
 @HiveType(typeId: 2)
 class CharacterModel {
@@ -31,6 +29,7 @@ class CharacterModel {
     required CharactersAbilitiesModel this.abilities,
     required CharactersSkillsModel this.skills,
   });
+
   @HiveField(0)
   String name;
   @HiveField(1)

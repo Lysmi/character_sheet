@@ -10,6 +10,7 @@ class AbilityModel {
     this.saveProficiency = false,
     this.saveBonus = 0,
   });
+
   @HiveField(0)
   final int value;
   @HiveField(1)
@@ -20,8 +21,7 @@ class AbilityModel {
   AbilityDataEntity toEntity() => AbilityDataEntity(
       value: value, saveProficiency: saveProficiency, saveBonus: saveBonus);
 
-  factory AbilityModel.fromEntity(AbilityDataEntity entity) =>
-      AbilityModel(
+  factory AbilityModel.fromEntity(AbilityDataEntity entity) => AbilityModel(
         value: entity.value,
         saveProficiency: entity.saveProficiency,
         saveBonus: entity.saveBonus,
@@ -60,11 +60,12 @@ class CharactersAbilitiesModel {
       wisdomData: wisdom.toEntity(),
       charismaData: charisma.toEntity());
 
-  factory CharactersAbilitiesModel.fromEntity(CharactersAbilities entity) => CharactersAbilitiesModel(
-      strength: AbilityModel.fromEntity(entity.strength.data),
-      dexterity: AbilityModel.fromEntity(entity.dexterity.data),
-      constitution: AbilityModel.fromEntity(entity.constitution.data),
-      intelligence: AbilityModel.fromEntity(entity.intelligence.data),
-      wisdom: AbilityModel.fromEntity(entity.wisdom.data),
-      charisma: AbilityModel.fromEntity(entity.charisma.data));
+  factory CharactersAbilitiesModel.fromEntity(CharactersAbilities entity) =>
+      CharactersAbilitiesModel(
+          strength: AbilityModel.fromEntity(entity.strength.data),
+          dexterity: AbilityModel.fromEntity(entity.dexterity.data),
+          constitution: AbilityModel.fromEntity(entity.constitution.data),
+          intelligence: AbilityModel.fromEntity(entity.intelligence.data),
+          wisdom: AbilityModel.fromEntity(entity.wisdom.data),
+          charisma: AbilityModel.fromEntity(entity.charisma.data));
 }

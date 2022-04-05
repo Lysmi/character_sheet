@@ -67,7 +67,8 @@ class CharacterEntity extends Equatable {
         (searchSkill.data.proficiency ? proficiencyBonus : 0);
   }
 
-  get initiativeValue => abilities.abilityModifier(Abilities.dexterity) + initiativeBonus;
+  get initiativeValue =>
+      abilities.abilityModifier(Abilities.dexterity) + initiativeBonus;
 
   @override
   List<Object?> get props => [

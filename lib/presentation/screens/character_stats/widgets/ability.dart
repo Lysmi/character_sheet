@@ -51,19 +51,19 @@ class AbilityView extends StatelessWidget {
     );
   }
 
-  String _abilityName(Ability ability) {
+  String _abilityName(Abilities ability) {
     switch (ability) {
-      case Ability.strength:
+      case Abilities.strength:
         return "Str";
-      case Ability.dexterity:
+      case Abilities.dexterity:
         return "Dex";
-      case Ability.constitution:
+      case Abilities.constitution:
         return "Con";
-      case Ability.intelligence:
+      case Abilities.intelligence:
         return "Int";
-      case Ability.wisdom:
+      case Abilities.wisdom:
         return "Wis";
-      case Ability.charisma:
+      case Abilities.charisma:
         return "Cha";
     }
   }

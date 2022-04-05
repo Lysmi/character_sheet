@@ -1,6 +1,5 @@
 import 'package:character_sheet/data/models/local_models/character_model.dart';
 import 'package:character_sheet/data/models/providers/data_provider.dart';
-import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
 import '../../../core/pair.dart';
@@ -33,15 +32,13 @@ class LocalDataProvider implements DataProvider {
     );
   }
 
-
   @override
   bool haveCharacterWithKey(int key) {
     return _charactersBox.containsKey(key);
   }
 
   @override
-  void putCharacter(CharacterModel characterModel, int key)
-  {
+  void putCharacter(CharacterModel characterModel, int key) {
     _charactersBox.put(key, characterModel);
   }
 

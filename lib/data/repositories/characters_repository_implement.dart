@@ -26,6 +26,7 @@ class CharactersRepositoryImplement implements CharactersRepository {
 
   @override
   void putCharacter(CharacterEntity characterEntity) {
-    dataProvider.putCharacter(CharacterModel.fromEntity(characterEntity), characterEntity.key);
+    dataProvider.putCharacter(
+        CharacterModel.fromEntity(characterEntity), characterEntity.key);
   }
 }

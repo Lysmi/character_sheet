@@ -60,8 +60,7 @@ class CharactersAbilities extends Equatable {
             AbilityEntity(data: strengthData, ability: Abilities.charisma);
 
   int abilityModifier(Abilities ability) {
-    switch(ability)
-    {
+    switch (ability) {
       case Abilities.strength:
         return strength.data.getModifier();
       case Abilities.dexterity:
@@ -77,10 +76,8 @@ class CharactersAbilities extends Equatable {
     }
   }
 
-  int abilityValue(Abilities ability)
-  {
-    switch(ability)
-    {
+  int abilityValue(Abilities ability) {
+    switch (ability) {
       case Abilities.strength:
         return strength.data.value;
       case Abilities.dexterity:
@@ -95,7 +92,6 @@ class CharactersAbilities extends Equatable {
         return charisma.data.value;
     }
   }
-
 
   @override
   List<Object?> get props =>

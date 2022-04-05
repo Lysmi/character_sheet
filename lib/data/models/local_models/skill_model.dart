@@ -105,23 +105,24 @@ class CharactersSkillsModel {
       stealth: stealth.toEntity(),
       survival: survival.toEntity());
 
-  factory CharactersSkillsModel.fromEntity(CharactersSkills entity) => CharactersSkillsModel(
-      acrobatics: SkillModel.fromEntity(entity.acrobatics.data),
-      animalHandling: SkillModel.fromEntity(entity.animalHandling.data),
-      arcana: SkillModel.fromEntity(entity.arcana.data),
-      athletics: SkillModel.fromEntity(entity.athletics.data),
-      deception: SkillModel.fromEntity(entity.deception.data),
-      history: SkillModel.fromEntity(entity.history.data),
-      insight: SkillModel.fromEntity(entity.insight.data),
-      intimidation: SkillModel.fromEntity(entity.intimidation.data),
-      investigation: SkillModel.fromEntity(entity.investigation.data),
-      medicine: SkillModel.fromEntity(entity.medicine.data),
-      nature: SkillModel.fromEntity(entity.nature.data),
-      perception: SkillModel.fromEntity(entity.perception.data),
-      performance: SkillModel.fromEntity(entity.performance.data),
-      persuasion: SkillModel.fromEntity(entity.persuasion.data),
-      religion: SkillModel.fromEntity(entity.religion.data),
-      sleightOfHand: SkillModel.fromEntity(entity.sleightOfHand.data),
-      stealth: SkillModel.fromEntity(entity.stealth.data),
-      survival: SkillModel.fromEntity(entity.survival.data));
+  factory CharactersSkillsModel.fromEntity(CharactersSkills entity) =>
+      CharactersSkillsModel(
+          acrobatics: SkillModel.fromEntity(entity.acrobatics.data),
+          animalHandling: SkillModel.fromEntity(entity.animalHandling.data),
+          arcana: SkillModel.fromEntity(entity.arcana.data),
+          athletics: SkillModel.fromEntity(entity.athletics.data),
+          deception: SkillModel.fromEntity(entity.deception.data),
+          history: SkillModel.fromEntity(entity.history.data),
+          insight: SkillModel.fromEntity(entity.insight.data),
+          intimidation: SkillModel.fromEntity(entity.intimidation.data),
+          investigation: SkillModel.fromEntity(entity.investigation.data),
+          medicine: SkillModel.fromEntity(entity.medicine.data),
+          nature: SkillModel.fromEntity(entity.nature.data),
+          perception: SkillModel.fromEntity(entity.perception.data),
+          performance: SkillModel.fromEntity(entity.performance.data),
+          persuasion: SkillModel.fromEntity(entity.persuasion.data),
+          religion: SkillModel.fromEntity(entity.religion.data),
+          sleightOfHand: SkillModel.fromEntity(entity.sleightOfHand.data),
+          stealth: SkillModel.fromEntity(entity.stealth.data),
+          survival: SkillModel.fromEntity(entity.survival.data));
 }
