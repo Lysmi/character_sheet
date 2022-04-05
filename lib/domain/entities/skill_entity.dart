@@ -159,6 +159,48 @@ class CharactersSkills extends Equatable {
           skillAbility: Abilities.wisdom,
         );
 
+  SkillEntity getSkillEntity(Skills skill) {
+    switch (skill) {
+      case Skills.acrobatics:
+        return acrobatics;
+      case Skills.animalHandling:
+        return animalHandling;
+      case Skills.arcana:
+        return arcana;
+      case Skills.athletics:
+        return athletics;
+      case Skills.deception:
+        return deception;
+      case Skills.history:
+        return history;
+      case Skills.insight:
+        return insight;
+      case Skills.intimidation:
+        return intimidation;
+      case Skills.investigation:
+        return investigation;
+      case Skills.medicine:
+        return medicine;
+      case Skills.nature:
+        return nature;
+      case Skills.perception:
+        return perception;
+      case Skills.performance:
+        return performance;
+      case Skills.persuasion:
+        return persuasion;
+      case Skills.religion:
+        return religion;
+      case Skills.sleightOfHand:
+        return sleightOfHand;
+      case Skills.stealth:
+        return stealth;
+      case Skills.survival:
+        return survival;
+    }
+  }
+
+
   @override
   List<Object?> get props => [
         acrobatics,

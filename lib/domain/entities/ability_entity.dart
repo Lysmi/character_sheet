@@ -15,12 +15,6 @@ class AbilityDataEntity extends Equatable {
     return (value - 10) ~/ 2;
   }
 
-  String getModifierToString() {
-    int modifier = (value - 10) ~/ 2;
-    String modifierString = modifier.toString();
-    return modifier >= 0 ? "+$modifierString" : modifierString;
-  }
-
   @override
   List<Object?> get props => [value, saveProficiency, saveBonus];
 }
@@ -64,6 +58,44 @@ class CharactersAbilities extends Equatable {
         wisdom = AbilityEntity(data: strengthData, ability: Abilities.wisdom),
         charisma =
             AbilityEntity(data: strengthData, ability: Abilities.charisma);
+
+  int abilityModifier(Abilities ability) {
+    switch(ability)
+    {
+      case Abilities.strength:
+        return strength.data.getModifier();
+      case Abilities.dexterity:
+        return dexterity.data.getModifier();
+      case Abilities.constitution:
+        return constitution.data.getModifier();
+      case Abilities.intelligence:
+        return intelligence.data.getModifier();
+      case Abilities.wisdom:
+        return wisdom.data.getModifier();
+      case Abilities.charisma:
+        return charisma.data.getModifier();
+    }
+  }
+
+  int abilityValue(Abilities ability)
+  {
+    switch(ability)
+    {
+      case Abilities.strength:
+        return strength.data.value;
+      case Abilities.dexterity:
+        return dexterity.data.value;
+      case Abilities.constitution:
+        return constitution.data.value;
+      case Abilities.intelligence:
+        return intelligence.data.value;
+      case Abilities.wisdom:
+        return wisdom.data.value;
+      case Abilities.charisma:
+        return charisma.data.value;
+    }
+  }
+
 
   @override
   List<Object?> get props =>

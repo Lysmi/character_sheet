@@ -11,12 +11,12 @@ class CharacterEntity extends Equatable {
   String race;
   String subrace;
   List<ClassEntity> classes;
-  int xp;
+  int experience;
   String background;
   AlignmentLaw alignmentLaw;
   AlignmentGood alignmentGood;
   bool inspiration;
-  int ac;
+  int armorClass;
   int initiativeBonus;
   int speed;
   List<bool> deathSaveFailure;
@@ -32,12 +32,12 @@ class CharacterEntity extends Equatable {
     required this.race,
     required this.subrace,
     required this.classes,
-    required this.xp,
+    required this.experience,
     required this.background,
     required this.alignmentLaw,
     required this.alignmentGood,
     required this.inspiration,
-    required this.ac,
+    required this.armorClass,
     required this.initiativeBonus,
     required this.speed,
     required this.deathSaveFailure,
@@ -50,7 +50,7 @@ class CharacterEntity extends Equatable {
     this.key = 0,
   });
 
-  get lvl {
+  int get lvl {
     int newLvl = 0;
     for (var element in classes) {
       newLvl += element.lvl;
@@ -58,13 +58,16 @@ class CharacterEntity extends Equatable {
     return newLvl;
   }
 
-  int abilityBonus(Ability ability) => ((_character.abilities[ability]?.value ?? 10) - 10) ~/ 2;
+  int get proficiencyBonus => lvl ~/ 4 + 2;
 
-  int abilityValue(Ability ability) => _character.abilities[ability]?.value ?? 10;
+  int getSkillValue(Skills skill) {
+    var searchSkill = skills.getSkillEntity(skill);
+    return abilities.abilityModifier(searchSkill.skillAbility) +
+        searchSkill.data.bonus +
+        (searchSkill.data.proficiency ? proficiencyBonus : 0);
+  }
 
-  int skillValue(Skill skill) =>
-      _character.skills[skill]?.bonus ??
-          0 + abilityBonus(skillFromAbility[skill] ?? Ability.strength);
+  get initiativeValue => abilities.abilityModifier(Abilities.dexterity) + initiativeBonus;
 
   @override
   List<Object?> get props => [
@@ -72,12 +75,12 @@ class CharacterEntity extends Equatable {
         race,
         subrace,
         classes,
-        xp,
+        experience,
         background,
         alignmentLaw,
         alignmentGood,
         inspiration,
-        ac,
+        armorClass,
         initiativeBonus,
         speed,
         deathSaveSuccess,
