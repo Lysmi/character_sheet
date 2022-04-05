@@ -38,7 +38,7 @@ class AbilityEntity extends Equatable {
   List<Object?> get props => [data, ability];
 }
 
-class AbilityList extends Equatable {
+class CharactersAbilities extends Equatable {
   AbilityEntity strength;
   AbilityEntity dexterity;
   AbilityEntity constitution;
@@ -46,7 +46,7 @@ class AbilityList extends Equatable {
   AbilityEntity wisdom;
   AbilityEntity charisma;
 
-  AbilityList({
+  CharactersAbilities({
     required AbilityDataEntity strengthData,
     required AbilityDataEntity dexterityData,
     required AbilityDataEntity constitutionData,

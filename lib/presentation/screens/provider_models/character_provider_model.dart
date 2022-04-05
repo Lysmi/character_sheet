@@ -10,10 +10,10 @@ import '../../../data/models/local_models/character_model.dart';
 
 class CharacterProviderModel extends ChangeNotifier {
   final CharactersRepositoryImplement repository = CharactersRepositoryImplement();
-  CharacterEntity _character = repository;
+  CharacterEntity _character;
 
   CharacterProviderModel() {
-    if (!repository.haveCharacterWithId(0)) {
+    if (!repository.haveCharacterWithKey(0)) {
       repository.addCharacter(_character);
     } else {
       _character = repository.getCharacterAt(0);
@@ -76,12 +76,12 @@ class CharacterProviderModel extends ChangeNotifier {
 
   get proficiencyBonus => lvl~/4+2;
 
-  int abilityBonus(Ability ability) => ((_character.abilityList[ability]?.value ?? 10) - 10) ~/ 2;
+  int abilityBonus(Ability ability) => ((_character.abilities[ability]?.value ?? 10) - 10) ~/ 2;
 
-  int abilityValue(Ability ability) => _character.abilityList[ability]?.value ?? 10;
+  int abilityValue(Ability ability) => _character.abilities[ability]?.value ?? 10;
 
   int skillValue(Skill skill) =>
-      _character.skillList[skill]?.bonus ??
+      _character.skills[skill]?.bonus ??
       0 + abilityBonus(skillFromAbility[skill] ?? Ability.strength);
 
   void addHit(int value) {

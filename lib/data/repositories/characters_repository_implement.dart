@@ -14,16 +14,16 @@ class CharactersRepositoryImplement implements CharactersRepository {
 
   @override
   List<CharacterEntity> getAllCharacters() {
-    return dataProvider.getAllCharacters().map((e) => e.toEntity()).toList();
+    return dataProvider.getAllCharacters().map((e) => e.second.toEntity(e.first)).toList();
   }
 
   @override
   void putCharacter(CharacterEntity characterEntity) {
-    dataProvider.putCharacter(CharacterModel.fromEntity(characterEntity));
+    dataProvider.putCharacter(CharacterModel.fromEntity(characterEntity), characterEntity.key);
   }
 
   @override
-  CharacterEntity getCharacter(int id) {
-    return dataProvider.getCharacter(id).toEntity();
+  CharacterEntity getCharacter(int key) {
+    return dataProvider.getCharacter(key).second.toEntity(key);
   }
 }

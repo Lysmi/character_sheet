@@ -11,8 +11,9 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 import 'data/models/local_models/ability_model.dart';
 import 'data/models/local_models/character_model.dart';
-import 'data/models/hive/skill_model.dart';
 import 'package:device_preview/device_preview.dart';
+
+import 'data/models/local_models/skill_model.dart';
 
 Future<void> main() async {
   await hiveInit();
@@ -53,14 +54,14 @@ class MyApp extends StatelessWidget {
 
 hiveInit() async
 {
-  Hive.registerAdapter(AbilityAdapter());
   Hive.registerAdapter(AbilityModelAdapter());
+  Hive.registerAdapter(CharactersAbilitiesModelAdapter());
   Hive.registerAdapter(AlignmentGoodAdapter());
   Hive.registerAdapter(AlignmentLawAdapter());
   Hive.registerAdapter(CharacterModelAdapter());
   Hive.registerAdapter(ClassModelAdapter());
-  Hive.registerAdapter(SkillAdapter());
   Hive.registerAdapter(SkillModelAdapter());
+  Hive.registerAdapter(CharactersSkillsModelAdapter());
   await Hive.initFlutter();
   await Hive.openBox('characters');
 }

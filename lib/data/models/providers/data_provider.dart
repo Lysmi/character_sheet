@@ -1,17 +1,16 @@
+import '../../../core/pair.dart';
 import '../local_models/character_model.dart';
 
 abstract class DataProvider {
   int get length;
 
-  List<CharacterModel> getAllCharacters();
+  List<Pair<int, CharacterModel>> getAllCharacters();
 
-  CharacterModel getCharacter(int id);
+  Pair<int, CharacterModel> getCharacter(int key);
 
-  CharacterModel getCharacterAt(int index);
-
-  bool haveCharacterWithId(int id);
+  bool haveCharacterWithKey(int id);
 
   void addCharacter(CharacterModel characterModel);
 
-  void putCharacter(CharacterModel characterModel);
+  void putCharacter(CharacterModel characterModel, int key);
 }

@@ -1,19 +1,11 @@
 import 'package:character_sheet/data/models/local_models/character_model.dart';
 import 'package:character_sheet/data/models/providers/data_provider.dart';
-import 'package:objectbox/objectbox.dart';
+import 'package:hive/hive.dart';
+
+import '../../../core/pair.dart';
 
 class LocalDataProvider implements DataProvider {
-  late final Store _store;
-  late final Box _charactersBox;
-
-  LocalDataProvider() {
-    _initStore();
-  }
-
-  _initStore() async {
-    _store = await openStore();
-    _charactersBox = _store.box<CharacterModel>();
-  }
+  final _charactersBox = Hive.box("characters");
 
   @override
   void addCharacter(CharacterModel characterModel) async {
@@ -21,32 +13,34 @@ class LocalDataProvider implements DataProvider {
   }
 
   @override
-  List<CharacterModel> getAllCharacters() {
-    List<CharacterModel> newCharactersList = [];
+  List<Pair<int, CharacterModel>> getAllCharacters() {
+    List<Pair<int, CharacterModel>> newCharactersList = [];
     for (var i = 0; i < _charactersBox.length; i++) {
-      newCharactersList.add(_charactersBox.getAt(i));
+      newCharactersList.add(Pair(
+        _charactersBox.keyAt(i),
+        _charactersBox.getAt(i),
+      ));
     }
     return newCharactersList;
   }
 
   @override
-  CharacterModel getCharacter(int id) {
-    return _charactersBox.get(id);
+  Pair<int, CharacterModel> getCharacter(int key) {
+    return Pair(
+      key,
+      _charactersBox.get(key),
+    );
+  }
+
+
+  @override
+  bool haveCharacterWithKey(int key) {
+    return _charactersBox.containsKey(key);
   }
 
   @override
-  CharacterModel getCharacterAt(int index) {
-    return _charactersBox.getAt(index);
-  }
+  void putCharacter(CharacterModel characterModel, int key) {
 
-  @override
-  bool haveCharacterWithId(int id) {
-    return _charactersBox.containsKey(id);
-  }
-
-  @override
-  void putCharacter(CharacterModel characterModel) {
-    _charactersBox.put(characterModel.id, characterModel);
   }
 
   @override

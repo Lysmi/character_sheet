@@ -1,90 +1,70 @@
 import 'package:character_sheet/domain/entities/ability_entity.dart';
-import 'package:objectbox/objectbox.dart';
+import 'package:hive/hive.dart';
 
-@Entity()
-class AbilityDataModel {
-  AbilityDataModel({
+part 'ability_model.g.dart';
+
+@HiveType(typeId: 0)
+class AbilityModel {
+  AbilityModel({
     this.value = 10,
     this.saveProficiency = false,
     this.saveBonus = 0,
   });
-
-  int id = 0;
+  @HiveField(0)
   final int value;
+  @HiveField(1)
   final bool saveProficiency;
+  @HiveField(2)
   final int saveBonus;
 
   AbilityDataEntity toEntity() => AbilityDataEntity(
       value: value, saveProficiency: saveProficiency, saveBonus: saveBonus);
 
-  factory AbilityDataModel.fromEntity(AbilityDataEntity entity) =>
-      AbilityDataModel(
+  factory AbilityModel.fromEntity(AbilityDataEntity entity) =>
+      AbilityModel(
         value: entity.value,
         saveProficiency: entity.saveProficiency,
         saveBonus: entity.saveBonus,
       );
 }
 
-@Entity()
-class AbilityModel {
-  AbilityModel({
-    required this.data,
-    required this.ability,
-  });
-
-  int id = 0;
-  AbilityDataModel data;
-  Abilities ability;
-
-  AbilityEntity toEntity() =>
-      AbilityEntity(data: data.toEntity(), ability: ability);
-
-  factory AbilityModel.fromEntity(AbilityEntity entity) => AbilityModel(
-      data: AbilityDataModel.fromEntity(entity.data), ability: entity.ability);
-}
-
-@Entity()
-class AbilityListModel {
-  int id = 0;
+@HiveType(typeId: 1)
+class CharactersAbilitiesModel {
+  @HiveField(0)
   AbilityModel strength;
+  @HiveField(1)
   AbilityModel dexterity;
+  @HiveField(2)
   AbilityModel constitution;
+  @HiveField(3)
   AbilityModel intelligence;
+  @HiveField(4)
   AbilityModel wisdom;
+  @HiveField(5)
   AbilityModel charisma;
 
-  AbilityListModel({
-    required AbilityDataModel strengthData,
-    required AbilityDataModel dexterityData,
-    required AbilityDataModel constitutionData,
-    required AbilityDataModel intelligenceData,
-    required AbilityDataModel wisdomData,
-    required AbilityDataModel charismaData,
-  })  : strength =
-            AbilityModel(data: strengthData, ability: Abilities.strength),
-        dexterity =
-            AbilityModel(data: strengthData, ability: Abilities.dexterity),
-        constitution =
-            AbilityModel(data: strengthData, ability: Abilities.constitution),
-        intelligence =
-            AbilityModel(data: strengthData, ability: Abilities.intelligence),
-        wisdom = AbilityModel(data: strengthData, ability: Abilities.wisdom),
-        charisma =
-            AbilityModel(data: strengthData, ability: Abilities.charisma);
+  CharactersAbilitiesModel({
+    required this.strength,
+    required this.dexterity,
+    required this.constitution,
+    required this.intelligence,
+    required this.wisdom,
+    required this.charisma,
+  });
 
-  AbilityList toEntity() => AbilityList(
-      strengthData: strength.data.toEntity(),
-      dexterityData: dexterity.data.toEntity(),
-      constitutionData: constitution.data.toEntity(),
-      intelligenceData: intelligence.data.toEntity(),
-      wisdomData: wisdom.data.toEntity(),
-      charismaData: charisma.data.toEntity());
+  CharactersAbilities toEntity() => CharactersAbilities(
+      strengthData: strength.toEntity(),
+      dexterityData: dexterity.toEntity(),
+      constitutionData: constitution.toEntity(),
+      intelligenceData: intelligence.toEntity(),
+      wisdomData: wisdom.toEntity(),
+      charismaData: charisma.toEntity());
 
-  factory AbilityListModel.fromEntity(AbilityList entity) => AbilityListModel(
-      strengthData: AbilityDataModel.fromEntity(entity.strength.data),
-      dexterityData: AbilityDataModel.fromEntity(entity.dexterity.data),
-      constitutionData: AbilityDataModel.fromEntity(entity.constitution.data),
-      intelligenceData: AbilityDataModel.fromEntity(entity.intelligence.data),
-      wisdomData: AbilityDataModel.fromEntity(entity.wisdom.data),
-      charismaData: AbilityDataModel.fromEntity(entity.charisma.data));
+  factory CharactersAbilitiesModel.fromEntity(CharactersAbilities entity) => CharactersAbilitiesModel(
+      strength: AbilityModel.fromEntity(entity.strength.data),
+      dexterity: AbilityModel.fromEntity(entity.dexterity.data),
+      constitution: AbilityModel.fromEntity(entity.constitution.data),
+      intelligence: AbilityModel.fromEntity(entity.intelligence.data),
+      wisdom: AbilityModel.fromEntity(entity.wisdom.data),
+      charisma: AbilityModel.fromEntity(entity.charisma.data));
 }

@@ -1,7 +1,9 @@
 import 'package:character_sheet/domain/entities/class_entity.dart';
-import 'package:objectbox/objectbox.dart';
+import 'package:hive/hive.dart';
 
-@Entity()
+part 'class_model.g.dart';
+
+@HiveType(typeId: 5)
 class ClassModel {
   ClassModel({
     this.name = '',
@@ -9,11 +11,13 @@ class ClassModel {
     this.lvl = 1,
     this.hitDice = 4,
   });
-
-  int id = 0;
+  @HiveField(0)
   final String name;
+  @HiveField(1)
   final String? subclass;
+  @HiveField(2)
   final int lvl;
+  @HiveField(3)
   final int hitDice;
 
   ClassEntity toEntity() =>

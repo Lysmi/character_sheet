@@ -3,12 +3,14 @@ import 'package:character_sheet/data/models/local_models/class_model.dart';
 import 'package:character_sheet/data/models/local_models/skill_model.dart';
 import 'package:character_sheet/domain/entities/ability_entity.dart';
 import 'package:character_sheet/domain/entities/character_entity.dart';
-import 'package:objectbox/objectbox.dart';
+import 'package:hive/hive.dart';
 
-@Entity()
+part 'character_model.g.dart';
+
+
+@HiveType(typeId: 2)
 class CharacterModel {
   CharacterModel({
-    int id = 0,
     this.name = '',
     this.race = '',
     this.subrace = '',
@@ -26,33 +28,50 @@ class CharacterModel {
     this.maxHit = 1,
     this.currentHit = 1,
     this.tempHit = 0,
-    required AbilityListModel abilityList,
-    required SkillListModel skillList,
+    required CharactersAbilitiesModel this.abilities,
+    required CharactersSkillsModel this.skills,
   });
-
-  int id = 0;
+  @HiveField(0)
   String name;
+  @HiveField(1)
   String race;
+  @HiveField(2)
   String subrace;
+  @HiveField(3)
   List<ClassModel> classes;
+  @HiveField(4)
   int xp;
+  @HiveField(5)
   String background;
+  @HiveField(6)
   AlignmentLaw alignmentLaw;
+  @HiveField(7)
   AlignmentGood alignmentGood;
+  @HiveField(8)
   bool inspiration;
+  @HiveField(9)
   int ac;
+  @HiveField(10)
   int initiativeBonus;
+  @HiveField(11)
   int speed;
+  @HiveField(12)
   List<bool> deathSaveFailure;
+  @HiveField(13)
   List<bool> deathSaveSuccess;
+  @HiveField(14)
   int maxHit;
+  @HiveField(15)
   int currentHit;
+  @HiveField(16)
   int tempHit;
-  ToOne<AbilityListModel> abilityList;
-  ToOne<SkillListModel> skillList;
+  @HiveField(17)
+  CharactersAbilitiesModel abilities;
+  @HiveField(18)
+  CharactersSkillsModel skills;
 
-  CharacterEntity toEntity() => CharacterEntity(
-        id: id,
+  CharacterEntity toEntity(int key) => CharacterEntity(
+        key: key,
         name: name,
         race: race,
         subrace: subrace,
@@ -70,12 +89,11 @@ class CharacterModel {
         maxHit: maxHit,
         currentHit: currentHit,
         tempHit: tempHit,
-        abilityList: abilityList.target.toEntity(),
-        skillList: skillList.toEntity(),
+        abilities: abilities.toEntity(),
+        skills: skills.toEntity(),
       );
 
   factory CharacterModel.fromEntity(CharacterEntity entity) => CharacterModel(
-        id: entity.id,
         name: entity.name,
         race: entity.race,
         subrace: entity.subrace,
@@ -93,19 +111,27 @@ class CharacterModel {
         maxHit: entity.maxHit,
         currentHit: entity.currentHit,
         tempHit: entity.tempHit,
-        abilityList: AbilityListModel.fromEntity(entity.abilityList),
-        skillList: SkillListModel.fromEntity(entity.skillList),
+        abilities: CharactersAbilitiesModel.fromEntity(entity.abilities),
+        skills: CharactersSkillsModel.fromEntity(entity.skills),
       );
 }
 
+@HiveType(typeId: 3)
 enum AlignmentLaw {
+  @HiveField(0)
   lawful,
+  @HiveField(1)
   neutral,
+  @HiveField(2)
   chaotic,
 }
 
+@HiveType(typeId: 4)
 enum AlignmentGood {
+  @HiveField(0)
   good,
+  @HiveField(1)
   neutral,
+  @HiveField(2)
   evil,
 }

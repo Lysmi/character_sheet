@@ -26,7 +26,7 @@ class SkillEntity extends Equatable {
   List<Object?> get props => [data, skill];
 }
 
-class SkillList extends Equatable {
+class CharactersSkills extends Equatable {
   SkillEntity acrobatics;
   SkillEntity animalHandling;
   SkillEntity arcana;
@@ -46,7 +46,7 @@ class SkillList extends Equatable {
   SkillEntity stealth;
   SkillEntity survival;
 
-  SkillList({
+  CharactersSkills({
     required SkillDataEntity acrobatics,
     required SkillDataEntity animalHandling,
     required SkillDataEntity arcana,
