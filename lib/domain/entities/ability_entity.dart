@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class AbilityDataEntity extends Equatable {
+class AbilityDataEntity {
   int value;
   bool saveProficiency;
   int saveBonus;
@@ -14,12 +14,9 @@ class AbilityDataEntity extends Equatable {
   int getModifier() {
     return (value - 10) ~/ 2;
   }
-
-  @override
-  List<Object?> get props => [value, saveProficiency, saveBonus];
 }
 
-class AbilityEntity extends Equatable {
+class AbilityEntity{
   AbilityEntity({
     required this.data,
     required this.ability,
@@ -28,11 +25,9 @@ class AbilityEntity extends Equatable {
   AbilityDataEntity data;
   final Abilities ability;
 
-  @override
-  List<Object?> get props => [data, ability];
 }
 
-class CharactersAbilities extends Equatable {
+class CharactersAbilities {
   AbilityEntity strength;
   AbilityEntity dexterity;
   AbilityEntity constitution;
@@ -92,10 +87,6 @@ class CharactersAbilities extends Equatable {
         return charisma.data.value;
     }
   }
-
-  @override
-  List<Object?> get props =>
-      [strength, dexterity, constitution, intelligence, wisdom, charisma];
 }
 
 enum Abilities {

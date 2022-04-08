@@ -1,12 +1,14 @@
 import 'package:character_sheet/data/models/local_models/character_model.dart';
+import 'package:character_sheet/domain/entities/feat_entity.dart';
 import 'package:character_sheet/domain/entities/skill_entity.dart';
 import 'package:equatable/equatable.dart';
 
 import 'ability_entity.dart';
 import 'class_entity.dart';
 
-class CharacterEntity extends Equatable {
+class CharacterEntity {
   int key;
+  String? imagePath;
   String name;
   String race;
   String subrace;
@@ -26,6 +28,7 @@ class CharacterEntity extends Equatable {
   int tempHit;
   CharactersAbilities abilities;
   CharactersSkills skills;
+  List<FeatEntity> feats;
 
   CharacterEntity({
     required this.name,
@@ -47,7 +50,9 @@ class CharacterEntity extends Equatable {
     required this.tempHit,
     required this.abilities,
     required this.skills,
+    required this.feats,
     this.key = 0,
+    this.imagePath,
   });
 
   int get lvl {
@@ -70,26 +75,4 @@ class CharacterEntity extends Equatable {
   get initiativeValue =>
       abilities.abilityModifier(Abilities.dexterity) + initiativeBonus;
 
-  @override
-  List<Object?> get props => [
-        name,
-        race,
-        subrace,
-        classes,
-        experience,
-        background,
-        alignmentLaw,
-        alignmentGood,
-        inspiration,
-        armorClass,
-        initiativeBonus,
-        speed,
-        deathSaveSuccess,
-        deathSaveFailure,
-        maxHit,
-        currentHit,
-        tempHit,
-        abilities,
-        skills,
-      ];
 }

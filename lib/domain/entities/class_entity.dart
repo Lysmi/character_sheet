@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-class ClassEntity extends Equatable {
+class ClassEntity {
   String name;
   String? subclass;
   int lvl;
@@ -12,7 +12,4 @@ class ClassEntity extends Equatable {
     required this.lvl,
     required this.hitDice,
   });
-
-  @override
-  List<Object?> get props => [name, subclass, lvl, hitDice];
 }

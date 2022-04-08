@@ -1,7 +1,7 @@
 import 'package:character_sheet/domain/entities/ability_entity.dart';
 import 'package:equatable/equatable.dart';
 
-class SkillDataEntity extends Equatable {
+class SkillDataEntity {
   bool proficiency;
   int bonus;
 
@@ -9,12 +9,9 @@ class SkillDataEntity extends Equatable {
     required this.proficiency,
     required this.bonus,
   });
-
-  @override
-  List<Object?> get props => [proficiency, bonus];
 }
 
-class SkillEntity extends Equatable {
+class SkillEntity {
   SkillDataEntity data;
   final Skills skill;
   final Abilities skillAbility;
@@ -24,12 +21,9 @@ class SkillEntity extends Equatable {
     required this.skill,
     required this.skillAbility,
   });
-
-  @override
-  List<Object?> get props => [data, skill, skillAbility];
 }
 
-class CharactersSkills extends Equatable {
+class CharactersSkills {
   SkillEntity acrobatics;
   SkillEntity animalHandling;
   SkillEntity arcana;
@@ -199,28 +193,6 @@ class CharactersSkills extends Equatable {
         return survival;
     }
   }
-
-  @override
-  List<Object?> get props => [
-        acrobatics,
-        animalHandling,
-        arcana,
-        athletics,
-        deception,
-        history,
-        insight,
-        intimidation,
-        investigation,
-        medicine,
-        nature,
-        perception,
-        performance,
-        persuasion,
-        religion,
-        sleightOfHand,
-        stealth,
-        survival,
-      ];
 }
 
 enum Skills {
