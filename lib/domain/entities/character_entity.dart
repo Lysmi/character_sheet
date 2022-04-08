@@ -67,12 +67,46 @@ class CharacterEntity {
 
   int getSkillValue(Skills skill) {
     var searchSkill = skills.getSkillEntity(skill);
-    return abilities.abilityModifier(searchSkill.skillAbility) +
+    return getAbilityModifier(searchSkill.skillAbility) +
         searchSkill.data.bonus +
         (searchSkill.data.proficiency ? proficiencyBonus : 0);
   }
 
+  int getAbilityModifier(Abilities ability) {
+    switch (ability) {
+      case Abilities.strength:
+        return abilities.strength.data.getModifier();
+      case Abilities.dexterity:
+        return abilities.dexterity.data.getModifier();
+      case Abilities.constitution:
+        return abilities.constitution.data.getModifier();
+      case Abilities.intelligence:
+        return abilities.intelligence.data.getModifier();
+      case Abilities.wisdom:
+        return abilities.wisdom.data.getModifier();
+      case Abilities.charisma:
+        return abilities.charisma.data.getModifier();
+    }
+  }
+
+  int getAbilityValue(Abilities ability) {
+    switch (ability) {
+      case Abilities.strength:
+        return abilities.strength.data.value;
+      case Abilities.dexterity:
+        return abilities.dexterity.data.value;
+      case Abilities.constitution:
+        return abilities.constitution.data.value;
+      case Abilities.intelligence:
+        return abilities.intelligence.data.value;
+      case Abilities.wisdom:
+        return abilities.wisdom.data.value;
+      case Abilities.charisma:
+        return abilities.charisma.data.value;
+    }
+  }
+
   get initiativeValue =>
-      abilities.abilityModifier(Abilities.dexterity) + initiativeBonus;
+      getAbilityModifier(Abilities.dexterity) + initiativeBonus;
 
 }

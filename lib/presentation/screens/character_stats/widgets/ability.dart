@@ -42,7 +42,7 @@ class AbilityView extends StatelessWidget {
             width: 30,
             alignment: Alignment.center,
             child: Text(
-              character.abilityValue(ability).toString(),
+              character.getAbilityValue(ability).toString(),
               style: smallTitleOnMainTextStyle,
             ),
           )
