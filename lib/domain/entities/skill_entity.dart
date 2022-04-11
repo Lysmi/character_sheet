@@ -1,5 +1,4 @@
 import 'package:character_sheet/domain/entities/ability_entity.dart';
-import 'package:equatable/equatable.dart';
 
 class SkillDataEntity {
   bool proficiency;
@@ -42,6 +41,28 @@ class CharactersSkills {
   SkillEntity sleightOfHand;
   SkillEntity stealth;
   SkillEntity survival;
+
+  CharactersSkills.defaultCharacter()
+      : this(
+          acrobatics: SkillDataEntity(proficiency: false, bonus: 0),
+          animalHandling: SkillDataEntity(proficiency: false, bonus: 0),
+          arcana: SkillDataEntity(proficiency: false, bonus: 0),
+          athletics: SkillDataEntity(proficiency: false, bonus: 0),
+          deception: SkillDataEntity(proficiency: false, bonus: 0),
+          history: SkillDataEntity(proficiency: false, bonus: 0),
+          insight: SkillDataEntity(proficiency: false, bonus: 0),
+          intimidation: SkillDataEntity(proficiency: false, bonus: 0),
+          investigation: SkillDataEntity(proficiency: false, bonus: 0),
+          medicine: SkillDataEntity(proficiency: false, bonus: 0),
+          nature: SkillDataEntity(proficiency: false, bonus: 0),
+          perception: SkillDataEntity(proficiency: false, bonus: 0),
+          performance: SkillDataEntity(proficiency: false, bonus: 0),
+          persuasion: SkillDataEntity(proficiency: false, bonus: 0),
+          religion: SkillDataEntity(proficiency: false, bonus: 0),
+          sleightOfHand: SkillDataEntity(proficiency: false, bonus: 0),
+          stealth: SkillDataEntity(proficiency: false, bonus: 0),
+          survival: SkillDataEntity(proficiency: false, bonus: 0),
+        );
 
   CharactersSkills({
     required SkillDataEntity acrobatics,
