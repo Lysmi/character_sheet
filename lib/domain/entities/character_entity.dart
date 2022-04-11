@@ -29,7 +29,7 @@ class CharacterEntity {
   CharactersAbilities abilities;
   CharactersSkills skills;
   List<FeatEntity> feats;
-
+  
   CharacterEntity({
     required this.name,
     required this.race,
