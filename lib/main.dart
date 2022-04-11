@@ -1,33 +1,37 @@
-
 import 'dart:developer';
 
-import 'package:character_sheet/data/repositories/characters_repository_implement.dart';
 import 'package:character_sheet/data/models/local_models/class_model.dart';
+import 'package:character_sheet/data/repositories/characters_repository_implement.dart';
+import 'package:character_sheet/domain/usecases/characters_write.dart';
 import 'package:character_sheet/presentation/screens/character_stats/character_stats_page.dart';
+import 'package:character_sheet/presentation/screens/characters_list/character_list_page.dart';
 import 'package:character_sheet/presentation/styles/colours.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
+
 import 'data/models/local_models/ability_model.dart';
 import 'data/models/local_models/character_model.dart';
-import 'package:device_preview/device_preview.dart';
-
 import 'data/models/local_models/skill_model.dart';
+import 'domain/entities/ability_entity.dart';
+import 'domain/entities/character_entity.dart';
+import 'domain/entities/class_entity.dart';
+import 'domain/entities/skill_entity.dart';
 
 Future<void> main() async {
   await hiveInit();
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,
-      builder: (context) => const MyApp(), // Wrap your app
+      builder: (context) => MyApp(), // Wrap your app
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+  MyApp({Key? key}) : super(key: key);
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -47,13 +51,12 @@ class MyApp extends StatelessWidget {
           onSecondary: darkTheme.onMainColor,
         ),
       ),
-      home: const CharacterStatsContent(),
+      home: const CharactersList(),
     );
   }
 }
 
-hiveInit() async
-{
+hiveInit() async {
   Hive.registerAdapter(AbilityModelAdapter());
   Hive.registerAdapter(CharactersAbilitiesModelAdapter());
   Hive.registerAdapter(AlignmentGoodAdapter());
