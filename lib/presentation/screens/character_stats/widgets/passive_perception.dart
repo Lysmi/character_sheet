@@ -1,3 +1,4 @@
+import 'package:character_sheet/domain/entities/skill_entity.dart';
 import 'package:character_sheet/presentation/screens/provider_models/character_provider_model.dart';
 import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:character_sheet/presentation/styles/global_styles.dart';
@@ -36,7 +37,7 @@ class PassivePerception extends StatelessWidget {
                 height: 33,
                 alignment: Alignment.center,
                 child: Text(
-                  (character.skillValue(Skill.perception) + 10).toString(),
+                  (character.getSkillValue(Skills.perception) + 10).toString(),
                   style: smallValueTextStyle,
                   textAlign: TextAlign.center,
                 ),

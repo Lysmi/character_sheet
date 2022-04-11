@@ -38,7 +38,7 @@ class Info extends StatelessWidget {
               ],
             ),
             CharacterClasses(
-              characterClasses: character.classes,
+              characterClasses: character.classes.toList(),
             ),
             Wrap(
               spacing: 8,

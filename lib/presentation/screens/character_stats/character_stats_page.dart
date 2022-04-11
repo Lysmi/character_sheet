@@ -1,3 +1,4 @@
+import 'package:character_sheet/domain/entities/character_entity.dart';
 import 'package:character_sheet/presentation/screens/character_stats/widgets/ability_list.dart';
 import 'package:character_sheet/presentation/screens/character_stats/widgets/character_photo.dart';
 import 'package:character_sheet/presentation/screens/character_stats/widgets/death_save.dart';
@@ -15,14 +16,18 @@ import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class CharacterStatsContent extends StatelessWidget {
-  const CharacterStatsContent({Key? key}) : super(key: key);
+class CharacterStats extends StatelessWidget {
+  const CharacterStats({
+    Key? key,
+    required this.characterEntity,
+  }) : super(key: key);
+  final CharacterEntity characterEntity;
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => CharacterProviderModel(),
+      create: (context) => CharacterProviderModel(characterEntity),
       child: Scaffold(
         appBar: AppBar(
           title: const Text("William"),

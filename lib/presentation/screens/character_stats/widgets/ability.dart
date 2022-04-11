@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 
 class AbilityView extends StatelessWidget {
   const AbilityView({Key? key, required this.ability, required this.character}) : super(key: key);
-  final AbilityDataEntity ability;
+  final Abilities ability;
   final CharacterProviderModel character;
 
   @override
@@ -31,7 +31,7 @@ class AbilityView extends StatelessWidget {
             style: accentSmallTitleTextStyle,
           ),
           Text(
-            addPlusToInt(character.abilityBonus(ability)),
+            addPlusToInt(character.getAbilityModifier(ability)),
             style: smallValueTextStyle,
           ),
           Container(

@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import 'package:flutter/material.dart';
 
+import '../../../../domain/entities/ability_entity.dart';
 import 'ability.dart';
 
 class AbilityListView extends StatelessWidget {
@@ -17,42 +18,42 @@ class AbilityListView extends StatelessWidget {
         child: Column(
           children: [
             AbilityView(
-              ability: Ability.strength,
+              ability: Abilities.strength,
               character: character,
             ),
             const SizedBox(
               height: 9,
             ),
             AbilityView(
-              ability: Ability.dexterity,
+              ability: Abilities.dexterity,
               character: character,
             ),
             const SizedBox(
               height: 9,
             ),
             AbilityView(
-              ability: Ability.constitution,
+              ability: Abilities.constitution,
               character: character,
             ),
             const SizedBox(
               height: 9,
             ),
             AbilityView(
-              ability: Ability.intelligence,
+              ability: Abilities.intelligence,
               character: character,
             ),
             const SizedBox(
               height: 9,
             ),
             AbilityView(
-              ability: Ability.wisdom,
+              ability: Abilities.wisdom,
               character: character,
             ),
             const SizedBox(
               height: 9,
             ),
             AbilityView(
-              ability: Ability.charisma,
+              ability: Abilities.charisma,
               character: character,
             ),
           ],

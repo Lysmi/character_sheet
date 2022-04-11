@@ -1,104 +1,104 @@
 import 'dart:collection';
 
-import 'package:character_sheet/data/repositories/characters_repository_implement.dart';
 import 'package:character_sheet/data/models/local_models/class_model.dart';
+import 'package:character_sheet/data/repositories/characters_repository_implement.dart';
+import 'package:character_sheet/domain/entities/ability_entity.dart';
 import 'package:character_sheet/domain/entities/character_entity.dart';
+import 'package:character_sheet/domain/entities/class_entity.dart';
+import 'package:character_sheet/domain/entities/skill_entity.dart';
+import 'package:character_sheet/domain/usecases/characters_read.dart';
 import 'package:flutter/material.dart';
 
+import '../../../core/helpers.dart';
 import '../../../data/models/local_models/ability_model.dart';
 import '../../../data/models/local_models/character_model.dart';
+import '../../../domain/usecases/characters_write.dart';
 
 class CharacterProviderModel extends ChangeNotifier {
-  final CharactersRepositoryImplement repository = CharactersRepositoryImplement();
-  CharacterEntity _character;
+  final CharactersRepositoryImplement _repository =
+      CharactersRepositoryImplement();
+  late final CharactersWrite _charactersWrite;
+  late final CharactersRead _charactersRead;
+  final CharacterEntity _currentCharacter;
 
-  CharacterProviderModel() {
-    if (!repository.haveCharacterWithKey(0)) {
-      repository.addCharacter(_character);
-    } else {
-      _character = repository.getCharacterAt(0);
-    }
+  CharacterProviderModel(this._currentCharacter) {
+    _charactersWrite = CharactersWrite(_repository);
+    _charactersRead = CharactersRead(_repository);
   }
 
-  get name => _character.name;
+  get name => _currentCharacter.name;
 
-  get race => _character.race;
+  get race => _currentCharacter.race;
 
-  get subrace => _character.subrace;
+  get subrace => _currentCharacter.subrace;
 
-  get classes => UnmodifiableListView(_character.classes);
+  UnmodifiableListView<ClassEntity> get classes => UnmodifiableListView(_currentCharacter.classes);
 
-  get xp => _character.experience;
+  get xp => _currentCharacter.experience;
 
-  get lvl => _character.lvl;
+  get lvl => _currentCharacter.lvl;
 
-  get background => _character.background;
+  get proficiencyBonus => _currentCharacter.proficiencyBonus;
 
-  get alignmentLaw => _character.alignmentLaw;
+  get background => _currentCharacter.background;
 
-  get alignmentGood => _character.alignmentGood;
+  get alignmentLaw => _currentCharacter.alignmentLaw;
 
-  get inspiration => _character.inspiration;
+  get alignmentGood => _currentCharacter.alignmentGood;
 
-  get ac => _character.armorClass;
+  get inspiration => _currentCharacter.inspiration;
 
-  get speed => _character.speed;
+  get initiative => _currentCharacter.initiativeValue;
 
-  get deathSaveFailure => UnmodifiableListView(_character.deathSaveFailure);
+  get ac => _currentCharacter.armorClass;
 
-  get deathSaveSuccess => UnmodifiableListView(_character.deathSaveSuccess);
+  get speed => _currentCharacter.speed;
 
-  void changeDeathSaveFailure(int index){
-    _character.deathSaveFailure[index] = !_character.deathSaveFailure[index];
-    repository.putCharacter(_character);
+  UnmodifiableListView get deathSaveFailure => UnmodifiableListView(_currentCharacter.deathSaveFailure);
+
+  UnmodifiableListView get deathSaveSuccess => UnmodifiableListView(_currentCharacter.deathSaveSuccess);
+
+  void changeDeathSaveFailure(int index) {
+    _currentCharacter.deathSaveFailure[index] = !_currentCharacter.deathSaveFailure[index];
+    _charactersWrite.putCharacter(_currentCharacter);
     notifyListeners();
   }
 
-  void changeDeathSaveSuccess(int index){
-    _character.deathSaveSuccess[index] = !_character.deathSaveSuccess[index];
-    repository.putCharacter(_character);
+  void changeDeathSaveSuccess(int index) {
+    _currentCharacter.deathSaveSuccess[index] = !_currentCharacter.deathSaveSuccess[index];
+    _charactersWrite.putCharacter(_currentCharacter);
     notifyListeners();
   }
 
-  get maxHit => _character.maxHit;
+  get maxHit => _currentCharacter.maxHit;
 
-  get currentHit => _character.currentHit;
+  get currentHit => _currentCharacter.currentHit;
 
-  get tempHit => _character.tempHit;
-
-
-
+  get tempHit => _currentCharacter.tempHit;
 
   void addHit(int value) {
-    _character.currentHit -= value;
-    repository.putCharacter(_character);
+    _currentCharacter.currentHit -= value;
+    _charactersWrite.putCharacter(_currentCharacter);
     notifyListeners();
   }
 
   void removeHit(int value) {
-    _character.currentHit += value;
-    repository.putCharacter(_character);
+    _currentCharacter.currentHit += value;
+    _charactersWrite.putCharacter(_currentCharacter);
     notifyListeners();
   }
-}
 
-const skillFromAbility = {
-  Skill.arcana: Ability.intelligence,
-  Skill.acrobatics: Ability.dexterity,
-  Skill.animalHandling: Ability.wisdom,
-  Skill.athletics: Ability.strength,
-  Skill.deception: Ability.charisma,
-  Skill.history: Ability.intelligence,
-  Skill.insight: Ability.wisdom,
-  Skill.intimidation: Ability.charisma,
-  Skill.investigation: Ability.intelligence,
-  Skill.medicine: Ability.wisdom,
-  Skill.nature: Ability.intelligence,
-  Skill.perception: Ability.wisdom,
-  Skill.performance: Ability.charisma,
-  Skill.persuasion: Ability.charisma,
-  Skill.religion: Ability.intelligence,
-  Skill.sleightOfHand: Ability.dexterity,
-  Skill.stealth: Ability.dexterity,
-  Skill.survival: Ability.wisdom,
-};
+  int getAbilityModifier(Abilities ability) {
+    return _currentCharacter.getAbilityModifier(ability);
+  }
+
+  int getAbilityValue(Abilities ability){
+    return _currentCharacter.getAbilityValue(ability);
+  }
+
+  int getSkillValue(Skills skill){
+    return _currentCharacter.getSkillValue(skill);
+  }
+
+
+}
