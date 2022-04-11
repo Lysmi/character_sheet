@@ -15,13 +15,14 @@ class CharactersRepositoryImplement implements CharactersRepository {
 
   @override
   Future<CharacterEntity> getCharacter(int key) async {
-    final char = await dataProvider.getCharacter(key);
-    return char.second.toEntity(key);
+    return (await dataProvider.getCharacter(key)).second.toEntity(key);
   }
 
   @override
-  void addCharacter(CharacterEntity characterEntity) {
-    dataProvider.addCharacter(CharacterModel.fromEntity(characterEntity));
+  Future<CharacterEntity> addCharacter(CharacterEntity characterEntity) async {
+    characterEntity.key = await dataProvider
+        .addCharacter(CharacterModel.fromEntity(characterEntity));
+    return characterEntity;
   }
 
   @override

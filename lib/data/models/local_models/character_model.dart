@@ -26,8 +26,8 @@ class CharacterModel {
     this.maxHit = 1,
     this.currentHit = 1,
     this.tempHit = 0,
-    required CharactersAbilitiesModel this.abilities,
-    required CharactersSkillsModel this.skills,
+    required this.abilities,
+    required this.skills,
   });
 
   @HiveField(0)
@@ -90,6 +90,7 @@ class CharacterModel {
         tempHit: tempHit,
         abilities: abilities.toEntity(),
         skills: skills.toEntity(),
+        feats: [],
       );
 
   factory CharacterModel.fromEntity(CharacterEntity entity) => CharacterModel(

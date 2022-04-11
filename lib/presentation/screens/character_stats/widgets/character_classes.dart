@@ -1,4 +1,5 @@
 import 'package:character_sheet/data/models/local_models/class_model.dart';
+import 'package:character_sheet/domain/entities/class_entity.dart';
 import 'package:character_sheet/presentation/styles/assets_images.dart';
 import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:character_sheet/presentation/styles/global_styles.dart';
@@ -9,7 +10,7 @@ import 'package:flutter/material.dart';
 
 class CharacterClasses extends StatefulWidget {
   const CharacterClasses({Key? key, required this.characterClasses}) : super(key: key);
-  final List<ClassModel> characterClasses;
+  final List<ClassEntity> characterClasses;
 
   @override
   State<CharacterClasses> createState() => _CharacterClassesState(characterClasses);
@@ -17,7 +18,7 @@ class CharacterClasses extends StatefulWidget {
 
 class _CharacterClassesState extends State<CharacterClasses> {
   int _currIndex = 0;
-  final List<ClassModel> characterClasses;
+  final List<ClassEntity> characterClasses;
 
   _CharacterClassesState(this.characterClasses);
 

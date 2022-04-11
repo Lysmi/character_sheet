@@ -5,7 +5,7 @@ abstract class CharactersRepository {
 
   Future<CharacterEntity> getCharacter(int id);
 
-  void addCharacter(CharacterEntity characterEntity);
+  Future<CharacterEntity> addCharacter(CharacterEntity characterEntity);
 
   void putCharacter(CharacterEntity characterEntity);
 }
