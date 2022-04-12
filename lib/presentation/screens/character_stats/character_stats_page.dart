@@ -16,6 +16,8 @@ import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../core/constants.dart';
+
 class CharacterStats extends StatelessWidget {
   const CharacterStats({
     Key? key,
@@ -32,7 +34,7 @@ class CharacterStats extends StatelessWidget {
         appBar: AppBar(
           title: const Text("William"),
           backgroundColor: currTheme.mainColor,
-          toolbarHeight: 42,
+          toolbarHeight: toolbarHeight,
         ),
         body: Center(
           child: Container(

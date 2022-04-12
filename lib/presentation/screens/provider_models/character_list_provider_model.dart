@@ -18,9 +18,11 @@ class CharacterListProviderModel extends ChangeNotifier {
     _charactersRead = CharactersRead(_repository);
   }
 
-  void addCharacter() async {
-    _characterList.add(await _charactersWrite.createCharacter());
+  Future<CharacterEntity> addCharacter() async {
+    CharacterEntity character = await _charactersWrite.createCharacter();
+    _characterList.add(character);
     notifyListeners();
+    return character;
   }
 
   Future<List<CharacterEntity>> getAllCharacter() async {

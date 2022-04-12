@@ -15,7 +15,7 @@ class LocalDataProvider implements DataProvider {
     try{
       return await _charactersBox.add(characterModel);
     } catch(e) {
-      throw DatabaseError("Add character error. Error description: $e");
+      throw DatabaseError("AddCharacter error");
     }
   }
 
@@ -31,7 +31,7 @@ class LocalDataProvider implements DataProvider {
       }
       return newCharactersList;
     } catch(e) {
-      throw DatabaseError("Get characters error. Error description: $e");
+      throw DatabaseError("GetAllCharacters() error");
     }
   }
 
@@ -43,7 +43,7 @@ class LocalDataProvider implements DataProvider {
         _charactersBox.get(key),
       );
     } catch(e) {
-      throw DatabaseError("Get character error. Error description: $e");
+      throw DatabaseError("GetCharacter() error");
     }
   }
 
@@ -52,7 +52,7 @@ class LocalDataProvider implements DataProvider {
     try{
       return _charactersBox.containsKey(key);
     } catch(e) {
-      throw DatabaseError("Exist character error. Error description: $e");
+      throw DatabaseError("ExistCharacterWithKey() error");
     }
   }
 
