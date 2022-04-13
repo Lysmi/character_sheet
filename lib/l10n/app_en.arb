@@ -1,8 +1,41 @@
 {
-    "strength": "Strength",
-    "dexterity": "Dexterity",
-    "constitution": "Constitution",
-    "intelligence": "Intelligence",
-    "wisdom": "Wisdom",
-    "charisma": "Charisma"
+"strength": "Strength",
+"dexterity": "Dexterity",
+"constitution": "Constitution",
+"intelligence": "Intelligence",
+"wisdom": "Wisdom",
+"charisma": "Charisma",
+"strength_reduction": "Str",
+"dexterity_reduction": "Dex",
+"constitution_reduction": "Con",
+"intelligence_reduction": "Int",
+"wisdom_reduction": "Wis",
+"charisma_reduction": "Cha",
+"armor_class": "AC",
+"initiative": "Initiative",
+"speed": "Speed",
+"saving_throws_title": "Saving Throws",
+"death_save_title": "Death Save",
+"passive_perception_title": "Passive Perception",
+"hit_dice_title": "Hit Dice",
+"lvl": "{lvlValue} lvl",
+"@lvl": {
+  "placeholders": {
+    "lvlValue": {}
+    }
+  },
+"experience": "{xp} xp",
+"@experience": {
+  "placeholders": {
+    "xp": {}
+  }
+},
+"inspiration": "Inspiration",
+"proficiency_bonus": "Proficiency Bonus",
+"good": "Good",
+"neutral_good": "Neutral",
+"evil": "Evil",
+"neutral_lawful": "Neutral",
+"lawful": "Lawful",
+"chaotic": "Chaotic"
 }

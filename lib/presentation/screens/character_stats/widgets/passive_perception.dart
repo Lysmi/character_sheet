@@ -4,6 +4,7 @@ import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:character_sheet/presentation/styles/global_styles.dart';
 import 'package:character_sheet/presentation/styles/text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 class PassivePerception extends StatelessWidget {
@@ -24,9 +25,9 @@ class PassivePerception extends StatelessWidget {
           Container(
             padding: const EdgeInsets.only(top: 4),
             alignment: Alignment.center,
-            height: 28,
+            height: 32,
             child: Text(
-              "Pas.\nPerception",
+              AppLocalizations.of(context).passive_perception_title,
               style: smallTitleTextStyle,
               textAlign: TextAlign.center,
             ),
@@ -34,7 +35,7 @@ class PassivePerception extends StatelessWidget {
           Consumer<CharacterProviderModel>(
             builder: (context, character, child) {
               return Container(
-                height: 33,
+                height: 30,
                 alignment: Alignment.center,
                 child: Text(
                   (character.getSkillValue(Skills.perception) + 10).toString(),

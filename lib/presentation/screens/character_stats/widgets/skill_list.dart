@@ -1,6 +1,5 @@
 import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:character_sheet/presentation/styles/global_styles.dart';
-import 'package:character_sheet/presentation/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 
 class SkillListView extends StatelessWidget {

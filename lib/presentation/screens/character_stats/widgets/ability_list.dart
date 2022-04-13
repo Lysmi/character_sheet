@@ -1,8 +1,6 @@
-import 'package:character_sheet/data/models/local_models/ability_model.dart';
 import 'package:character_sheet/presentation/screens/provider_models/character_provider_model.dart';
-import 'package:provider/provider.dart';
-
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../domain/entities/ability_entity.dart';
 import 'ability.dart';
@@ -13,7 +11,7 @@ class AbilityListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<CharacterProviderModel>(
-      builder:(context, character, child) => SizedBox(
+      builder: (context, character, child) => SizedBox(
         height: 345,
         child: Column(
           children: [

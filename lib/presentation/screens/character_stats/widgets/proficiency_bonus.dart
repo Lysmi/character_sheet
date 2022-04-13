@@ -4,6 +4,7 @@ import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:character_sheet/presentation/styles/global_styles.dart';
 import 'package:character_sheet/presentation/styles/text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 class ProficiencyBonus extends StatelessWidget {
@@ -35,7 +36,7 @@ class ProficiencyBonus extends StatelessWidget {
                 style: titleOnMainTextStyle,
               ),
               Text(
-                "Proficiency Bonus",
+                AppLocalizations.of(context).proficiency_bonus,
                 textAlign: TextAlign.center,
                 style: smallTitleOnMainTextStyle,
               ),

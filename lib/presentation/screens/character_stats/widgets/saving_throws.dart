@@ -6,6 +6,7 @@ import 'package:character_sheet/presentation/styles/global_styles.dart';
 import 'package:character_sheet/presentation/styles/text_styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 class SavingThrows extends StatelessWidget {
@@ -26,7 +27,7 @@ class SavingThrows extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                "Saving Throws",
+                AppLocalizations.of(context).saving_throws_title,
                 style: titleTextStyle,
               ),
               Column(

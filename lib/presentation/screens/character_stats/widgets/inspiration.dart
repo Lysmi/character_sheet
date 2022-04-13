@@ -3,6 +3,7 @@ import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:character_sheet/presentation/styles/global_styles.dart';
 import 'package:character_sheet/presentation/styles/text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Inspiration extends StatelessWidget {
   const Inspiration({Key? key}) : super(key: key);
@@ -27,7 +28,7 @@ class Inspiration extends StatelessWidget {
           ),
           const SizedBox(width: 8),
           Text(
-            "Inspiration",
+            AppLocalizations.of(context).inspiration,
             style: smallTitleOnMainTextStyle,
           ),
         ],
@@ -35,5 +36,3 @@ class Inspiration extends StatelessWidget {
     );
   }
 }
-
-

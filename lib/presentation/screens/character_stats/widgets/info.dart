@@ -1,12 +1,12 @@
 import 'package:character_sheet/core/string_convertation.dart';
 import 'package:character_sheet/presentation/screens/provider_models/character_provider_model.dart';
 import 'package:character_sheet/presentation/screens/widgets/text_tag.dart';
-import 'package:character_sheet/presentation/styles/assets_images.dart';
 import 'package:character_sheet/presentation/styles/colours.dart';
-import 'package:character_sheet/presentation/styles/global_styles.dart';
 import 'package:character_sheet/presentation/styles/text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
+
 import 'character_classes.dart';
 
 class Info extends StatelessWidget {
@@ -30,10 +30,10 @@ class Info extends StatelessWidget {
                   data: character.subrace,
                 ),
                 TextTag(
-                  data: '$lvl lvl',
+                  data: AppLocalizations.of(context).lvl(lvl),
                 ),
                 TextTag(
-                  data: '$xp xp',
+                  data: AppLocalizations.of(context).experience(xp),
                 ),
               ],
             ),
@@ -56,7 +56,7 @@ class Info extends StatelessWidget {
                           borderRadius: const BorderRadius.horizontal(
                               left: Radius.circular(10), right: Radius.circular(4))),
                       child: Text(
-                        alignmentLawToString(character.alignmentLaw),
+                        alignmentLawToString(character.alignmentLaw, context),
                         style: smallTitleOnMainTextStyle,
                       ),
                     ),
@@ -67,7 +67,7 @@ class Info extends StatelessWidget {
                           borderRadius: const BorderRadius.horizontal(
                               left: Radius.circular(4), right: Radius.circular(10))),
                       child: Text(
-                        alignmentGoodToString(character.alignmentGood),
+                        alignmentGoodToString(character.alignmentGood, context),
                         style: smallTitleOnMainTextStyle,
                       ),
                     ),

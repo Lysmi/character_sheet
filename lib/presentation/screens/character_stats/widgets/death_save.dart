@@ -4,8 +4,8 @@ import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:character_sheet/presentation/styles/global_styles.dart';
 import 'package:character_sheet/presentation/styles/text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
-
 
 class DeathSave extends StatelessWidget {
   const DeathSave({Key? key}) : super(key: key);
@@ -23,11 +23,12 @@ class DeathSave extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: 24,
+            height: 26,
             alignment: Alignment.center,
             child: Text(
-              "Death Save",
+              AppLocalizations.of(context).death_save_title,
               style: smallTitleTextStyle,
+              textAlign: TextAlign.center,
             ),
           ),
           Consumer<CharacterProviderModel>(

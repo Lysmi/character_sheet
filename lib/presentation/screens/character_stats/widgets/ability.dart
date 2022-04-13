@@ -1,8 +1,6 @@
-import 'package:character_sheet/data/models/local_models/ability_model.dart';
 import 'package:character_sheet/core/string_convertation.dart';
 import 'package:character_sheet/domain/entities/ability_entity.dart';
 import 'package:character_sheet/presentation/screens/provider_models/character_provider_model.dart';
-import 'package:character_sheet/presentation/styles/assets_images.dart';
 import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:character_sheet/presentation/styles/global_styles.dart';
 import 'package:character_sheet/presentation/styles/text_styles.dart';
@@ -27,7 +25,7 @@ class AbilityView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            _abilityName(ability),
+            abilityToString(ability, context, reduction: true),
             style: accentSmallTitleTextStyle,
           ),
           Text(
@@ -49,22 +47,5 @@ class AbilityView extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  String _abilityName(Abilities ability) {
-    switch (ability) {
-      case Abilities.strength:
-        return "Str";
-      case Abilities.dexterity:
-        return "Dex";
-      case Abilities.constitution:
-        return "Con";
-      case Abilities.intelligence:
-        return "Int";
-      case Abilities.wisdom:
-        return "Wis";
-      case Abilities.charisma:
-        return "Cha";
-    }
   }
 }

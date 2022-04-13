@@ -1,10 +1,7 @@
 import 'package:character_sheet/presentation/styles/assets_images.dart';
 import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:character_sheet/presentation/styles/global_styles.dart';
-import 'package:character_sheet/presentation/styles/text_styles.dart';
 import 'package:flutter/material.dart';
-
-
 
 class CharacterPhoto extends StatelessWidget {
   const CharacterPhoto({Key? key}) : super(key: key);

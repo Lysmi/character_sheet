@@ -1,12 +1,8 @@
-import 'package:character_sheet/data/models/local_models/class_model.dart';
 import 'package:character_sheet/domain/entities/class_entity.dart';
-import 'package:character_sheet/presentation/styles/assets_images.dart';
 import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:character_sheet/presentation/styles/global_styles.dart';
 import 'package:character_sheet/presentation/styles/text_styles.dart';
 import 'package:flutter/material.dart';
-
-
 
 class CharacterClasses extends StatefulWidget {
   const CharacterClasses({Key? key, required this.characterClasses}) : super(key: key);
@@ -82,7 +78,7 @@ class _CharacterClassesState extends State<CharacterClasses> {
             style: smallTitleOnMainTextStyle,
           ),
         ),
-        if (characterClasses.length > 1 && _currIndex < characterClasses.length-1)
+        if (characterClasses.length > 1 && _currIndex < characterClasses.length - 1)
           Container(
             height: 20,
             width: 20,

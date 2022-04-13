@@ -1,12 +1,9 @@
 import 'package:character_sheet/presentation/screens/provider_models/character_provider_model.dart';
 import 'package:character_sheet/presentation/screens/widgets/char_progress_bar.dart';
-import 'package:character_sheet/presentation/styles/assets_images.dart';
 import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:character_sheet/presentation/styles/global_styles.dart';
-import 'package:character_sheet/presentation/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 
 class Health extends StatelessWidget {
   const Health({Key? key}) : super(key: key);
@@ -39,7 +36,7 @@ class Health extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Consumer<CharacterProviderModel>(
-                builder:(context, character, child) => CharProgressBar(
+                builder: (context, character, child) => CharProgressBar(
                   maxValue: character.maxHit,
                   currentValue: character.currentHit,
                   tempValue: character.tempHit,
@@ -77,8 +74,5 @@ class Health extends StatelessWidget {
 
   addHealthPressed(context) {
     Provider.of<CharacterProviderModel>(context, listen: false).removeHit(1);
-
   }
 }
-
-

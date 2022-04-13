@@ -1,8 +1,8 @@
-import 'package:character_sheet/presentation/styles/assets_images.dart';
 import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:character_sheet/presentation/styles/global_styles.dart';
 import 'package:character_sheet/presentation/styles/text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HitDice extends StatelessWidget {
   const HitDice({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class HitDice extends StatelessWidget {
       child: Row(
         children: [
           Text(
-            "Hit Dice",
+            AppLocalizations.of(context).hit_dice_title,
             style: smallTitleTextStyle,
           )
         ],
