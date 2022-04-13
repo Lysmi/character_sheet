@@ -9,6 +9,7 @@ import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -19,25 +20,28 @@ import 'domain/entities/ability_entity.dart';
 import 'domain/entities/character_entity.dart';
 import 'domain/entities/class_entity.dart';
 import 'domain/entities/skill_entity.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 Future<void> main() async {
   await hiveInit();
   runApp(
     DevicePreview(
       enabled: !kReleaseMode,
-      builder: (context) => MyApp(), // Wrap your app
+      builder: (context) => const CharacterSheetApp(), // Wrap your app
     ),
   );
 }
 
-class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+class CharacterSheetApp extends StatelessWidget {
+  const CharacterSheetApp({Key? key}) : super(key: key);
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       useInheritedMediaQuery: true,
       locale: DevicePreview.locale(context),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       builder: DevicePreview.appBuilder,
       //DevicePreviewSetting
       title: 'Flutter Demo',

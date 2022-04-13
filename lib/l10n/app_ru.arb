@@ -1,0 +1,8 @@
+{
+    "strength": "Сила",
+    "dexterity": "Ловкость",
+    "constitution": "Телосложение",
+    "intelligence": "Интеллект",
+    "wisdom": "Мудрость",
+    "charisma": "Харизма"
+}
