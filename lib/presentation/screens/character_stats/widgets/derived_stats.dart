@@ -15,7 +15,7 @@ class DerivedStats extends StatelessWidget {
         children: [
           Flexible(
             child: Stat(
-              name: AppLocalizations.of(context).armor_class,
+              name: AppLocalizations.of(context).armorClass,
               value: character.ac.toString(),
             ),
           ),

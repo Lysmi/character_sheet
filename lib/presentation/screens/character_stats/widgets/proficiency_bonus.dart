@@ -36,7 +36,7 @@ class ProficiencyBonus extends StatelessWidget {
                 style: titleOnMainTextStyle,
               ),
               Text(
-                AppLocalizations.of(context).proficiency_bonus,
+                AppLocalizations.of(context).proficiencyBonus,
                 textAlign: TextAlign.center,
                 style: smallTitleOnMainTextStyle,
               ),

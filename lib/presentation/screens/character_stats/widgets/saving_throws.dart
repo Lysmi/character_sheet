@@ -27,7 +27,7 @@ class SavingThrows extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                AppLocalizations.of(context).saving_throws_title,
+                AppLocalizations.of(context).savingThrowsTitle,
                 style: titleTextStyle,
               ),
               Column(

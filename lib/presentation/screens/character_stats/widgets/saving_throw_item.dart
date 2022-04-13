@@ -22,24 +22,21 @@ class SavingThrowItem extends StatelessWidget {
       height: 23,
       child: Row(
         children: [
-          Text(
-            abilityToString(ability, context),
-            style: listItemTextStyle,
-          ),
           Expanded(
-            child: Align(
-              alignment: Alignment.centerRight,
-              child: proficiency
-                  ? Text(
-                      addPlusToInt(value),
-                      style: listItemTextStyle.copyWith(color: currTheme.accentMainColor),
-                    )
-                  : Text(
-                      addPlusToInt(value),
-                      style: listItemTextStyle,
-                    ),
+            child: Text(
+              abilityToString(ability, context),
+              style: listItemTextStyle,
             ),
           ),
+          proficiency
+              ? Text(
+                  addPlusToInt(value),
+                  style: listItemTextStyle.copyWith(color: currTheme.accentMainColor),
+                )
+              : Text(
+                  addPlusToInt(value),
+                  style: listItemTextStyle,
+                ),
         ],
       ),
     );

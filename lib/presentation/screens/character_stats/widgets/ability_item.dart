@@ -6,8 +6,8 @@ import 'package:character_sheet/presentation/styles/global_styles.dart';
 import 'package:character_sheet/presentation/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 
-class AbilityView extends StatelessWidget {
-  const AbilityView({Key? key, required this.ability, required this.character}) : super(key: key);
+class AbilityItem extends StatelessWidget {
+  const AbilityItem({Key? key, required this.ability, required this.character}) : super(key: key);
   final Abilities ability;
   final CharacterProviderModel character;
 

@@ -20,7 +20,7 @@ class HitDice extends StatelessWidget {
       child: Row(
         children: [
           Text(
-            AppLocalizations.of(context).hit_dice_title,
+            AppLocalizations.of(context).hitDiceTitle,
             style: smallTitleTextStyle,
           )
         ],

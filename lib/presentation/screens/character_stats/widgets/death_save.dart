@@ -26,7 +26,7 @@ class DeathSave extends StatelessWidget {
             height: 26,
             alignment: Alignment.center,
             child: Text(
-              AppLocalizations.of(context).death_save_title,
+              AppLocalizations.of(context).deathSaveTitle,
               style: smallTitleTextStyle,
               textAlign: TextAlign.center,
             ),

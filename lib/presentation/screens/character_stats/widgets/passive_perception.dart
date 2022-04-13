@@ -27,7 +27,7 @@ class PassivePerception extends StatelessWidget {
             alignment: Alignment.center,
             height: 32,
             child: Text(
-              AppLocalizations.of(context).passive_perception_title,
+              AppLocalizations.of(context).passivePerceptionTitle,
               style: smallTitleTextStyle,
               textAlign: TextAlign.center,
             ),

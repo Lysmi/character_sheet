@@ -97,6 +97,10 @@ class CharacterProviderModel extends ChangeNotifier {
     return _currentCharacter.getSkillValue(skill);
   }
 
+  SkillEntity getSkillEntity(Skills skill){
+    return _currentCharacter.skills.getSkillEntity(skill);
+  }
+
   void addHit(int value) {
     _currentCharacter.currentHit -= value;
     _charactersWrite.putCharacter(_currentCharacter);
