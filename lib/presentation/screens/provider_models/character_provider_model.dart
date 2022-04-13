@@ -26,33 +26,33 @@ class CharacterProviderModel extends ChangeNotifier {
     _charactersRead = CharactersRead(_repository);
   }
 
-  get name => _currentCharacter.name;
+  String get name => _currentCharacter.name;
 
-  get race => _currentCharacter.race;
+  String get race => _currentCharacter.race;
 
-  get subrace => _currentCharacter.subrace;
+  String get subrace => _currentCharacter.subrace;
 
   UnmodifiableListView<ClassEntity> get classes => UnmodifiableListView(_currentCharacter.classes);
 
-  get xp => _currentCharacter.experience;
+  int get xp => _currentCharacter.experience;
 
-  get lvl => _currentCharacter.lvl;
+  int get lvl => _currentCharacter.lvl;
 
-  get proficiencyBonus => _currentCharacter.proficiencyBonus;
+  int get proficiencyBonus => _currentCharacter.proficiencyBonus;
 
-  get background => _currentCharacter.background;
+  String get background => _currentCharacter.background;
 
-  get alignmentLaw => _currentCharacter.alignmentLaw;
+  AlignmentLaw get alignmentLaw => _currentCharacter.alignmentLaw;
 
-  get alignmentGood => _currentCharacter.alignmentGood;
+  AlignmentGood get alignmentGood => _currentCharacter.alignmentGood;
 
-  get inspiration => _currentCharacter.inspiration;
+  bool get inspiration => _currentCharacter.inspiration;
 
-  get initiative => _currentCharacter.initiativeValue;
+  int get initiative => _currentCharacter.initiativeValue;
 
-  get ac => _currentCharacter.armorClass;
+  int get ac => _currentCharacter.armorClass;
 
-  get speed => _currentCharacter.speed;
+  int get speed => _currentCharacter.speed;
 
   UnmodifiableListView get deathSaveFailure => UnmodifiableListView(_currentCharacter.deathSaveFailure);
 
@@ -70,23 +70,11 @@ class CharacterProviderModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  get maxHit => _currentCharacter.maxHit;
+  int get maxHit => _currentCharacter.maxHit;
 
-  get currentHit => _currentCharacter.currentHit;
+  int get currentHit => _currentCharacter.currentHit;
 
-  get tempHit => _currentCharacter.tempHit;
-
-  void addHit(int value) {
-    _currentCharacter.currentHit -= value;
-    _charactersWrite.putCharacter(_currentCharacter);
-    notifyListeners();
-  }
-
-  void removeHit(int value) {
-    _currentCharacter.currentHit += value;
-    _charactersWrite.putCharacter(_currentCharacter);
-    notifyListeners();
-  }
+  int get tempHit => _currentCharacter.tempHit;
 
   int getAbilityModifier(Abilities ability) {
     return _currentCharacter.getAbilityModifier(ability);
@@ -109,5 +97,21 @@ class CharacterProviderModel extends ChangeNotifier {
     return _currentCharacter.getSkillValue(skill);
   }
 
+  void addHit(int value) {
+    _currentCharacter.currentHit -= value;
+    _charactersWrite.putCharacter(_currentCharacter);
+    notifyListeners();
+  }
 
+  void removeHit(int value) {
+    _currentCharacter.currentHit += value;
+    _charactersWrite.putCharacter(_currentCharacter);
+    notifyListeners();
+  }
+
+  void changeInspiration() {
+    _currentCharacter.inspiration = !_currentCharacter.inspiration;
+    _charactersWrite.putCharacter(_currentCharacter);
+    notifyListeners();
+  }
 }
