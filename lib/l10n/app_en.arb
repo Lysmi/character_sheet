@@ -20,6 +20,7 @@
 "deathSaveTitle": "Death Save",
 "passivePerceptionTitle": "Passive Perception",
 "hitDiceTitle": "Hit Dice",
+"skillsTitle": "Skills",
 "lvl": "{lvlValue} lvl",
 "@lvl": {
   "placeholders": {
