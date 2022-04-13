@@ -1,4 +1,4 @@
-import 'package:character_sheet/core/helpers.dart';
+import 'package:character_sheet/core/string_convertation.dart';
 import 'package:character_sheet/presentation/screens/provider_models/character_provider_model.dart';
 import 'package:character_sheet/presentation/screens/widgets/text_tag.dart';
 import 'package:character_sheet/presentation/styles/assets_images.dart';

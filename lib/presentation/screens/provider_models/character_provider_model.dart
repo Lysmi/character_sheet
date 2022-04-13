@@ -9,7 +9,7 @@ import 'package:character_sheet/domain/entities/skill_entity.dart';
 import 'package:character_sheet/domain/usecases/characters_read.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/helpers.dart';
+import '../../../core/string_convertation.dart';
 import '../../../data/models/local_models/ability_model.dart';
 import '../../../data/models/local_models/character_model.dart';
 import '../../../domain/usecases/characters_write.dart';
@@ -90,6 +90,15 @@ class CharacterProviderModel extends ChangeNotifier {
 
   int getAbilityModifier(Abilities ability) {
     return _currentCharacter.getAbilityModifier(ability);
+  }
+
+  int getSavingThrowValue(Abilities ability) {
+    return _currentCharacter.getSavingThrowValue(ability);
+  }
+
+  bool getSavingThrowProficiency(Abilities ability)
+  {
+    return _currentCharacter.abilities.getAbilityEntity(ability).data.saveProficiency;
   }
 
   int getAbilityValue(Abilities ability){

@@ -1,5 +1,3 @@
-import 'package:equatable/equatable.dart';
-
 class AbilityDataEntity {
   int value;
   bool saveProficiency;
@@ -14,9 +12,13 @@ class AbilityDataEntity {
   int getModifier() {
     return (value - 10) ~/ 2;
   }
+
+  int getSavingThrow(int proficiencyBonus) {
+    return getModifier() + (saveProficiency ? proficiencyBonus : 0) + saveBonus;
+  }
 }
 
-class AbilityEntity{
+class AbilityEntity {
   AbilityEntity({
     required this.data,
     required this.ability,
@@ -24,7 +26,6 @@ class AbilityEntity{
 
   AbilityDataEntity data;
   final Abilities ability;
-
 }
 
 class CharactersAbilities {
@@ -42,17 +43,30 @@ class CharactersAbilities {
     required AbilityDataEntity intelligenceData,
     required AbilityDataEntity wisdomData,
     required AbilityDataEntity charismaData,
-  })  : strength =
-            AbilityEntity(data: strengthData, ability: Abilities.strength),
-        dexterity =
-            AbilityEntity(data: strengthData, ability: Abilities.dexterity),
-        constitution =
-            AbilityEntity(data: strengthData, ability: Abilities.constitution),
-        intelligence =
-            AbilityEntity(data: strengthData, ability: Abilities.intelligence),
-        wisdom = AbilityEntity(data: strengthData, ability: Abilities.wisdom),
-        charisma =
-            AbilityEntity(data: strengthData, ability: Abilities.charisma);
+  })  : strength = AbilityEntity(data: strengthData, ability: Abilities.strength),
+        dexterity = AbilityEntity(data: dexterityData, ability: Abilities.dexterity),
+        constitution = AbilityEntity(data: constitutionData, ability: Abilities.constitution),
+        intelligence = AbilityEntity(data: intelligenceData, ability: Abilities.intelligence),
+        wisdom = AbilityEntity(data: wisdomData, ability: Abilities.wisdom),
+        charisma = AbilityEntity(data: charismaData, ability: Abilities.charisma);
+
+  AbilityEntity getAbilityEntity(Abilities ability)
+  {
+    switch (ability) {
+      case Abilities.strength:
+        return strength;
+      case Abilities.dexterity:
+        return dexterity;
+      case Abilities.constitution:
+        return constitution;
+      case Abilities.intelligence:
+        return intelligence;
+      case Abilities.wisdom:
+        return wisdom;
+      case Abilities.charisma:
+        return charisma;
+    }
+  }
 }
 
 enum Abilities {

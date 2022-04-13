@@ -30,7 +30,6 @@ TextStyle accentSmallTitleTextStyle = TextStyle(
   fontWeight: FontWeight.w600,
 );
 
-
 TextStyle smallTitleOnMainTextStyle = TextStyle(
   fontFamily: "Montserrat",
   fontSize: 10.0,

@@ -55,7 +55,7 @@ class CharactersWrite {
           ),
           intelligenceData: AbilityDataEntity(
             saveProficiency: false,
-            value: 13,
+            value: 14,
             saveBonus: 0,
           ),
           wisdomData: AbilityDataEntity(
@@ -64,7 +64,7 @@ class CharactersWrite {
             saveBonus: 0,
           ),
           strengthData: AbilityDataEntity(
-            saveProficiency: false,
+            saveProficiency: true,
             value: 13,
             saveBonus: 0,
           ),

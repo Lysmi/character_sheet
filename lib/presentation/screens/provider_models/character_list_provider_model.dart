@@ -6,14 +6,12 @@ import '../../../domain/usecases/characters_read.dart';
 import '../../../domain/usecases/characters_write.dart';
 
 class CharacterListProviderModel extends ChangeNotifier {
-  final CharactersRepositoryImplement _repository =
-      CharactersRepositoryImplement();
+  final CharactersRepositoryImplement _repository = CharactersRepositoryImplement();
   late final CharactersWrite _charactersWrite;
   late final CharactersRead _charactersRead;
   List<CharacterEntity> _characterList = [];
 
-  CharacterListProviderModel()
-  {
+  CharacterListProviderModel() {
     _charactersWrite = CharactersWrite(_repository);
     _charactersRead = CharactersRead(_repository);
   }

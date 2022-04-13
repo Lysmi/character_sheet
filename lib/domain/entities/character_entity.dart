@@ -1,7 +1,6 @@
 import 'package:character_sheet/data/models/local_models/character_model.dart';
 import 'package:character_sheet/domain/entities/feat_entity.dart';
 import 'package:character_sheet/domain/entities/skill_entity.dart';
-import 'package:equatable/equatable.dart';
 
 import 'ability_entity.dart';
 import 'class_entity.dart';
@@ -29,7 +28,7 @@ class CharacterEntity {
   CharactersAbilities abilities;
   CharactersSkills skills;
   List<FeatEntity> feats;
-  
+
   CharacterEntity({
     required this.name,
     required this.race,
@@ -67,46 +66,19 @@ class CharacterEntity {
 
   int getSkillValue(Skills skill) {
     var searchSkill = skills.getSkillEntity(skill);
-    return getAbilityModifier(searchSkill.skillAbility) +
+    return abilities.getAbilityEntity(searchSkill.skillAbility).data.getModifier() +
         searchSkill.data.bonus +
         (searchSkill.data.proficiency ? proficiencyBonus : 0);
   }
 
-  int getAbilityModifier(Abilities ability) {
-    switch (ability) {
-      case Abilities.strength:
-        return abilities.strength.data.getModifier();
-      case Abilities.dexterity:
-        return abilities.dexterity.data.getModifier();
-      case Abilities.constitution:
-        return abilities.constitution.data.getModifier();
-      case Abilities.intelligence:
-        return abilities.intelligence.data.getModifier();
-      case Abilities.wisdom:
-        return abilities.wisdom.data.getModifier();
-      case Abilities.charisma:
-        return abilities.charisma.data.getModifier();
-    }
-  }
+  int getAbilityValue(Abilities ability) => abilities.getAbilityEntity(ability).data.value;
 
-  int getAbilityValue(Abilities ability) {
-    switch (ability) {
-      case Abilities.strength:
-        return abilities.strength.data.value;
-      case Abilities.dexterity:
-        return abilities.dexterity.data.value;
-      case Abilities.constitution:
-        return abilities.constitution.data.value;
-      case Abilities.intelligence:
-        return abilities.intelligence.data.value;
-      case Abilities.wisdom:
-        return abilities.wisdom.data.value;
-      case Abilities.charisma:
-        return abilities.charisma.data.value;
-    }
-  }
+  int getAbilityModifier(Abilities ability) =>
+      abilities.getAbilityEntity(ability).data.getModifier();
+
+  int getSavingThrowValue(Abilities ability) =>
+      abilities.getAbilityEntity(ability).data.getSavingThrow(proficiencyBonus);
 
   get initiativeValue =>
-      getAbilityModifier(Abilities.dexterity) + initiativeBonus;
-
+      abilities.getAbilityEntity(Abilities.dexterity).data.getModifier() + initiativeBonus;
 }
