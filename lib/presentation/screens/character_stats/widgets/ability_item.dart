@@ -13,38 +13,50 @@ class AbilityItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 50,
-      height: 50,
-      decoration: BoxDecoration(
-        color: currTheme.secondaryColor,
-        borderRadius: const BorderRadius.all(Radius.circular(10)),
-        boxShadow: const [cardShadow],
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            abilityToString(ability, context, reduction: true),
-            style: accentSmallTitleTextStyle,
+    return GestureDetector(
+      onTap: () {
+        showDialog(
+          context: context,
+          builder: (_) => Dialog(
+            child: Container(),
           ),
-          Text(
-            addPlusToInt(character.getAbilityModifier(ability)),
-            style: smallValueTextStyle,
-          ),
-          Container(
-            decoration: BoxDecoration(
-              color: currTheme.thirdColor,
-              borderRadius: const BorderRadius.all(Radius.circular(5)),
+        );
+      },
+      child: Container(
+        width: 50,
+        height: 50,
+        decoration: BoxDecoration(
+          color: currTheme.secondaryColor,
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
+          boxShadow: const [cardShadow],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(
+              abilityToString(ability, context, reduction: true),
+              style: accentSmallTitleTextStyle,
             ),
-            width: 30,
-            alignment: Alignment.center,
-            child: Text(
-              character.getAbilityValue(ability).toString(),
-              style: smallTitleOnMainTextStyle,
+            Text(
+              addPlusToInt(character.getAbilityModifier(ability)),
+              style: smallValueTextStyle,
             ),
-          )
-        ],
+            Container(
+              decoration: BoxDecoration(
+                color: currTheme.thirdColor,
+                borderRadius: const BorderRadius.all(Radius.circular(5)),
+              ),
+              width: 30,
+              height: 10,
+              alignment: Alignment.topCenter,
+              child: Text(
+                character.getAbilityValue(ability).toString(),
+                style: smallTitleOnMainTextStyle.copyWith(height: 1.1),
+              ),
+            ),
+
+          ],
+        ),
       ),
     );
   }

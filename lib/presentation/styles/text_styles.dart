@@ -37,6 +37,13 @@ TextStyle smallTitleOnMainTextStyle = TextStyle(
   fontWeight: FontWeight.w600,
 );
 
+TextStyle abilityValueTextStyle = TextStyle(
+  fontFamily: "Montserrat",
+  fontSize: 9.0,
+  color: currTheme.onMainColor,
+  fontWeight: FontWeight.w600,
+);
+
 TextStyle smallValueTextStyle = TextStyle(
   fontFamily: "Montserrat",
   fontSize: 18.0,
