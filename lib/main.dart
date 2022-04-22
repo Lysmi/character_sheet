@@ -30,6 +30,7 @@ Future<void> main() async {
       builder: (context) => const CharacterSheetApp(), // Wrap your app
     ),
   );
+  //runApp(const CharacterSheetApp());
 }
 
 class CharacterSheetApp extends StatelessWidget {

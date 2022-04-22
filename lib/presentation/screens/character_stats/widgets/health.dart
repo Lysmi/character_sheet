@@ -4,6 +4,7 @@ import 'package:character_sheet/presentation/screens/widgets/input_dialog.dart';
 import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:character_sheet/presentation/styles/global_styles.dart';
 import 'package:character_sheet/presentation/styles/text_styles.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -28,23 +29,26 @@ class Health extends StatelessWidget {
             child: IconButton(
               splashRadius: 20,
               padding: EdgeInsets.zero,
-              onPressed: () => removeHealthPressed(context),
+              onPressed: () => damageHealthPressed(context),
               icon: const Icon(Icons.remove),
               iconSize: 20,
               color: currTheme.onMainColor,
             ),
           ),
           Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Consumer<CharacterProviderModel>(
-                builder: (context, character, child) => CharProgressBar(
-                  maxValue: character.maxHit,
-                  currentValue: character.currentHit,
-                  tempValue: character.tempHit,
-                  valueColor: currTheme.greenColor,
-                  backgroundColor: currTheme.secondaryColor,
-                  tempValueColor: currTheme.greenDarkColor,
+            child: GestureDetector(
+              onTap: () => editHealthPressed(context),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: Consumer<CharacterProviderModel>(
+                  builder: (context, character, child) => CharProgressBar(
+                    maxValue: character.maxHit,
+                    currentValue: character.currentHit,
+                    tempValue: character.tempHit,
+                    valueColor: currTheme.greenColor,
+                    backgroundColor: currTheme.secondaryColor,
+                    tempValueColor: currTheme.greenDarkColor,
+                  ),
                 ),
               ),
             ),
@@ -70,16 +74,30 @@ class Health extends StatelessWidget {
     );
   }
 
-  removeHealthPressed(context) {
+  editHealthPressed(context) {
     int _inputValue = 0;
+    var characterState = Provider.of<CharacterProviderModel>(context, listen: false);
     showDialog(
       context: context,
       builder: (_) => InputDialog(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  AppLocalizations.of(context).hit(characterState.currentHit),
+                  style: titleOnMainTextStyle,
+                ),
+                Text(
+                  AppLocalizations.of(context).tempHit(characterState.tempHit),
+                  style: titleOnMainTextStyle,
+                ),
+              ],
+            ),
             Container(
-              margin: const EdgeInsets.all(10),
+              margin: const EdgeInsets.symmetric(vertical: 10),
               padding: const EdgeInsets.only(left: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
@@ -90,14 +108,19 @@ class Health extends StatelessWidget {
                   border: InputBorder.none,
                   hintText: "0",
                 ),
+                keyboardType: TextInputType.number,
+                style: titleOnMainTextStyle,
                 cursorColor: currTheme.accentMainColor,
                 onChanged: (value) {
-                  _inputValue = int.parse(value);
+                  _inputValue = double.parse(value.replaceAll(",", ".")).toInt();
                 },
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            Wrap(
+              runSpacing: 5,
+              spacing: 3,
+              alignment: WrapAlignment.center,
+              runAlignment: WrapAlignment.center,
               children: [
                 Container(
                   decoration: BoxDecoration(
@@ -107,18 +130,16 @@ class Health extends StatelessWidget {
                   child: TextButton(
                     onPressed: () {
                       Provider.of<CharacterProviderModel>(context, listen: false)
-                          .removeHit(_inputValue);
+                          .addHit(_inputValue);
                       Navigator.of(context).pop();
                     },
                     child: Text(
-                      "Remove hits",
+                      AppLocalizations.of(context).addHitButton,
+                      softWrap: true,
                       textAlign: TextAlign.center,
                       style: titleOnMainTextStyle,
                     ),
                   ),
-                ),
-                const SizedBox(
-                  width: 5,
                 ),
                 Container(
                   decoration: BoxDecoration(
@@ -128,11 +149,31 @@ class Health extends StatelessWidget {
                   child: TextButton(
                     onPressed: () {
                       Provider.of<CharacterProviderModel>(context, listen: false)
-                          .removeTemporaryHit(_inputValue);
+                          .addTemporaryHit(_inputValue);
                       Navigator.of(context).pop();
                     },
                     child: Text(
-                      "Remove\ntemporary hits",
+                      AppLocalizations.of(context).addTempHitButton,
+                      softWrap: true,
+                      textAlign: TextAlign.center,
+                      style: titleOnMainTextStyle,
+                    ),
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: currTheme.secondaryColor,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: TextButton(
+                    onPressed: () {
+                      Provider.of<CharacterProviderModel>(context, listen: false)
+                          .addDamage(_inputValue);
+                      Navigator.of(context).pop();
+                    },
+                    child: Text(
+                      AppLocalizations.of(context).dealDamageButton,
+                      softWrap: true,
                       textAlign: TextAlign.center,
                       style: titleOnMainTextStyle,
                     ),
@@ -144,6 +185,10 @@ class Health extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  damageHealthPressed(context) {
+    Provider.of<CharacterProviderModel>(context, listen: false).addDamage(1);
   }
 
   addHealthPressed(context) {

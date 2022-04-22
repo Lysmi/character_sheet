@@ -1,64 +1,75 @@
 {
-"strength": "Strength",
-"dexterity": "Dexterity",
-"constitution": "Constitution",
-"intelligence": "Intelligence",
-"wisdom": "Wisdom",
-"charisma": "Charisma",
-
-"strengthReduction": "Str",
-"dexterityReduction": "Dex",
-"constitutionReduction": "Con",
-"intelligenceReduction": "Int",
-"wisdomReduction": "Wis",
-"charismaReduction": "Cha",
-
-"armorClass": "AC",
-"initiative": "Initiative",
-"speed": "Speed",
-"savingThrowsTitle": "Saving Throws",
-"deathSaveTitle": "Death Save",
-"passivePerceptionTitle": "Passive Perception",
-"hitDiceTitle": "Hit Dice",
-"skillsTitle": "Skills",
-"lvl": "{lvlValue} lvl",
-"@lvl": {
-  "placeholders": {
-    "lvlValue": {}
+  "strength": "Strength",
+  "dexterity": "Dexterity",
+  "constitution": "Constitution",
+  "intelligence": "Intelligence",
+  "wisdom": "Wisdom",
+  "charisma": "Charisma",
+  "strengthReduction": "Str",
+  "dexterityReduction": "Dex",
+  "constitutionReduction": "Con",
+  "intelligenceReduction": "Int",
+  "wisdomReduction": "Wis",
+  "charismaReduction": "Cha",
+  "armorClass": "AC",
+  "initiative": "Initiative",
+  "speed": "Speed",
+  "savingThrowsTitle": "Saving Throws",
+  "deathSaveTitle": "Death Save",
+  "passivePerceptionTitle": "Passive Perception",
+  "hitDiceTitle": "Hit Dice",
+  "skillsTitle": "Skills",
+  "lvl": "{lvlValue} lvl",
+  "@lvl": {
+    "placeholders": {
+      "lvlValue": {}
     }
   },
-"experience": "{xp} xp",
-"@experience": {
-  "placeholders": {
-    "xp": {}
-  }
-},
-"inspiration": "Inspiration",
-"proficiencyBonus": "Proficiency Bonus",
-
-"good": "Good",
-"neutralGood": "Neutral",
-"evil": "Evil",
-"neutralLawful": "Neutral",
-"lawful": "Lawful",
-"chaotic": "Chaotic",
-
-"acrobatics": "Acrobatic",
-"animalHandling": "Animal Handling",
-"arcana": "Arcana",
-"athletics": "Athletics",
-"deception": "Deception",
-"history": "History",
-"insight": "Insight",
-"intimidation": "Intimidation",
-"investigation": "Investigation",
-"medicine": "Medicine",
-"nature": "Nature",
-"perception": "Perception",
-"performance": "Performance",
-"persuasion": "Persuasion",
-"religion": "Religion",
-"sleightOfHand": "Sleight Of Hand",
-"stealth": "Stealth",
-"survival": "Survival"
+  "experience": "{xp} xp",
+  "@experience": {
+    "placeholders": {
+      "xp": {}
+    }
+  },
+  "inspiration": "Inspiration",
+  "proficiencyBonus": "Proficiency Bonus",
+  "good": "Good",
+  "neutralGood": "Neutral",
+  "evil": "Evil",
+  "neutralLawful": "Neutral",
+  "lawful": "Lawful",
+  "chaotic": "Chaotic",
+  "acrobatics": "Acrobatic",
+  "animalHandling": "Animal Handling",
+  "arcana": "Arcana",
+  "athletics": "Athletics",
+  "deception": "Deception",
+  "history": "History",
+  "insight": "Insight",
+  "intimidation": "Intimidation",
+  "investigation": "Investigation",
+  "medicine": "Medicine",
+  "nature": "Nature",
+  "perception": "Perception",
+  "performance": "Performance",
+  "persuasion": "Persuasion",
+  "religion": "Religion",
+  "sleightOfHand": "Sleight Of Hand",
+  "stealth": "Stealth",
+  "survival": "Survival",
+  "hit": "Hits: {hit}",
+  "@hit": {
+    "placeholders": {
+      "hit": {}
+    }
+  },
+  "tempHit": "Temporary Hits: {tempHit}",
+  "@tempHit": {
+    "placeholders": {
+      "tempHit": {}
+    }
+  },
+  "addHitButton": "Add hit",
+  "addTempHitButton": "Add temp hit",
+  "dealDamageButton": "Deal damage"
 }

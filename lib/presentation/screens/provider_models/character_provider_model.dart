@@ -1,6 +1,5 @@
 import 'dart:collection';
 
-import 'package:character_sheet/data/models/local_models/class_model.dart';
 import 'package:character_sheet/data/repositories/characters_repository_implement.dart';
 import 'package:character_sheet/domain/entities/ability_entity.dart';
 import 'package:character_sheet/domain/entities/character_entity.dart';
@@ -9,8 +8,6 @@ import 'package:character_sheet/domain/entities/skill_entity.dart';
 import 'package:character_sheet/domain/usecases/characters_read.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/string_convertation.dart';
-import '../../../data/models/local_models/ability_model.dart';
 import '../../../data/models/local_models/character_model.dart';
 import '../../../domain/usecases/characters_write.dart';
 
@@ -113,6 +110,18 @@ class CharacterProviderModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  void addDamage(int value) {
+    if (value > _currentCharacter.tempHit){
+      int tempHit = _currentCharacter.tempHit;
+      _currentCharacter.tempHit -= tempHit;
+      value -= tempHit;
+      _currentCharacter.currentHit -= value;
+    } else {
+      _currentCharacter.tempHit -= value;
+    }
+    _charactersWrite.putCharacter(_currentCharacter);
+    notifyListeners();
+  }
 
   void removeHit(int value) {
     _currentCharacter.currentHit -= value;

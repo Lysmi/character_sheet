@@ -11,7 +11,7 @@ class InputDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       backgroundColor: Colors.transparent,
-      insetPadding: const EdgeInsets.symmetric(vertical: 200, horizontal: 14),
+      insetPadding: const EdgeInsets.symmetric(horizontal: 14),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
