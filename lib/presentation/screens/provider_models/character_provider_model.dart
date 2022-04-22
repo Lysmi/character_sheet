@@ -102,13 +102,26 @@ class CharacterProviderModel extends ChangeNotifier {
   }
 
   void addHit(int value) {
+    _currentCharacter.currentHit += value;
+    _charactersWrite.putCharacter(_currentCharacter);
+    notifyListeners();
+  }
+
+  void addTemporaryHit(int value) {
+    _currentCharacter.tempHit += value;
+    _charactersWrite.putCharacter(_currentCharacter);
+    notifyListeners();
+  }
+
+
+  void removeHit(int value) {
     _currentCharacter.currentHit -= value;
     _charactersWrite.putCharacter(_currentCharacter);
     notifyListeners();
   }
 
-  void removeHit(int value) {
-    _currentCharacter.currentHit += value;
+  void removeTemporaryHit(int value) {
+    _currentCharacter.tempHit -= value;
     _charactersWrite.putCharacter(_currentCharacter);
     notifyListeners();
   }
