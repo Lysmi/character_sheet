@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../styles/colours.dart';
+import '../styles/colours.dart';
+
 
 class InputDialog extends StatelessWidget {
   final Widget? child;

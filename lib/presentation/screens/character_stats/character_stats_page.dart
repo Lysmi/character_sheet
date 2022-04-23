@@ -11,12 +11,12 @@ import 'package:character_sheet/presentation/screens/character_stats/widgets/pas
 import 'package:character_sheet/presentation/screens/character_stats/widgets/proficiency_bonus.dart';
 import 'package:character_sheet/presentation/screens/character_stats/widgets/saving_throws.dart';
 import 'package:character_sheet/presentation/screens/character_stats/widgets/skill_list.dart';
-import 'package:character_sheet/presentation/screens/provider_models/character_provider_model.dart';
 import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/constants.dart';
+import '../../provider_models/character_provider_model.dart';
 
 class CharacterStats extends StatelessWidget {
   const CharacterStats({

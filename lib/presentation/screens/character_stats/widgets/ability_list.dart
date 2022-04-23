@@ -1,8 +1,8 @@
-import 'package:character_sheet/presentation/screens/provider_models/character_provider_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../domain/entities/ability_entity.dart';
+import '../../../provider_models/character_provider_model.dart';
 import 'ability_item.dart';
 
 class AbilityListView extends StatelessWidget {

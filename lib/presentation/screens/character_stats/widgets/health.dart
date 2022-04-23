@@ -1,12 +1,13 @@
-import 'package:character_sheet/presentation/screens/provider_models/character_provider_model.dart';
-import 'package:character_sheet/presentation/screens/widgets/char_progress_bar.dart';
-import 'package:character_sheet/presentation/screens/widgets/input_dialog.dart';
 import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:character_sheet/presentation/styles/global_styles.dart';
 import 'package:character_sheet/presentation/styles/text_styles.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../../provider_models/character_provider_model.dart';
+import '../../../widgets/char_progress_bar.dart';
+import '../../../widgets/input_dialog.dart';
 
 class Health extends StatelessWidget {
   const Health({Key? key}) : super(key: key);

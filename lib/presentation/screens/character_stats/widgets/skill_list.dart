@@ -1,5 +1,4 @@
 import 'package:character_sheet/presentation/screens/character_stats/widgets/skill_item.dart';
-import 'package:character_sheet/presentation/screens/provider_models/character_provider_model.dart';
 import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:character_sheet/presentation/styles/global_styles.dart';
 import 'package:character_sheet/presentation/styles/text_styles.dart';
@@ -8,6 +7,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../domain/entities/skill_entity.dart';
+import '../../../provider_models/character_provider_model.dart';
 
 class SkillListView extends StatelessWidget {
   const SkillListView({Key? key}) : super(key: key);

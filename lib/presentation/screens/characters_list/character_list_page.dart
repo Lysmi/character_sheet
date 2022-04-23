@@ -2,13 +2,13 @@ import 'package:character_sheet/core/errors/database_error.dart';
 import 'package:character_sheet/core/errors/error.dart';
 import 'package:character_sheet/domain/entities/character_entity.dart';
 import 'package:character_sheet/presentation/screens/characters_list/widgets/character_item.dart';
-import 'package:character_sheet/presentation/screens/provider_models/character_list_provider_model.dart';
 import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:character_sheet/presentation/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/constants.dart';
+import '../../provider_models/character_list_provider_model.dart';
 import '../character_stats/character_stats_page.dart';
 
 class CharactersList extends StatelessWidget {
