@@ -39,7 +39,8 @@ class SavingThrows extends StatelessWidget {
                   SavingThrowItem(
                     ability: Abilities.strength,
                     value: character.getSavingThrowValue(Abilities.strength),
-                    proficiency: character.getSavingThrowProficiency(Abilities.strength),
+                    proficiency:
+                        character.getSavingThrowProficiency(Abilities.strength),
                   ),
                   const SizedBox(
                     height: 5,
@@ -47,23 +48,28 @@ class SavingThrows extends StatelessWidget {
                   SavingThrowItem(
                     ability: Abilities.dexterity,
                     value: character.getSavingThrowValue(Abilities.dexterity),
-                    proficiency: character.getSavingThrowProficiency(Abilities.dexterity),
+                    proficiency: character
+                        .getSavingThrowProficiency(Abilities.dexterity),
                   ),
                   const SizedBox(
                     height: 5,
                   ),
                   SavingThrowItem(
                     ability: Abilities.constitution,
-                    value: character.getSavingThrowValue(Abilities.constitution),
-                    proficiency: character.getSavingThrowProficiency(Abilities.constitution),
+                    value:
+                        character.getSavingThrowValue(Abilities.constitution),
+                    proficiency: character
+                        .getSavingThrowProficiency(Abilities.constitution),
                   ),
                   const SizedBox(
                     height: 5,
                   ),
                   SavingThrowItem(
                     ability: Abilities.intelligence,
-                    value: character.getSavingThrowValue(Abilities.intelligence),
-                    proficiency: character.getSavingThrowProficiency(Abilities.intelligence),
+                    value:
+                        character.getSavingThrowValue(Abilities.intelligence),
+                    proficiency: character
+                        .getSavingThrowProficiency(Abilities.intelligence),
                   ),
                   const SizedBox(
                     height: 5,
@@ -71,7 +77,8 @@ class SavingThrows extends StatelessWidget {
                   SavingThrowItem(
                     ability: Abilities.wisdom,
                     value: character.getSavingThrowValue(Abilities.wisdom),
-                    proficiency: character.getSavingThrowProficiency(Abilities.wisdom),
+                    proficiency:
+                        character.getSavingThrowProficiency(Abilities.wisdom),
                   ),
                   const SizedBox(
                     height: 5,
@@ -79,7 +86,8 @@ class SavingThrows extends StatelessWidget {
                   SavingThrowItem(
                     ability: Abilities.charisma,
                     value: character.getSavingThrowValue(Abilities.charisma),
-                    proficiency: character.getSavingThrowProficiency(Abilities.charisma),
+                    proficiency:
+                        character.getSavingThrowProficiency(Abilities.charisma),
                   ),
                 ],
               )

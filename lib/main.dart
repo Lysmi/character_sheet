@@ -12,7 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
-
 import 'data/models/local_models/ability_model.dart';
 import 'data/models/local_models/character_model.dart';
 import 'data/models/local_models/skill_model.dart';
