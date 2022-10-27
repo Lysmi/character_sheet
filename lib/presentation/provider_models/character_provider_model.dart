@@ -29,7 +29,8 @@ class CharacterProviderModel extends ChangeNotifier {
 
   String get subrace => _currentCharacter.subrace;
 
-  UnmodifiableListView<ClassEntity> get classes => UnmodifiableListView(_currentCharacter.classes);
+  UnmodifiableListView<ClassEntity> get classes =>
+      UnmodifiableListView(_currentCharacter.classes);
 
   int get xp => _currentCharacter.experience;
 
@@ -51,18 +52,22 @@ class CharacterProviderModel extends ChangeNotifier {
 
   int get speed => _currentCharacter.speed;
 
-  UnmodifiableListView get deathSaveFailure => UnmodifiableListView(_currentCharacter.deathSaveFailure);
+  UnmodifiableListView get deathSaveFailure =>
+      UnmodifiableListView(_currentCharacter.deathSaveFailure);
 
-  UnmodifiableListView get deathSaveSuccess => UnmodifiableListView(_currentCharacter.deathSaveSuccess);
+  UnmodifiableListView get deathSaveSuccess =>
+      UnmodifiableListView(_currentCharacter.deathSaveSuccess);
 
   void changeDeathSaveFailure(int index) {
-    _currentCharacter.deathSaveFailure[index] = !_currentCharacter.deathSaveFailure[index];
+    _currentCharacter.deathSaveFailure[index] =
+        !_currentCharacter.deathSaveFailure[index];
     _charactersWrite.putCharacter(_currentCharacter);
     notifyListeners();
   }
 
   void changeDeathSaveSuccess(int index) {
-    _currentCharacter.deathSaveSuccess[index] = !_currentCharacter.deathSaveSuccess[index];
+    _currentCharacter.deathSaveSuccess[index] =
+        !_currentCharacter.deathSaveSuccess[index];
     _charactersWrite.putCharacter(_currentCharacter);
     notifyListeners();
   }
@@ -81,20 +86,22 @@ class CharacterProviderModel extends ChangeNotifier {
     return _currentCharacter.getSavingThrowValue(ability);
   }
 
-  bool getSavingThrowProficiency(Abilities ability)
-  {
-    return _currentCharacter.abilities.getAbilityEntity(ability).data.saveProficiency;
+  bool getSavingThrowProficiency(Abilities ability) {
+    return _currentCharacter.abilities
+        .getAbilityEntity(ability)
+        .data
+        .saveProficiency;
   }
 
-  int getAbilityValue(Abilities ability){
+  int getAbilityValue(Abilities ability) {
     return _currentCharacter.getAbilityValue(ability);
   }
 
-  int getSkillValue(Skills skill){
+  int getSkillValue(Skills skill) {
     return _currentCharacter.getSkillValue(skill);
   }
 
-  SkillEntity getSkillEntity(Skills skill){
+  SkillEntity getSkillEntity(Skills skill) {
     return _currentCharacter.skills.getSkillEntity(skill);
   }
 
@@ -111,7 +118,7 @@ class CharacterProviderModel extends ChangeNotifier {
   }
 
   void addDamage(int value) {
-    if (value > _currentCharacter.tempHit){
+    if (value > _currentCharacter.tempHit) {
       int tempHit = _currentCharacter.tempHit;
       _currentCharacter.tempHit -= tempHit;
       value -= tempHit;
@@ -131,6 +138,18 @@ class CharacterProviderModel extends ChangeNotifier {
 
   void removeTemporaryHit(int value) {
     _currentCharacter.tempHit -= value;
+    _charactersWrite.putCharacter(_currentCharacter);
+    notifyListeners();
+  }
+
+  void addAbilityToOne(Abilities ability) {
+    _currentCharacter.abilities.getAbilityEntity(ability).data.value++;
+    _charactersWrite.putCharacter(_currentCharacter);
+    notifyListeners();
+  }
+
+  void removeAbilityToOne(Abilities ability) {
+    _currentCharacter.abilities.getAbilityEntity(ability).data.value--;
     _charactersWrite.putCharacter(_currentCharacter);
     notifyListeners();
   }

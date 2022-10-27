@@ -75,7 +75,7 @@ class CharacterStats extends StatelessWidget {
                           children: [
                             const AbilityListView(),
                             const SizedBox(
-                              width: 24,
+                              width: 5,
                             ),
                             Expanded(
                               child: Column(
