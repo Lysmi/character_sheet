@@ -1,7 +1,7 @@
 import 'package:character_sheet/core/errors/database_error.dart';
 import 'package:character_sheet/core/errors/error.dart';
 import 'package:character_sheet/domain/entities/character_entity.dart';
-import 'package:character_sheet/presentation/screens/characters_list/widgets/character_item.dart';
+import 'package:character_sheet/presentation/screens/characters_list/widgets/character_item/character_item.dart';
 import 'package:character_sheet/presentation/styles/colours.dart';
 import 'package:character_sheet/presentation/styles/text_styles.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +22,7 @@ class CharactersList extends StatelessWidget {
         appBar: AppBar(
           title: Center(
             child: Text(
-              "D&D characters",
+              "D&D characters", // TODO прокинать через локализацию
               style: headerTextStyle,
               textAlign: TextAlign.center,
             ),
@@ -39,17 +39,23 @@ class CharactersList extends StatelessWidget {
               child: Column(
                 children: [
                   Consumer<CharacterListProviderModel>(
-                    builder: (context, charactersProvider, child) => FutureBuilder(
+                    builder: (context, charactersProvider, child) =>
+                        FutureBuilder(
                       future: charactersProvider.getAllCharacter(),
-                      builder: (context, AsyncSnapshot<List<CharacterEntity>> snapshot) {
+                      builder: (context,
+                          AsyncSnapshot<List<CharacterEntity>> snapshot) {
                         if (snapshot.hasData) {
                           return snapshot.data?.isNotEmpty ?? false
                               ? Expanded(
                                   child: ListView.builder(
                                     itemCount: snapshot.data?.length,
-                                    itemBuilder: (BuildContext context, int index) => Padding(
-                                      padding: const EdgeInsets.symmetric(vertical: 4.0),
-                                      child: CharacterItem(snapshot.data![index]),
+                                    itemBuilder:
+                                        (BuildContext context, int index) =>
+                                            Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 4.0),
+                                      child:
+                                          CharacterItem(snapshot.data![index]),
                                     ),
                                   ),
                                 )
@@ -81,9 +87,11 @@ class CharactersList extends StatelessWidget {
         floatingActionButton: Consumer<CharacterListProviderModel>(
           builder: (context, charactersProvider, child) => FloatingActionButton(
             onPressed: () async {
-              CharacterEntity newCharacter = await charactersProvider.addCharacter();
+              CharacterEntity newCharacter =
+                  await charactersProvider.addCharacter();
               Route characterStatsRoute = MaterialPageRoute(
-                  builder: (context) => CharacterStats(characterEntity: (newCharacter)));
+                  builder: (context) =>
+                      CharacterStats(characterEntity: (newCharacter)));
               Navigator.push(context, characterStatsRoute);
             },
             backgroundColor: currTheme.greenDarkColor,

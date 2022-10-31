@@ -29,27 +29,38 @@ String alignmentGoodToString(AlignmentGood alignment, BuildContext context) {
   }
 }
 
-String abilityToString(Abilities ability, BuildContext context, {bool reduction = false}) {
+String abilityToString(Abilities ability, BuildContext context,
+    {bool reduction = false}) {
   switch (ability) {
     case Abilities.strength:
-      return reduction?AppLocalizations.of(context).strengthReduction : AppLocalizations.of(context).strength;
+      return reduction
+          ? AppLocalizations.of(context).strengthReduction
+          : AppLocalizations.of(context).strength;
     case Abilities.dexterity:
-      return reduction?AppLocalizations.of(context).dexterityReduction : AppLocalizations.of(context).dexterity;
+      return reduction
+          ? AppLocalizations.of(context).dexterityReduction
+          : AppLocalizations.of(context).dexterity;
     case Abilities.constitution:
-      return reduction?AppLocalizations.of(context).constitutionReduction : AppLocalizations.of(context).constitution;
+      return reduction
+          ? AppLocalizations.of(context).constitutionReduction
+          : AppLocalizations.of(context).constitution;
     case Abilities.intelligence:
-      return reduction?AppLocalizations.of(context).intelligenceReduction : AppLocalizations.of(context).intelligence;
+      return reduction
+          ? AppLocalizations.of(context).intelligenceReduction
+          : AppLocalizations.of(context).intelligence;
     case Abilities.wisdom:
-      return reduction?AppLocalizations.of(context).wisdomReduction : AppLocalizations.of(context).wisdom;
+      return reduction
+          ? AppLocalizations.of(context).wisdomReduction
+          : AppLocalizations.of(context).wisdom;
     case Abilities.charisma:
-      return reduction?AppLocalizations.of(context).charismaReduction : AppLocalizations.of(context).charisma;
+      return reduction
+          ? AppLocalizations.of(context).charismaReduction
+          : AppLocalizations.of(context).charisma;
   }
 }
 
-String skillToString(Skills skill, BuildContext context)
-{
-  switch(skill)
-  {
+String skillToString(Skills skill, BuildContext context) {
+  switch (skill) {
     case Skills.acrobatics:
       return AppLocalizations.of(context).acrobatics;
     case Skills.animalHandling:

@@ -45,8 +45,9 @@ class DeathSave extends StatelessWidget {
                       GestureDetector(
                         onTap: () => character.changeDeathSaveSuccess(0),
                         child: Image(
-                          image:
-                              character.deathSaveSuccess[0] ? assetSuccessTrue : assetSuccessFalse,
+                          image: character.deathSaveSuccess[0]
+                              ? assetSuccessTrue
+                              : assetSuccessFalse,
                           width: 28,
                           height: 28,
                         ),
@@ -54,8 +55,9 @@ class DeathSave extends StatelessWidget {
                       GestureDetector(
                         onTap: () => character.changeDeathSaveSuccess(1),
                         child: Image(
-                          image:
-                              character.deathSaveSuccess[1] ? assetSuccessTrue : assetSuccessFalse,
+                          image: character.deathSaveSuccess[1]
+                              ? assetSuccessTrue
+                              : assetSuccessFalse,
                           width: 28,
                           height: 28,
                         ),
@@ -63,8 +65,9 @@ class DeathSave extends StatelessWidget {
                       GestureDetector(
                         onTap: () => character.changeDeathSaveSuccess(2),
                         child: Image(
-                          image:
-                              character.deathSaveSuccess[2] ? assetSuccessTrue : assetSuccessFalse,
+                          image: character.deathSaveSuccess[2]
+                              ? assetSuccessTrue
+                              : assetSuccessFalse,
                           width: 28,
                           height: 28,
                         ),
@@ -78,8 +81,9 @@ class DeathSave extends StatelessWidget {
                       GestureDetector(
                         onTap: () => character.changeDeathSaveFailure(0),
                         child: Image(
-                          image:
-                              character.deathSaveFailure[0] ? assetFailureTrue : assetFailureFalse,
+                          image: character.deathSaveFailure[0]
+                              ? assetFailureTrue
+                              : assetFailureFalse,
                           width: 28,
                           height: 28,
                         ),
@@ -87,8 +91,9 @@ class DeathSave extends StatelessWidget {
                       GestureDetector(
                         onTap: () => character.changeDeathSaveFailure(1),
                         child: Image(
-                          image:
-                              character.deathSaveFailure[1] ? assetFailureTrue : assetFailureFalse,
+                          image: character.deathSaveFailure[1]
+                              ? assetFailureTrue
+                              : assetFailureFalse,
                           width: 28,
                           height: 28,
                         ),
@@ -96,8 +101,9 @@ class DeathSave extends StatelessWidget {
                       GestureDetector(
                         onTap: () => character.changeDeathSaveFailure(2),
                         child: Image(
-                          image:
-                              character.deathSaveFailure[2] ? assetFailureTrue : assetFailureFalse,
+                          image: character.deathSaveFailure[2]
+                              ? assetFailureTrue
+                              : assetFailureFalse,
                           width: 28,
                           height: 28,
                         ),

@@ -77,7 +77,8 @@ class Health extends StatelessWidget {
 
   editHealthPressed(context) {
     int _inputValue = 0;
-    var characterState = Provider.of<CharacterProviderModel>(context, listen: false);
+    var characterState =
+        Provider.of<CharacterProviderModel>(context, listen: false);
     showDialog(
       context: context,
       builder: (_) => InputDialog(
@@ -113,7 +114,9 @@ class Health extends StatelessWidget {
                 style: titleOnMainTextStyle,
                 cursorColor: currTheme.accentMainColor,
                 onChanged: (value) {
-                  _inputValue = double.parse(value.replaceAll(",", ".")).toInt();
+                  // TODO Добавить обработчик
+                  _inputValue =
+                      double.parse(value.replaceAll(",", ".")).toInt();
                 },
               ),
             ),
@@ -130,7 +133,8 @@ class Health extends StatelessWidget {
                   ),
                   child: TextButton(
                     onPressed: () {
-                      Provider.of<CharacterProviderModel>(context, listen: false)
+                      Provider.of<CharacterProviderModel>(context,
+                              listen: false)
                           .addHit(_inputValue);
                       Navigator.of(context).pop();
                     },
@@ -149,7 +153,8 @@ class Health extends StatelessWidget {
                   ),
                   child: TextButton(
                     onPressed: () {
-                      Provider.of<CharacterProviderModel>(context, listen: false)
+                      Provider.of<CharacterProviderModel>(context,
+                              listen: false)
                           .addTemporaryHit(_inputValue);
                       Navigator.of(context).pop();
                     },
@@ -168,7 +173,8 @@ class Health extends StatelessWidget {
                   ),
                   child: TextButton(
                     onPressed: () {
-                      Provider.of<CharacterProviderModel>(context, listen: false)
+                      Provider.of<CharacterProviderModel>(context,
+                              listen: false)
                           .addDamage(_inputValue);
                       Navigator.of(context).pop();
                     },
