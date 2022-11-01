@@ -3,14 +3,15 @@ import 'package:character_sheet/presentation/shared_widgets/superellipse_vertica
 import 'package:flutter/cupertino.dart';
 
 class SuperelipseVerticalList extends Column {
-  static const double defaultBorderRadius = 10;
+  static const Radius defaultBorderOutRadius = Radius.circular(10);
+  static const Radius defaultBorderInRadius = Radius.circular(4);
   // static const double defaultElementHeight = 26;
   static const double defaultIndent = 3;
 
   SuperelipseVerticalList({
-    double borderRadius = defaultBorderRadius,
+    Radius borderOutRadius = defaultBorderOutRadius,
+    Radius borderInRadius = defaultBorderInRadius,
     double indent = defaultIndent,
-    VoidCallback elementOnTap = avoid,
     super.mainAxisAlignment,
     super.mainAxisSize,
     super.crossAxisAlignment,
@@ -21,42 +22,20 @@ class SuperelipseVerticalList extends Column {
     super.key,
   }) : super(
             children: children
-                .asMap()
-                .entries
-                .map((entry) => (elementOnTap != avoid
-                    ? GestureDetector(
-                        onTap: elementOnTap,
-                        child: SuperellipseVerticalListItem(
-                          borderRadius: borderRadius,
-                          columnPosition: children.length >
-                                  1 // TODO мож сделать по человечески?)
-                              ? entry.key > 1
-                                  ? entry.key == children.length - 1
-                                      ? SuperellipseVerticalListItemPositionEnum
-                                          .middle
-                                      : SuperellipseVerticalListItemPositionEnum
-                                          .last
+                .map((entry) => (SuperellipseVerticalListItem(
+                      borderOutRadius: borderOutRadius,
+                      borderInRadius: borderInRadius,
+                      columnPosition: children.length >
+                              1 // TODO мож сделать по человечески?)
+                          ? entry != children.first
+                              ? entry == children.last
+                                  ? SuperellipseVerticalListItemPositionEnum
+                                      .middle
                                   : SuperellipseVerticalListItemPositionEnum
-                                      .first
-                              : SuperellipseVerticalListItemPositionEnum.single,
-                          child: entry.value,
-                        ),
-                      )
-                    : SuperellipseVerticalListItem(
-                        borderRadius: borderRadius,
-                        columnPosition: children.length >
-                                1 // TODO мож сделать по человечески?)
-                            ? entry.key > 1
-                                ? entry.key == children.length - 1
-                                    ? SuperellipseVerticalListItemPositionEnum
-                                        .middle
-                                    : SuperellipseVerticalListItemPositionEnum
-                                        .last
-                                : SuperellipseVerticalListItemPositionEnum.first
-                            : SuperellipseVerticalListItemPositionEnum.single,
-                        child: entry.value,
-                      )))
+                                      .last
+                              : SuperellipseVerticalListItemPositionEnum.first
+                          : SuperellipseVerticalListItemPositionEnum.single,
+                      child: entry,
+                    )))
                 .toList());
 }
-
-void avoid() {}
