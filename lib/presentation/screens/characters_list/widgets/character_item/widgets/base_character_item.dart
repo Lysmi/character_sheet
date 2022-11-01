@@ -11,20 +11,20 @@ import '../../../../../styles/global_styles.dart';
 class BaseCharacterItem extends StatelessWidget {
   BaseCharacterItem(
       {required this.togleState,
-      this.isSingleItem = SuperelipseVerticalListItemPositionEnum.single,
+      this.isSingleItem = SuperellipseVerticalListItemPositionEnum.single,
       required this.image,
       required this.character,
       Key? key})
       : super(key: key) {
-    if (isSingleItem == SuperelipseVerticalListItemPositionEnum.last ||
-        isSingleItem == SuperelipseVerticalListItemPositionEnum.middle) {
+    if (isSingleItem == SuperellipseVerticalListItemPositionEnum.last ||
+        isSingleItem == SuperellipseVerticalListItemPositionEnum.middle) {
       throw Exception('isSingleItem can be only firs or single');
     }
   }
 
   /// Change item border radius
   final CharacterEntity character;
-  final SuperelipseVerticalListItemPositionEnum isSingleItem;
+  final SuperellipseVerticalListItemPositionEnum isSingleItem;
   final AssetImage image;
   final Function togleState;
 
@@ -41,10 +41,10 @@ class BaseCharacterItem extends StatelessWidget {
         decoration: BoxDecoration(
           color: currTheme.secondaryColor,
           borderRadius: isSingleItem ==
-                  SuperelipseVerticalListItemPositionEnum.first
+                  SuperellipseVerticalListItemPositionEnum.first
               ? const BorderRadius.vertical(
                   top: Radius.circular(10), bottom: Radius.zero)
-              : isSingleItem == SuperelipseVerticalListItemPositionEnum.single
+              : isSingleItem == SuperellipseVerticalListItemPositionEnum.single
                   ? const BorderRadius.all(Radius.circular(10))
                   : throw Exception(
                       'isSingleItem cannot be ' + isSingleItem.toString()),

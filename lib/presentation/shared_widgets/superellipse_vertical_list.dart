@@ -26,34 +26,34 @@ class SuperelipseVerticalList extends Column {
                 .map((entry) => (elementOnTap != avoid
                     ? GestureDetector(
                         onTap: elementOnTap,
-                        child: SuperelipseVerticalListItem(
+                        child: SuperellipseVerticalListItem(
                           borderRadius: borderRadius,
                           columnPosition: children.length >
                                   1 // TODO мож сделать по человечески?)
                               ? entry.key > 1
                                   ? entry.key == children.length - 1
-                                      ? SuperelipseVerticalListItemPositionEnum
+                                      ? SuperellipseVerticalListItemPositionEnum
                                           .middle
-                                      : SuperelipseVerticalListItemPositionEnum
+                                      : SuperellipseVerticalListItemPositionEnum
                                           .last
-                                  : SuperelipseVerticalListItemPositionEnum
+                                  : SuperellipseVerticalListItemPositionEnum
                                       .first
-                              : SuperelipseVerticalListItemPositionEnum.single,
+                              : SuperellipseVerticalListItemPositionEnum.single,
                           child: entry.value,
                         ),
                       )
-                    : SuperelipseVerticalListItem(
+                    : SuperellipseVerticalListItem(
                         borderRadius: borderRadius,
                         columnPosition: children.length >
                                 1 // TODO мож сделать по человечески?)
                             ? entry.key > 1
                                 ? entry.key == children.length - 1
-                                    ? SuperelipseVerticalListItemPositionEnum
+                                    ? SuperellipseVerticalListItemPositionEnum
                                         .middle
-                                    : SuperelipseVerticalListItemPositionEnum
+                                    : SuperellipseVerticalListItemPositionEnum
                                         .last
-                                : SuperelipseVerticalListItemPositionEnum.first
-                            : SuperelipseVerticalListItemPositionEnum.single,
+                                : SuperellipseVerticalListItemPositionEnum.first
+                            : SuperellipseVerticalListItemPositionEnum.single,
                         child: entry.value,
                       )))
                 .toList());

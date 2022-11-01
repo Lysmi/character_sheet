@@ -20,7 +20,7 @@ class OpenedCharacterItem extends StatelessWidget {
       children: [
         BaseCharacterItem(
             togleState: togleState,
-            isSingleItem: SuperelipseVerticalListItemPositionEnum.first,
+            isSingleItem: SuperellipseVerticalListItemPositionEnum.first,
             image: assetArrowUp,
             character: character),
         GestureDetector(

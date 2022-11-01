@@ -17,7 +17,7 @@ class ClosedCharacterItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseCharacterItem(
         togleState: togleState,
-        isSingleItem: SuperelipseVerticalListItemPositionEnum.single,
+        isSingleItem: SuperellipseVerticalListItemPositionEnum.single,
         image: assetArrowDown,
         character: character);
   }

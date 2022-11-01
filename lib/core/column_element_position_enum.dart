@@ -1,1 +1,1 @@
-enum SuperelipseVerticalListItemPositionEnum { single, first, last, middle }
+enum SuperellipseVerticalListItemPositionEnum { single, first, last, middle }
