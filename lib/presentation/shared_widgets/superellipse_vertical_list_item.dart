@@ -4,36 +4,48 @@ import 'package:character_sheet/core/column_element_position_enum.dart';
 import 'package:character_sheet/presentation/shared_widgets/superellipse_vertical_list.dart';
 import 'package:flutter/material.dart';
 
-class SuperelipseVerticalListItem extends StatelessWidget {
-  const SuperelipseVerticalListItem(
-      {this.columnPosition = SuperelipseVerticalListItemPositionEnum.single,
+class SuperellipseVerticalListItem extends Container {
+  const SuperellipseVerticalListItem(
+      {this.columnPosition = SuperellipseVerticalListItemPositionEnum.single,
       this.borderRadius = SuperelipseVerticalList.defaultBorderRadius,
       // this.height = SuperelipseColumn.defaultElementHeight,
       this.child,
+      super.alignment,
+      super.clipBehavior,
+      super.color,
+      super.constraints,
+      super.decoration,
+      super.foregroundDecoration,
+      super.height,
+      super.margin,
+      super.padding,
+      super.transform,
+      super.transformAlignment,
+      super.width,
       Key? key})
       : super(key: key);
 
   /// Не стоит это использовать если ты не знаешь что делаешь
-  final SuperelipseVerticalListItemPositionEnum columnPosition;
+  final SuperellipseVerticalListItemPositionEnum columnPosition;
   final double borderRadius;
   // final double height;
   final Widget? child;
 
   BorderRadius getBorderRadiusByElementPosition(
-      SuperelipseVerticalListItemPositionEnum position) {
+      SuperellipseVerticalListItemPositionEnum position) {
     switch (position) {
-      case SuperelipseVerticalListItemPositionEnum.first:
+      case SuperellipseVerticalListItemPositionEnum.first:
         return BorderRadius.vertical(
             top: Radius.circular(borderRadius), bottom: Radius.zero);
 
-      case SuperelipseVerticalListItemPositionEnum.middle:
+      case SuperellipseVerticalListItemPositionEnum.middle:
         return const BorderRadius.all(Radius.zero);
 
-      case SuperelipseVerticalListItemPositionEnum.last:
+      case SuperellipseVerticalListItemPositionEnum.last:
         return BorderRadius.vertical(
             top: Radius.zero, bottom: Radius.circular(borderRadius));
 
-      case SuperelipseVerticalListItemPositionEnum.single:
+      case SuperellipseVerticalListItemPositionEnum.single:
         return BorderRadius.all(Radius.circular(borderRadius));
     }
   }
