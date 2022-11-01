@@ -59,22 +59,25 @@ class CharactersList extends StatelessWidget {
                                     ),
                                   ),
                                 )
-                              : const Text("Not have characters");
+                              : const Text(
+                                  "Not have characters"); // TODO прокинать через локализацию
                         } else if (snapshot.hasError) {
                           if (snapshot.error is! AppError) {
-                            return const Text('Error: unexpected error');
+                            return const Text(
+                                'Error: unexpected error'); // TODO прокинать через локализацию
                           }
                           if (snapshot.error is DatabaseError) {
                             return Text(
-                              'DatabaseError: ${(snapshot.error as DatabaseError).message}',
+                              'DatabaseError: ${(snapshot.error as DatabaseError).message}', // TODO прокинать через локализацию
                             );
                           } else {
                             return Text(
-                              'AppError: ${(snapshot.error as AppError).message}',
+                              'AppError: ${(snapshot.error as AppError).message}', // TODO прокинать через локализацию
                             );
                           }
                         } else {
-                          return const Text('Awaiting..');
+                          return const Text(
+                              'Awaiting..'); // TODO прокинать через локализацию
                         }
                       },
                     ),

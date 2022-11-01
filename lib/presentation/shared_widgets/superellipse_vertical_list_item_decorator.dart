@@ -1,50 +1,49 @@
-import 'dart:html';
-
 import 'package:character_sheet/core/column_element_position_enum.dart';
 import 'package:character_sheet/presentation/shared_widgets/superellipse_vertical_list.dart';
 import 'package:flutter/material.dart';
 
-class SuperelipseVerticalListItemDecorator extends StatelessWidget {
-  const SuperelipseVerticalListItemDecorator(
-      {this.columnPosition = SuperelipseVerticalListItemPositionEnum.single,
-      this.borderRadius = SuperelipseVerticalList.defaultBorderRadius,
-      // this.height = SuperelipseColumn.defaultElementHeight,
-      this.child,
-      Key? key})
-      : super(key: key);
+class SuperellipseVerticalListItemDecoration extends BoxDecoration {
+  SuperellipseVerticalListItemDecoration(
+      {Color? color,
+      DecorationImage? image,
+      BoxBorder? border,
+      this.borderRadiusValue = SuperelipseVerticalList.defaultBorderRadiusValue,
+      SuperelipseVerticalListItemPositionEnum position =
+          SuperelipseVerticalListItemPositionEnum.single,
+      List<BoxShadow>? boxShadow,
+      Gradient? gradient,
+      BlendMode? backgroundBlendMode,
+      BoxShape shape = BoxShape.rectangle})
+      : super(
+            color: color,
+            image: image,
+            border: border,
+            borderRadius: SuperellipseVerticalListItemDecoration
+                .getBorderRadiusByItemPosition(position, borderRadiusValue),
+            boxShadow: boxShadow,
+            gradient: gradient,
+            shape: shape,
+            backgroundBlendMode: backgroundBlendMode);
 
-  /// Не стоит это использовать если ты не знаешь что делаешь
-  final SuperelipseVerticalListItemPositionEnum columnPosition;
-  final double borderRadius;
-  // final double height;
-  final Widget? child;
+  final double? borderRadiusValue;
 
-  BorderRadius getBorderRadiusByElementPosition(
-      SuperelipseVerticalListItemPositionEnum position) {
+  static BorderRadius getBorderRadiusByItemPosition(
+      SuperelipseVerticalListItemPositionEnum position,
+      double borderRadiusValue) {
     switch (position) {
       case SuperelipseVerticalListItemPositionEnum.first:
         return BorderRadius.vertical(
-            top: Radius.circular(borderRadius), bottom: Radius.zero);
+            top: Radius.circular(borderRadiusValue), bottom: Radius.zero);
 
       case SuperelipseVerticalListItemPositionEnum.middle:
         return const BorderRadius.all(Radius.zero);
 
       case SuperelipseVerticalListItemPositionEnum.last:
         return BorderRadius.vertical(
-            top: Radius.zero, bottom: Radius.circular(borderRadius));
+            top: Radius.zero, bottom: Radius.circular(borderRadiusValue));
 
       case SuperelipseVerticalListItemPositionEnum.single:
-        return BorderRadius.all(Radius.circular(borderRadius));
+        return BorderRadius.all(Radius.circular(borderRadiusValue));
     }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: getBorderRadiusByElementPosition(columnPosition),
-      ),
-      child: child,
-    );
   }
 }
