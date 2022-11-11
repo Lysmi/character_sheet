@@ -42,7 +42,7 @@ class CharactersSkills {
   SkillEntity stealth;
   SkillEntity survival;
 
-  CharactersSkills.defaultCharacter()
+  CharactersSkills.defaultSkills()
       : this(
           acrobatics: SkillDataEntity(proficiency: false, bonus: 0),
           animalHandling: SkillDataEntity(proficiency: false, bonus: 0),

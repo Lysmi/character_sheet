@@ -22,7 +22,10 @@ class CharactersWrite {
         subrace: "High Elf",
         classes: [
           ClassEntity(
-              name: "Barbarian", subclass: "Totem Warrior", lvl: 2, hitDice: 12),
+              name: "Barbarian",
+              subclass: "Totem Warrior",
+              lvl: 2,
+              hitDice: 12),
         ],
         experience: 1204,
         background: "Criminal",
@@ -69,7 +72,7 @@ class CharactersWrite {
             saveBonus: 0,
           ),
         ),
-        skills: CharactersSkills.defaultCharacter(),
+        skills: CharactersSkills.defaultSkills(),
         feats: []);
     return await repository.addCharacter(_newEntity);
   }
